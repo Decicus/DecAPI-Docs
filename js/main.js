@@ -3,6 +3,7 @@ $(document).ready(function() {
         baseTemp = $('#base-template', content),
         endTemp = $('#endpoint-template', content),
         faTemp = $('#fa-template', content),
+        toc = $('#toc', content),
         baseUrl = 'https://beta.decapi.me';
 
     $.get({
@@ -18,8 +19,22 @@ $(document).ready(function() {
                 temp.removeClass('hidden');
 
                 temp.appendTo(content);
+
+                var icon = faTemp
+                    .clone()
+                    .addClass('fa-fw fa-' + (base.icon || 'info'))
+                    .removeClass('hidden')
+                    .get(0)
+                    .outerHTML;
+
+                $('<a/>')
+                    .addClass('list-group-item')
+                    .attr('href', '#' + base.name)
+                    .html(icon + ' ' + base.title)
+                    .appendTo($('.list-group', toc));
             });
 
+            toc.removeClass('hidden');
             loadEndpoints();
         },
         error: function(err) {
