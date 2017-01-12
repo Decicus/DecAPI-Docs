@@ -10,11 +10,13 @@
     },
     {
         "name": "bttv",
-        "title": "BetterTTV"
+        "title": "BetterTTV",
+        "icon": "gamepad"
     },
     {
         "name": "dayz",
-        "title": "DayZ"
+        "title": "DayZ",
+        "icon": "gamepad"
     },
     {
         "name": "lever",

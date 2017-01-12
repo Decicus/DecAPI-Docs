@@ -5,8 +5,10 @@
   title: "Battle Royale (Arma 3 Mod)"
 - name: bttv
   title: "BetterTTV"
+  icon: "gamepad"
 - name: dayz
   title: "DayZ"
+  icon: "gamepad"
 - name: lever
   title: "Lever"
 - name: misc

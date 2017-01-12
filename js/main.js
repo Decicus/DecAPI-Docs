@@ -4,7 +4,15 @@ $(document).ready(function() {
         endTemp = $('#endpoint-template', content),
         faTemp = $('#fa-template', content),
         toc = $('#toc', content),
+        btt = $('#back-to-top'),
         baseUrl = 'https://beta.decapi.me';
+
+    btt.on('click', function() {
+        $('html, body').animate({
+            scrollTop: $('body').offset().top
+        }, 1000);
+        window.location.hash = '';
+    });
 
     $.get({
         url: './data/base.min.json',
@@ -63,10 +71,13 @@ $(document).ready(function() {
                             routes = $('#route-body', panel),
                             qs = $('#qs-body', panel);
 
-                        $('#base a', title)
-                            .attr('href', '#' + id)
-                            .html(info.base_path + '/');
-                        $('#route', title).html(end.route);
+                        var panelId = id + '_' + end.route
+                            .replace(new RegExp('/', 'g'), '_')
+                            .replace(new RegExp('({)|(})', 'g'), '');
+
+                        $('a', title).attr('href', '#' + panelId);
+                        $('a #base', title).html(info.base_path + '/');
+                        $('a #route', title).html(end.route);
 
                         $.each(end.notes, function(k, note) {
                             $('<li/>')
@@ -149,8 +160,20 @@ $(document).ready(function() {
 
                         panel.removeClass('hidden');
                         panel.appendTo(div);
+                        $('<div/>').attr('id', panelId).prependTo(panel);
                     });
                 });
+
+                var hash = window.location.hash.replace('#', '');
+
+                if (hash.trim() !== '') {
+                    var section = $('#' + hash);
+                    if (section.length > 0) {
+                        $('html, body').animate({
+                            scrollTop: section.offset().top
+                        }, 1000);
+                    }
+                }
             }
         });
     }
