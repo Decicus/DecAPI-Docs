@@ -380,6 +380,23 @@
                 ]
             },
             {
+                "route": "emoteslots\/{CHANNEL}",
+                "parameters": [
+                    {
+                        "name": "{CHANNEL}",
+                        "description": "The name of the channel. Will only be used for reference."
+                    }
+                ],
+                "qs": [
+                    {
+                        "name": "subscribers",
+                        "description": "The amount of subscribers, used for calculating how many subscribers are needed to get the next amount of emote slots.",
+                        "required": true,
+                        "type": "int"
+                    }
+                ]
+            },
+            {
                 "route": "followage\/{CHANNEL}\/{USER}",
                 "parameters": [
                     {
