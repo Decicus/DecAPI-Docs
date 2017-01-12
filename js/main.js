@@ -159,8 +159,8 @@ $(document).ready(function() {
                         }
 
                         panel.removeClass('hidden');
+                        panel.attr('id', panelId);
                         panel.appendTo(div);
-                        $('<div/>').attr('id', panelId).prependTo(panel);
                     });
                 });
 
