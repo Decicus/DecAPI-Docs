@@ -3,9 +3,9 @@
   icon: "question"
 - name: br
   title: "Battle Royale (Arma 3 Mod)"
+  icon: "gamepad"
 - name: bttv
   title: "BetterTTV"
-  icon: "gamepad"
 - name: dayz
   title: "DayZ"
   icon: "gamepad"

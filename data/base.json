@@ -6,12 +6,12 @@
     },
     {
         "name": "br",
-        "title": "Battle Royale (Arma 3 Mod)"
+        "title": "Battle Royale (Arma 3 Mod)",
+        "icon": "gamepad"
     },
     {
         "name": "bttv",
-        "title": "BetterTTV",
-        "icon": "gamepad"
+        "title": "BetterTTV"
     },
     {
         "name": "dayz",
