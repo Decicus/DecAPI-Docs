@@ -42,6 +42,7 @@ $(document).ready(function() {
 
                 $('<a/>')
                     .addClass('list-group-item')
+                    .attr('href', '#' + base.name)
                     .data('section', base.name)
                     .html(icon + ' ' + base.title)
                     .appendTo($('.list-group', toc));
