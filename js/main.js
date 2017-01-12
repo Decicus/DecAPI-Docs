@@ -1,3 +1,10 @@
+function scrollTo(section)
+{
+    $('html, body').animate({
+        scrollTop: section.offset().top
+    }, 500);
+}
+
 $(document).ready(function() {
     var content = $('#content'),
         baseTemp = $('#base-template', content),
@@ -8,9 +15,7 @@ $(document).ready(function() {
         baseUrl = 'https://beta.decapi.me';
 
     btt.on('click', function() {
-        $('html, body').animate({
-            scrollTop: $('body').offset().top
-        }, 1000);
+        scrollTo($('body'));
         window.location.hash = '';
     });
 
@@ -37,9 +42,17 @@ $(document).ready(function() {
 
                 $('<a/>')
                     .addClass('list-group-item')
-                    .attr('href', '#' + base.name)
+                    .data('section', base.name)
                     .html(icon + ' ' + base.title)
                     .appendTo($('.list-group', toc));
+            });
+
+            $('a', toc).on('click', function() {
+                var section = $(this).data('section');
+
+                if (section.length > 0) {
+                    scrollTo($('#' + section));
+                }
             });
 
             toc.removeClass('hidden');
@@ -169,9 +182,7 @@ $(document).ready(function() {
                 if (hash.trim() !== '') {
                     var section = $('#' + hash);
                     if (section.length > 0) {
-                        $('html, body').animate({
-                            scrollTop: section.offset().top
-                        }, 1000);
+                        scrollTo(section);
                     }
                 }
             }
