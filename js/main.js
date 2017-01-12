@@ -7,7 +7,7 @@ $(document).ready(function() {
         baseUrl = 'https://beta.decapi.me';
 
     $.get({
-        url: './data/base.json',
+        url: './data/base.min.json',
         type: 'GET',
         dataType: 'json',
         success: function(data) {
@@ -48,7 +48,7 @@ $(document).ready(function() {
     function loadEndpoints()
     {
         $.get({
-            url: './data/endpoints.json',
+            url: './data/endpoints.min.json',
             type: 'GET',
             dataType: 'json',
             success: function(data) {

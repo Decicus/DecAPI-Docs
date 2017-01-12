@@ -1,0 +1,10 @@
+base_path: "/r6"
+endpoints:
+    - route: "patch_notes"
+      parameters:
+      qs:
+        - name: "offset"
+          description: "How many patch notes you want to skip back in history"
+          type: "int"
+      notes:
+        - 'Retrieves the latest Rainbow Six: Siege patch notes from the <a href="http://forums.ubi.com/forumdisplay.php/1074-News-amp-Announcements">Ubisoft forums</a>.'
