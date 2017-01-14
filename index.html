@@ -102,7 +102,9 @@
                 <div class="panel-body">
                     These pages will house the documentation of endpoints under DecAPI.
                     <br>
-                    Each page of documentation will contain a list of endpoints as well as some information regarding each of them.
+                    This is currently <strong>work in progress</strong> and <strong>incomplete</strong>, which means that some endpoints lack documentation or may not be fully documented.
+                    <br>
+                    If you would like to contribute, take a look at the <a href="https://github.com/DecAPI-Docs"><i class="fa fa-github fa-1x"></i> GitHub repository</a> for this documentation.
                 </div>
             </div>
 
@@ -113,10 +115,11 @@
                 <div class="panel-body">
                     <p>These are options or results that will be the default, <strong>unless the notes about the endpoint mention otherwise</strong>.</p>
                     <div class="list-group">
-                        <li class="list-group-item">The base URL for all endpoints is <code>https://beta.decapi.me</code> and requires support for SSL.</li>
-                        <li class="list-group-item"><strong>HTTP</strong> requests will receive a <code>301 Moved Permanently</code> to <strong>HTTPS</strong>.</li>
+                        <li class="list-group-item">The base URL for all endpoints is <code>http://beta.decapi.me</code> or <code>https://beta.decapi.me</code>.</li>
+                        <li class="list-group-item"><strong>HTTP</strong> requests are supported, but <strong>HTTPS (TLS 1.x)</strong> is encouraged.</li>
                         <li class="list-group-item">The default HTTP method supported is <code>GET</code>.</li>
                         <li class="list-group-item">Responses are <code>Content-Type: text/plain</code>.</li>
+                        <li class="list-group-item">For endpoints that mention JSON support without any further information, send <code>Accept: application/json</code> in the request header to receive the response as JSON instead.</li>
                         <li class="list-group-item">Parameters are <strong>always</strong> required.</li>
                         <li class="list-group-item">Query strings are <strong>never</strong> required.</li>
                     </div>
@@ -125,7 +128,7 @@
 
             <div class="panel panel-primary hidden" id="toc">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Table of contents:</h3>
+                    <h3 class="panel-title"><a href="#toc">Table of contents:</a></h3>
                 </div>
                 <div class="panel-body">
                     <p>
