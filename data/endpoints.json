@@ -745,6 +745,20 @@
                 ]
             },
             {
+                "route": "latest_pl_video",
+                "qs": [
+                    {
+                        "name": "id",
+                        "description": "The ID of the <strong>playlist<\/strong>. You can find it in the URL when browsing the playlist after <code>list=<\/code>.",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "notes": [
+                    "Retrieves the latest video added to a <strong>playlist<\/strong>."
+                ]
+            },
+            {
                 "route": "videoid\/{SEARCH}",
                 "parameters": [
                     {

@@ -12,6 +12,14 @@ endpoints:
       notes:
         - 'Retrieves the latest video uploaded to the specified channel and returns the title + URL for it.'
         - 'Either <code>user</code> or <code>id</code> has to be specified. If both are specified, <code>id</code> will be used.'
+    - route: "latest_pl_video"
+      qs:
+        - name: "id"
+          description: 'The ID of the <strong>playlist</strong>. You can find it in the URL when browsing the playlist after <code>list=</code>.'
+          type: "string"
+          required: true
+      notes:
+        - 'Retrieves the latest video added to a <strong>playlist</strong>.'
     - route: "videoid/{SEARCH}"
       parameters:
         - name: "{SEARCH}"
