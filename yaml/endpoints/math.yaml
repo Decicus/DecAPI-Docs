@@ -1,6 +1,6 @@
 base_path: "/math"
 endpoints:
-    - route: "/"
+    - route: ""
       qs:
         - name: "exp"
           description: "The mathematic expression to receive the result from."

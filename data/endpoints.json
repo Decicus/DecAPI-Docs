@@ -195,7 +195,7 @@
         "base_path": "\/math",
         "endpoints": [
             {
-                "route": "\/",
+                "route": "",
                 "qs": [
                     {
                         "name": "exp",
