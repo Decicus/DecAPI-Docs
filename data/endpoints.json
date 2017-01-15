@@ -191,6 +191,29 @@
             }
         ]
     },
+    "math": {
+        "base_path": "\/math",
+        "endpoints": [
+            {
+                "route": "\/",
+                "qs": [
+                    {
+                        "name": "exp",
+                        "description": "The mathematic expression to receive the result from.",
+                        "required": true
+                    },
+                    {
+                        "name": "round",
+                        "description": "If specified, it will round to the nearest whole number, but only if there is no value specified or the value specified is 0 or less. Default: 0 (if specified with no value).",
+                        "type": "none\/int"
+                    }
+                ],
+                "notes": [
+                    "Performs a mathematic operation based on the expression passed to the endpoint."
+                ]
+            }
+        ]
+    },
     "misc": {
         "base_path": "\/misc",
         "endpoints": [

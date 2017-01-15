@@ -23,6 +23,11 @@
         "title": "Lever"
     },
     {
+        "name": "math",
+        "title": "Math",
+        "icon": "calculator"
+    },
+    {
         "name": "misc",
         "title": "Miscellaneous"
     },
