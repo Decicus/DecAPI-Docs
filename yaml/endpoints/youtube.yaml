@@ -19,6 +19,7 @@ endpoints:
           type: "string"
           required: true
       notes:
+        - '<strong>Important:</strong> Because of a bit of a limitation with the YouTube API, the owner of the playlist has to go into the "Playlist settings" and order the playlist by "Date added/published (newest)" for this to work correctly. <br> <a href="./img/yt_plvideo1.png" target="_blank"><i class="fa fa-1x fa-image"></i> Screenshot</a>'
         - 'Retrieves the latest video added to a <strong>playlist</strong>.'
     - route: "videoid/{SEARCH}"
       parameters:
