@@ -90,7 +90,8 @@ $(document).ready(function() {
                             .replace(new RegExp('({)|(})', 'g'), '');
 
                         $('a', title).attr('href', '#' + panelId);
-                        $('a #base', title).html(info.base_path + '/');
+                        var route = end.route === '' ? '' : '/' + end.route;
+                        $('a #base', title).html(info.base_path + (end.route === '' ? '' : '/'));
                         $('a #route', title).html(end.route);
 
                         $.each(end.notes, function(k, note) {
@@ -101,7 +102,7 @@ $(document).ready(function() {
                         });
 
                         $('pre strong', body).html(end.method || 'GET');
-                        $('pre code', body).html(baseUrl + info.base_path + '/' + end.route);
+                        $('pre code', body).html(baseUrl + info.base_path + route);
 
                         // Route parameters
                         if (end.parameters && end.parameters.length > 0) {

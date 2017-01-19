@@ -579,6 +579,29 @@
                 ]
             },
             {
+                "route": "multi\/{STREAMS}",
+                "parameters": [
+                    {
+                        "name": "{STREAMS}",
+                        "description": "A space-separated list of streams to generate a multi link with."
+                    }
+                ],
+                "qs": [
+                    {
+                        "name": "streams",
+                        "description": "Can be used as an alternative to the <code>{STREAMS}<\/code> route parameter."
+                    },
+                    {
+                        "name": "service",
+                        "description": "Chooses which multistream service you want to use. Specify something bogus for this parameter to get a list of available services. Default: \"multistream\"."
+                    }
+                ],
+                "notes": [
+                    "Generates a \"multi stream\" URL based on the channel names passed to it.",
+                    "While the <code>streams<\/code> <strong>query<\/strong> parameter is optional, you have to specify the streams as <strong>either<\/strong> a <strong>route<\/strong> parameter or as the <code>streams<\/code> <strong>query<\/strong> parameter."
+                ]
+            },
+            {
                 "route": "subcount\/{CHANNEL}",
                 "parameters": [
                     {
