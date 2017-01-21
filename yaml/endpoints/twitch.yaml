@@ -146,13 +146,17 @@ endpoints:
           description: 'The team identifier.'
       qs:
         - name: "sort"
-          description: 'If this is specified, it will sort the members of the team alphabetically.'
+          description: 'If this is specified, it will sort the members of the team alphabetically. &mdash; Recommended for a consistent list between requests.'
         - name: "text"
           description: 'If this is specified, the list will be returned in plaintext compared to a JSON array.'
+        - name: "implode"
+          description: 'Works similarly to <code>text</code>.<br />
+          Specify the text that should separate each team member in a plaintext response. This is an alternative to having a list of members separated by a newline.<br />
+          If this is specified, specifying the <code>text</code> query string is not necessary as that will already be implied.'
       notes:
         - 'Retrieves the members of a specified team.'
         - 'The team identifier is the identifier used in URLs. Example: The team "New Game Plus" has the identifier "newgameplus".'
-        - '<strong>JSON results are returned by default. See <code>text</code> query string.</strong>.'
+        - '<strong>JSON results are returned by default. See <code>text</code> or <code>implode</code> query string.</strong>.'
     - route: "title/{CHANNEL}"
       parameters:
         - name: "{CHANNEL}"
