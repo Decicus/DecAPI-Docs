@@ -3,22 +3,23 @@ endpoints:
     - route: "izurvive"
       parameters:
       qs:
-        - name: "search={SEARCH}"
-          description: "<code>{SEARCH}</code> the location name to search for."
+        - name: "search"
+          description: "The location name to search for."
           required: true
       notes:
         - 'Searches for locations based on the search query string, and returns a location name together with a URL to the location on <a href="https://www.izurvive.com/">iZurvive</a>.'
+        - 'This is not always 100% correct. Sorry for any locations that may be incorrect.'
     - route: "players"
       parameters:
       qs:
-        - name: "ip={IP_ADDRESS}"
+        - name: "ip"
           description: "The IP address of the server."
           required: true
-        - name: "port={PORT}"
+        - name: "port"
           description: "The connect port of the server."
           required: true
           type: "int"
-        - name: "query={QUERY_PORT}"
+        - name: "query"
           description: "The query port of the server."
           required: true
           type: "int"

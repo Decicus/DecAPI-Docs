@@ -12,6 +12,7 @@ endpoints:
       notes:
         - 'Retrieves the latest video uploaded to the specified channel and returns the title + URL for it.'
         - 'Either <code>user</code> or <code>id</code> has to be specified. If both are specified, <code>id</code> will be used.'
+        - 'If a YouTube channel URL is in the <code>/c/decicus</code> format, you should use <code>id</code>. One method of retrieving your channel ID is by visiting <a href="https://www.youtube.com/account_advanced" target="_blank">https://www.youtube.com/account_advanced</a> and copying the "YouTube channel ID". See <a href="./img/yt_latestvideo1.png" target="_blank">this screenshot</a> for reference.'
     - route: "latest_pl_video"
       qs:
         - name: "id"

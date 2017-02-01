@@ -5,5 +5,11 @@ endpoints:
         - name: "{CHANNEL}"
           description: "The channel to retrieve BetterTTV emotes for"
       qs:
+        - name: "types"
+          description: 'Comma-separated list of image types you wish to include.
+          <br />
+          Currently available: <code>gif</code> or <code>png</code>. Default: <code>all</code>.
+          <br />
+          Specifying <code>all</code> will override any other specified type.'
       notes:
         - "Returns a space-separated list of BetterTTV channel emotes available in the channel."

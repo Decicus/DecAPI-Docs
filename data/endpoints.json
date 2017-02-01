@@ -36,7 +36,7 @@
                 ],
                 "qs": [
                     {
-                        "name": "options={OPTIONS}",
+                        "name": "options",
                         "description": "A comma-separated list of options. Available options can be listed if you specify <code>list<\/code> instead of <code>{OPTIONS}<\/code>. Similarly, specifying <code>default<\/code> will list the default options."
                     }
                 ],
@@ -57,7 +57,12 @@
                         "description": "The channel to retrieve BetterTTV emotes for"
                     }
                 ],
-                "qs": null,
+                "qs": [
+                    {
+                        "name": "types",
+                        "description": "Comma-separated list of image types you wish to include. <br \/> Currently available: <code>gif<\/code> or <code>png<\/code>. Default: <code>all<\/code>. <br \/> Specifying <code>all<\/code> will override any other specified type."
+                    }
+                ],
                 "notes": [
                     "Returns a space-separated list of BetterTTV channel emotes available in the channel."
                 ]
@@ -72,13 +77,14 @@
                 "parameters": null,
                 "qs": [
                     {
-                        "name": "search={SEARCH}",
-                        "description": "<code>{SEARCH}<\/code> the location name to search for.",
+                        "name": "search",
+                        "description": "The location name to search for.",
                         "required": true
                     }
                 ],
                 "notes": [
-                    "Searches for locations based on the search query string, and returns a location name together with a URL to the location on <a href=\"https:\/\/www.izurvive.com\/\">iZurvive<\/a>."
+                    "Searches for locations based on the search query string, and returns a location name together with a URL to the location on <a href=\"https:\/\/www.izurvive.com\/\">iZurvive<\/a>.",
+                    "This is not always 100% correct. Sorry for any locations that may be incorrect."
                 ]
             },
             {
@@ -86,18 +92,18 @@
                 "parameters": null,
                 "qs": [
                     {
-                        "name": "ip={IP_ADDRESS}",
+                        "name": "ip",
                         "description": "The IP address of the server.",
                         "required": true
                     },
                     {
-                        "name": "port={PORT}",
+                        "name": "port",
                         "description": "The connect port of the server.",
                         "required": true,
                         "type": "int"
                     },
                     {
-                        "name": "query={QUERY_PORT}",
+                        "name": "query",
                         "description": "The query port of the server.",
                         "required": true,
                         "type": "int"
@@ -791,7 +797,8 @@
                 ],
                 "notes": [
                     "Retrieves the latest video uploaded to the specified channel and returns the title + URL for it.",
-                    "Either <code>user<\/code> or <code>id<\/code> has to be specified. If both are specified, <code>id<\/code> will be used."
+                    "Either <code>user<\/code> or <code>id<\/code> has to be specified. If both are specified, <code>id<\/code> will be used.",
+                    "If a YouTube channel URL is in the <code>\/c\/decicus<\/code> format, you should use <code>id<\/code>. One method of retrieving your channel ID is by visiting <a href=\"https:\/\/www.youtube.com\/account_advanced\" target=\"_blank\">https:\/\/www.youtube.com\/account_advanced<\/a> and copying the \"YouTube channel ID\". See <a href=\".\/img\/yt_latestvideo1.png\" target=\"_blank\">this screenshot<\/a> for reference."
                 ]
             },
             {
