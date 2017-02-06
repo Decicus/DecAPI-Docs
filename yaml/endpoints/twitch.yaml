@@ -120,6 +120,17 @@ endpoints:
       notes:
         - 'Generates a "multi stream" URL based on the channel names passed to it.'
         - 'While the <code>streams</code> <strong>query</strong> parameter is optional, you have to specify the streams as <strong>either</strong> a <strong>route</strong> parameter or as the <code>streams</code> <strong>query</strong> parameter.'
+    - route: "random_user/{CHANNEL}"
+      parameters:
+        - name: "{CHANNEL}"
+          description: "The channel to retrieve the logged in users from."
+      qs:
+        - name: "exclude"
+          description: 'A comma-separated list of <strong>users</strong> you wish to ignore.'
+        - name: "ignore"
+          description: 'A comma-separated list of <strong>groups</strong> you wish to ignore. These groups are the specific user types. Currently that means the following: <code>moderators, staff, admins, global_mods, viewers</code>.'
+      notes:
+        - 'Retrieves a list of users that are <strong>currently logged into chat</strong> in the specified channel, then picks one of them randomly.'
     - route: "subcount/{CHANNEL}"
       parameters:
         - name: "{CHANNEL}"
