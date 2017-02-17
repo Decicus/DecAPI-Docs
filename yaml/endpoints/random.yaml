@@ -13,4 +13,4 @@ endpoints:
           description: 'If specified, number will be formatted using the default options of <code><a href="https://secure.php.net/manual/en/function.number-format.php">number_format()</a></code>'
       notes:
         - 'Picks a random number between {MIN} and {MAX}.'
-        - 'This only uses <code><a href="https://secure.php.net/manual/en/function.rand.php">rand()</a></code> and should not be if you want a "truly random" number.'
+        - 'This only uses <code><a href="https://secure.php.net/manual/en/function.rand.php">rand()</a></code> and should not be used if you want a "truly random" number.'

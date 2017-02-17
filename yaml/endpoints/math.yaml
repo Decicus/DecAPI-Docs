@@ -10,3 +10,4 @@ endpoints:
           type: "none/int"
       notes:
         - 'Performs a mathematic operation based on the expression passed to the endpoint.'
+        - 'Keep in mind to properly URL-encode <code>exp</code>, so that certain characters (such as <code>+</code>) are handled correctly.'

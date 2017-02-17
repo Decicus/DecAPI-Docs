@@ -25,7 +25,7 @@ endpoints:
           type: "int"
       notes:
         - 'Queries the specified DayZ server and returns a player count in format of: <code>{PLAYERCOUNT}/{MAXPLAYERS}</code>'
-        - 'Note: This also works with other games, such as <a href="http://store.steampowered.com/app/299740/">Miscreated</a>.'
+        - 'Note: This should also work with other games that use the Source query protocol (such as Miscreated or Counter-Strike: Global Offensive).'
     - route: "status-report"
       parameters:
       qs:

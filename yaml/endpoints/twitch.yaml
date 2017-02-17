@@ -63,6 +63,8 @@ endpoints:
         - name: "num"
           description: "Prefixes each follower with a number."
           type: "none"
+      notes:
+        - 'Lists the most recent follower(s) a channel has.'
     - route: "game/{CHANNEL}"
       parameters:
         - name: "{CHANNEL}"
