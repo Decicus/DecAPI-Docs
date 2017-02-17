@@ -109,8 +109,14 @@ $(document).ready(function() {
                     });
 
                     var method = end.method ? end.method.toUpperCase() : 'GET';
-                    $('pre strong', body).html(method);
-                    $('pre code', body).html(baseUrl + data.base_path + route);
+                    $('pre#http strong', body).html(method);
+                    $('pre#http code', body).html(baseUrl + data.base_path + route);
+
+                    if (method === 'GET') {
+                        var bots = $('#bots', body);
+                        bots.removeClass('hidden');
+                        $('#url', bots).html(baseUrl + data.base_path + route);
+                    }
 
                     // Route parameters
                     if (end.parameters && end.parameters.length > 0) {

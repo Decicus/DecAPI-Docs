@@ -55,7 +55,15 @@
                 <div class="panel-body" id="main-body">
                     <p class="text-warning">Notes:</p>
                     <ul id="description" class="list-group text-primary"></ul>
-                    <pre><strong class="text-primary"></strong> <code></code></pre>
+                    <strong class="text-primary">Standard request:</strong>
+                    <pre id="http"><strong class="text-primary"></strong> <code></code></pre>
+
+                    <div class="hidden" id="bots">
+                        <strong class="text-primary"><a href="https://beta.nightbot.tv/">Nightbot</a> command:</strong>
+                        <pre><code>$(urlfetch <span id="url"></span>)</code></pre>
+                        <strong class="text-primary"><a href="http://marcinswierzowski.com/Gallery/Projects/AnkhBotR2/">Ankhbot</a> command:</strong>
+                        <pre><code>$readapi(<span id="url"></span>)</code></pre>
+                    </div>
 
                     <div id="routes" class="hidden">
                         <p class="text-warning">Route parameters:</p>
@@ -97,7 +105,7 @@
 
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">General information</h3>
+                    <h3 class="panel-title"><i class="fa fa-1x fa-info"></i> General information</h3>
                 </div>
                 <div class="panel-body">
                     These pages will house the documentation of endpoints under DecAPI.
@@ -110,7 +118,7 @@
 
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Default options &amp; results</h3>
+                    <h3 class="panel-title"><i class="fa fa-1x fa-cog"></i> Default options &amp; results</h3>
                 </div>
                 <div class="panel-body">
                     <p>These are options or results that will be the default, <strong>unless the notes about the endpoint mention otherwise</strong>.</p>
@@ -127,16 +135,16 @@
                 </div>
             </div>
 
-            <div class="panel panel-primary">
+            <div class="panel panel-primary" id="non-dev">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Information for non-developers:</h3>
+                    <h3 class="panel-title"><a href="#non-dev"><i class="fa fa-1x fa-question"></i> Information for non-developers:</a></h3>
                 </div>
                 <div class="panel-body">
                     This page is primarily meant for developers, but some of you might be looking at this to use it with bots or similar.
                     <br>
                     In that case you're probably really confused as to how to use this, so this is an attempt to explain a few things for some of you.
                     <br>
-                    If you have any questions, then feel free to contact me via the information on my <a href="https://blog.decicus.com/contact/">contact page</a>, and I will attempt to reply to the best of my ability.
+                    If you have any further questions after reading this, then feel free to contact me via the information on my <a href="https://blog.decicus.com/contact/">contact page</a>, and I will attempt to reply to the best of my ability.
                     <br>
 
                     <h4><strong>Query string (aka "QS") parameters:</strong></h4>
@@ -161,13 +169,38 @@
                             <br>
                             Full URL example: <code><span id="base_url"></span>/misc/currency?from=USD&amp;to=NOK&amp;value=25</code>
                         </li>
+                        <li class="list-group-item">
+                            Because QS parameters are key/value pairs, their order <strong>does not matter</strong>. The two examples below achieve the same result.
+                            <br>
+                            Example #1: <code><span id="base_url"></span>/misc/currency?value=25&amp;from=USD&amp;to=NOK</code>
+                            <br>
+                            Example #2: <code><span id="base_url"></span>/misc/currency?from=USD&amp;to=NOK&amp;value=25</code>
+                        </li>
+                    </ul>
+
+                    <h4><strong>Route parameters:</strong></h4>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            Route parameters are ordered values.
+                            <br>
+                            This means that in the URL, they have to be specified in the order that the placeholders mention them in.
+                            <br>
+                            Example: <code><span id="base_url"></span>/twitch/followage/xsmak/decicus</code>
+                            <br>
+                            Compared to: <code><span id="base_url"></span>/twitch/followage/decicus/xsmak</code>
+                        </li>
+                        <li class="list-group-item">
+                            Unlike QS parameters, they are <strong>NOT key/value pairs</strong>, and just the values.
+                            <br>
+                            This means that <code>{CHANNEL}</code> should just be <code>decicus</code> (example).
+                        </li>
                     </ul>
                 </div>
             </div>
 
             <div class="panel panel-primary hidden" id="toc">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><a href="#toc">Table of contents:</a></h3>
+                    <h3 class="panel-title"><a href="#toc"><i class="fa fa-1x fa-table"></i> Table of contents:</a></h3>
                 </div>
                 <div class="panel-body">
                     <p>
