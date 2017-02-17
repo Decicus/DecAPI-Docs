@@ -127,6 +127,44 @@
                 </div>
             </div>
 
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Information for non-developers:</h3>
+                </div>
+                <div class="panel-body">
+                    This page is primarily meant for developers, but some of you might be looking at this to use it with bots or similar.
+                    <br>
+                    In that case you're probably really confused as to how to use this, so this is an attempt to explain a few things for some of you.
+                    <br>
+                    If you have any questions, then feel free to contact me via the information on my <a href="https://blog.decicus.com/contact/">contact page</a>, and I will attempt to reply to the best of my ability.
+                    <br>
+
+                    <h4><strong>Query string (aka "QS") parameters:</strong></h4>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            QS parameters are <i>normally</i> key/value pairs.
+                            <br>
+                            Example: <code>channel=decicus</code>.
+                        </li>
+                        <li class="list-group-item">
+                            QS parameters that do not have a value are specified with just the key name, but can <i>optionally</i> be specified with a value.
+                            <br>
+                            Example: <code>list</code> instead of <code>list=value</code>
+                        </li>
+                        <li class="list-group-item">
+                            To specify a QS parameter, you put a <code>?</code> after the main URL and specify your key or key/value.
+                            <br>
+                            Full URL example: <code><span id="base_url"></span>/twitch/uptime?channel=decicus</code>
+                        </li>
+                        <li class="list-group-item">
+                            If you wish to specify <strong>more than one</strong> QS parameter, place an <code>&amp;</code> between each key or key/value pair.
+                            <br>
+                            Full URL example: <code><span id="base_url"></span>/misc/currency?from=USD&amp;to=NOK&amp;value=25</code>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
             <div class="panel panel-primary hidden" id="toc">
                 <div class="panel-heading">
                     <h3 class="panel-title"><a href="#toc">Table of contents:</a></h3>

@@ -20,6 +20,8 @@ $(document).ready(function() {
         window.location.hash = '';
     });
 
+    $('span#base_url').html(baseUrl);
+
     $.get({
         url: './yaml/base/base_endpoints.yaml',
         type: 'GET',
@@ -106,7 +108,8 @@ $(document).ready(function() {
                             .appendTo(description);
                     });
 
-                    $('pre strong', body).html(end.method || 'GET');
+                    var method = end.method ? end.method.toUpperCase() : 'GET';
+                    $('pre strong', body).html(method);
                     $('pre code', body).html(baseUrl + data.base_path + route);
 
                     // Route parameters
