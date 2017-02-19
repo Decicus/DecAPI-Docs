@@ -216,5 +216,15 @@ $(document).ready(function() {
                 scrollTo(section);
             }
         }
+
+        // Handle internal links that link to certain sections on
+        // the same page and add smooth scrolling to said section.
+        $('a').on('click', function() {
+            var section = $(this).attr('href');
+
+            if (section.indexOf('#') === 0) {
+                scrollTo($(section));
+            }
+        });
     }
 });

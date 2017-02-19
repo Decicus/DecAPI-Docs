@@ -195,6 +195,25 @@
                             This means that <code>{CHANNEL}</code> should just be <code>decicus</code> (example).
                         </li>
                     </ul>
+
+                    <h4><strong>Bot usage:</strong></h4>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            For each API endpoint, you might have noticed that they mention a few bots and how to add the specific endpoint to these bots.
+                            <br>
+                            But each endpoint is displayed without any route/query string parameters, which means you have to add them yourself.
+                            <br>
+                            Using the information you read through earlier about these parameters, you just modify the URL.
+                            <br>
+                            I have done a few examples below, using the <a href="#twitch_followers_CHANNEL">/twitch/followers/{CHANNEL}</a> endpoint.
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Nightbot</strong> example: <code>$(urlfetch <span id="base_url"></span>/twitch/followers/decicus?count=5&amp;direction=desc)</code>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Ankhbot</strong> example: <code>$readapi(<span id="base_url"></span>/twitch/followers/decicus?count=5&amp;direction=desc)</code>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
