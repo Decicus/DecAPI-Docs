@@ -123,10 +123,10 @@
                 <div class="panel-body">
                     <p>These are options or results that will be the default, <strong>unless the notes about the endpoint mention otherwise</strong>.</p>
                     <div class="list-group">
-                        <li class="list-group-item">The base URL for all endpoints is <code>http://beta.decapi.me</code> or <code>https://beta.decapi.me</code>.</li>
+                        <li class="list-group-item">The base URL for all endpoints is <code><span id="base_url"></span></code>.</li>
                         <li class="list-group-item"><strong>HTTP</strong> requests are supported, but <strong>HTTPS (TLS 1.x)</strong> is encouraged.</li>
                         <li class="list-group-item">The default HTTP method supported is <code>GET</code>.</li>
-                        <li class="list-group-item">Responses are <code>Content-Type: text/plain</code>.</li>
+                        <li class="list-group-item">Responses are typically <code>Content-Type: text/plain</code>.</li>
                         <li class="list-group-item">For endpoints that mention JSON support without any further information, send <code>Accept: application/json</code> in the request header to receive the response as JSON instead.</li>
                         <li class="list-group-item">Parameters are <strong>always</strong> required.</li>
                         <li class="list-group-item">Query strings are <strong>never</strong> required.</li>
@@ -135,19 +135,19 @@
                 </div>
             </div>
 
-            <div class="panel panel-primary" id="non-dev">
+            <div class="panel panel-primary" id="nondev">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><a href="#non-dev"><i class="fa fa-1x fa-question"></i> Information for non-developers:</a></h3>
+                    <h3 class="panel-title"><a href="#nondev"><i class="fa fa-1x fa-question"></i> Information for non-developers:</a></h3>
                 </div>
                 <div class="panel-body">
-                    This page is primarily meant for developers, but some of you might be looking at this to use it with bots or similar.
+                    This page is primarily meant for developers, but some of you might be looking at this to use it with bots or similar (in this case they're often called "custom APIs").
                     <br>
                     In that case you're probably really confused as to how to use this, so this is an attempt to explain a few things for some of you.
                     <br>
                     If you have any further questions after reading this, then feel free to contact me via the information on my <a href="https://blog.decicus.com/contact/">contact page</a>, and I will attempt to reply to the best of my ability.
                     <br>
 
-                    <h4><strong>Query string (aka "QS") parameters:</strong></h4>
+                    <h4 id="nondev-qs"><strong><a href="#nondev-qs">Query string (aka "QS") parameters:</a></strong></h4>
                     <ul class="list-group">
                         <li class="list-group-item">
                             QS parameters are <i>normally</i> key/value pairs.
@@ -178,16 +178,25 @@
                         </li>
                     </ul>
 
-                    <h4><strong>Route parameters:</strong></h4>
+                    <h4 id="nondev-routes"><strong><a href="#nondev-routes">Route parameters:</a></strong></h4>
                     <ul class="list-group">
                         <li class="list-group-item">
                             Route parameters are ordered values.
                             <br>
                             This means that in the URL, they have to be specified in the order that the placeholders mention them in.
                             <br>
-                            Example: <code><span id="base_url"></span>/twitch/followage/xsmak/decicus</code>
+                            For the examples below, I'll be using the <a href="#twitch_followage_CHANNEL_USER">/twitch/followage</a> endpoint. This endpoint is displayed as: <code><span id="base_url"></span>/twitch/followage/{CHANNEL}/{USER}</code>
                             <br>
-                            Compared to: <code><span id="base_url"></span>/twitch/followage/decicus/xsmak</code>
+                            Example #1: <code><span id="base_url"></span>/twitch/followage/xsmak/decicus</code>
+                            <br>
+                            Compared to (example #2): <code><span id="base_url"></span>/twitch/followage/decicus/xsmak</code>
+                            <br>
+                            <br>
+                            Notice how for the first example, <strong>"xsmak"</strong> is the <strong>first</strong> name and "decicus" is the <strong>second</strong> one. This means that "xsmak" is the channel to check, and "decicus" is the user.
+                            <br>
+                            When you change the positions of these names, you also change what they are treated as.
+                            <br>
+                            In example #2, while it looks very similar, "decicus" is the first parameter, meaning it's treated as the channel. While "xsmak" is the user, giving a completely different result.
                         </li>
                         <li class="list-group-item">
                             Unlike QS parameters, they are <strong>NOT key/value pairs</strong>, and just the values.
@@ -196,10 +205,10 @@
                         </li>
                     </ul>
 
-                    <h4><strong>Bot usage:</strong></h4>
+                    <h4 id="nondev-bots"><strong><a href="#nondev-bots">Bot usage:</a></strong></h4>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            For each API endpoint, you might have noticed that they mention a few bots and how to add the specific endpoint to these bots.
+                            If you have already looked at some of the API endpoints, you might have noticed that they mention a few bots and how to add the specific endpoint to these bots.
                             <br>
                             But each endpoint is displayed without any route/query string parameters, which means you have to add them yourself.
                             <br>
