@@ -20,6 +20,8 @@ $(document).ready(function() {
         window.location.hash = '';
     });
 
+    $('span#base_url').html(baseUrl);
+
     $.get({
         url: './yaml/base/base_endpoints.yaml',
         type: 'GET',
@@ -106,8 +108,15 @@ $(document).ready(function() {
                             .appendTo(description);
                     });
 
-                    $('pre strong', body).html(end.method || 'GET');
-                    $('pre code', body).html(baseUrl + data.base_path + route);
+                    var method = end.method ? end.method.toUpperCase() : 'GET';
+                    $('pre#http strong', body).html(method);
+                    $('pre#http code', body).html(baseUrl + data.base_path + route);
+
+                    if (method === 'GET') {
+                        var bots = $('#bots', body);
+                        bots.removeClass('hidden');
+                        $('#url', bots).html(baseUrl + data.base_path + route);
+                    }
 
                     // Route parameters
                     if (end.parameters && end.parameters.length > 0) {
@@ -207,5 +216,15 @@ $(document).ready(function() {
                 scrollTo(section);
             }
         }
+
+        // Handle internal links that link to certain sections on
+        // the same page and add smooth scrolling to said section.
+        $('a').on('click', function() {
+            var section = $(this).attr('href');
+
+            if (section.indexOf('#') === 0) {
+                scrollTo($(section));
+            }
+        });
     }
 });
