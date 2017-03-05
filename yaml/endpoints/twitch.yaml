@@ -98,9 +98,17 @@ endpoints:
           description: 'If specified, the list will be in plaintext (using newlines) instead of in a JSON object.'
         - name: "implode"
           description: 'If specified, the list will be returned comma-separated (", ") instead of JSON/a "newlined" list.'
+        - name: "limit"
+          description: "If specified, the list will be comma-separated up until the maximum 'limit' of channels. Example: If 10 channels are hosting you, and the limit is set to '2', then it will for example say: decicus, mellow and 8 others"
       notes:
         - 'Returns a list of channel names hosting the specified channel.'
         - '<strong>JSON results are returned by default. See <code>list/implode</code> query string.</strong>.'
+    - route: "hostscount/{CHANNEL}"
+      parameters:
+        - name: "{CHANNEL}"
+          description: 'The channel name.'
+      notes:
+        - 'This will return the <strong>channel count</strong> of how many channels are currently hosting the <i>specified channel</i>.'
     - route: "id/{USER}"
       parameters:
         - name: "{USER}"
