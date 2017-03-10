@@ -112,7 +112,7 @@ $(document).ready(function() {
                     $('pre#http strong', body).html(method);
                     $('pre#http code', body).html(baseUrl + data.base_path + route);
 
-                    if (method === 'GET') {
+                    if (method === 'GET' && (typeof end.bots === 'undefined' || end.bots === true)) {
                         var bots = $('#bots', body);
                         bots.removeClass('hidden');
                         $('#url', bots).html(baseUrl + data.base_path + route);
