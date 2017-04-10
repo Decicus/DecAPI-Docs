@@ -16,6 +16,23 @@ endpoints:
       notes:
         - 'Retrieves the chat cluster name for the channel specified.'
         - 'Note that this is essentially useless from now on, as all requests will (most likely) return <code>aws</code>.'
+    - route: "creation/{USER}"
+      parameters:
+        - name: "{USER}"
+          description: "The name of the user."
+      notes:
+        - Retrieves the creation date/time of the specified user.
+      qs:
+        - name: "format"
+          description:
+            - 'Formats the date/time based on the <a href="https://secure.php.net/manual/en/function.date.php#refsect1-function.date-parameters">format string</a> specified.'
+            - 'Default format: <code>M j. Y - h:i:s A (e)</code>'
+          required: false
+          type: "string"
+        - name: "tz"
+          description: 'Specify the timezone that you want the date/time to be displayed as. <a href="https://secure.php.net/manual/en/timezones.php">Click here for valid timezones</a>'
+          required: false
+          type: "string"
     - route: "emoteslots/{CHANNEL}"
       parameters:
         - name: "{CHANNEL}"
