@@ -127,6 +127,7 @@ $(document).ready(function() {
                                 .clone()
                                 .addClass(param.optional ? 'fa-times' : 'fa-check')
                                 .removeClass('hidden');
+                            var description = param.description;
 
                             // Parameter name
                             $('<th/>')
@@ -135,7 +136,7 @@ $(document).ready(function() {
 
                             // Parameter description
                             $('<td/>')
-                                .html(param.description)
+                                .html(Array.isArray(description) ? description.join("<br>") : description)
                                 .appendTo(row);
 
                             // Parameter required/optional
@@ -162,6 +163,7 @@ $(document).ready(function() {
                                 .clone()
                                 .addClass(param.required ? 'fa-check' : 'fa-times')
                                 .removeClass('hidden');
+                            var description = param.description;
 
                             // Parameter name
                             $('<th/>')
@@ -170,7 +172,7 @@ $(document).ready(function() {
 
                             // Parameter description
                             $('<td/>')
-                                .html(param.description)
+                                .html(Array.isArray(description) ? description.join("<br>") : description)
                                 .appendTo(row);
 
                             // Parameter required/optional
