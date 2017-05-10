@@ -217,3 +217,10 @@ endpoints:
       notes:
         - 'Returns how long the specified channel has been live for the current broadcast.'
         - '<strong>Rate-limited:</strong> This is rate-limited to 100 requests per minute.'
+    - route: "viewercount/{CHANNEL}"
+      parameters:
+        - name: "{CHANNEL}"
+          description: "The channel name."
+      notes:
+        - 'Returns how many viewers the channel has, if they are currently streaming.'
+        - 'Keep in mind this might be slightly inaccurate, due to caching on the Twitch API side.'
