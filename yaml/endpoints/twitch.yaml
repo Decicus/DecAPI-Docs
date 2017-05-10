@@ -211,6 +211,9 @@ endpoints:
       parameters:
         - name: "{CHANNEL}"
           description: "The channel name."
+      qs:
+        - name: "precision"
+          description: 'How precise the timestamp should be in terms of days, hours, minutes & seconds - Default: 4.'
       notes:
         - 'Returns how long the specified channel has been live for the current broadcast.'
         - '<strong>Rate-limited:</strong> This is rate-limited to 100 requests per minute.'
