@@ -161,6 +161,7 @@ endpoints:
           description: 'What character(s) should separate each subscriber value from each other. Default: <code>, </code>.'
       notes:
         - 'Retrieves a random subscriber from the channel, based on their OAuth (authentication) token.'
+        - 'If you need to retrieve an OAuth token, you can use <a href="https://decicus.github.io/twitch-oauth-token/#channel_subscriptions">another project of mine</a>.'
     - route: "random_user/{CHANNEL}"
       parameters:
         - name: "{CHANNEL}"
