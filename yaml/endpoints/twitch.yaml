@@ -151,7 +151,7 @@ endpoints:
       qs:
         - name: "token"
           required: true
-          description: 'The channel\'s OAuth token with the <code>channel_subscriptions</code> scope.'
+          description: 'The OAuth token belonging to the channel owner with the <code>channel_subscriptions</code> scope.'
         - name: "count"
           description: "The amount of subscribers to retrieve - Default: <code>1</code>."
           type: "int"
