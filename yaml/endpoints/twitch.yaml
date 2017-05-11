@@ -50,7 +50,7 @@ endpoints:
           description: 'The name of the user that you wish to check the "follow age" for.'
       qs:
         - name: "precision"
-          description: 'How precise the timestamp should be in terms of years, months, weeks, days, hours, minutes & seconds.- Default: 2.'
+          description: 'How precise the timestamp should be in terms of years, months, weeks, days, hours, minutes & seconds.- Default: <code>2</code>.'
           type: "int"
       notes:
         - 'Gets the time difference (also known as the "follow age") between when <code>{USER}</code> followed <code>{CHANNEL}</code>'
@@ -69,13 +69,13 @@ endpoints:
           description: 'The channel name of the channel you wish to retrieve followers for.'
       qs:
         - name: "count"
-          description: 'How many followers to get with the request. Default: 1. Max: 100.'
+          description: 'How many followers to get with the request. Default: <code>1</code>. Max: <code>100</code>.'
           type: "int"
         - name: "offset"
           description: 'How many followers to offset from the beginning of the object.'
           type: "int"
         - name: "direction"
-          description: "What direction to retrieve followers in. Can either be 'asc' or 'desc'. Default: 'desc'."
+          description: "What direction to retrieve followers in. Can either be 'asc' or 'desc'. Default: <code>desc</code>."
           type: "string"
         - name: "num"
           description: "Prefixes each follower with a number."
@@ -143,10 +143,24 @@ endpoints:
         - name: "streams"
           description: 'Can be used as an alternative to the <code>{STREAMS}</code> route parameter.'
         - name: "service"
-          description: 'Chooses which multistream service you want to use. Specify something bogus for this parameter to get a list of available services. Default: "multistream".'
+          description: 'Chooses which multistream service you want to use. Specify something bogus for this parameter to get a list of available services. Default: <code>multistream</code>.'
       notes:
         - 'Generates a "multi stream" URL based on the channel names passed to it.'
         - 'While the <code>streams</code> <strong>query</strong> parameter is optional, you have to specify the streams as <strong>either</strong> a <strong>route</strong> parameter or as the <code>streams</code> <strong>query</strong> parameter.'
+    - route: "random_sub"
+      qs:
+        - name: "token"
+          required: true
+          description: 'The channel\'s OAuth token with the <code>channel_subscriptions</code> scope.'
+        - name: "count"
+          description: "The amount of subscribers to retrieve - Default: <code>1</code>."
+          type: "int"
+        - name: "field"
+          description: 'What field from the user object to retrieve. See <a href="https://dev.twitch.tv/docs/v5/reference/channels/#get-channel-subscribers">Twitch API docs</a> to see which ones are available. Default: <code>name</code>.'
+        - name: "separator"
+          description: 'What character(s) should separate each subscriber value from each other. Default: <code>, </code>.'
+      notes:
+        - 'Retrieves a random subscriber from the channel, based on their OAuth (authentication) token.'
     - route: "random_user/{CHANNEL}"
       parameters:
         - name: "{CHANNEL}"
