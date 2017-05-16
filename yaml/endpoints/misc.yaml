@@ -22,3 +22,12 @@ endpoints:
         - 'Converts from one currency to another.</a>.'
         - 'The currency codes follow the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> standard.'
         - 'The API used for currency conversions is <a href="http://fixer.io/">Fixer.io</a>.'
+    - route: "time"
+      qs:
+        - name: "timezone"
+          description: 'The name of the timezone you want to retrieve the time for.'
+          required: true
+        - name: "format"
+          description: 'The <a href="https://secure.php.net/manual/en/function.date.php#refsect1-function.date-parameters">PHP date()</a> format you want the time to be displayed in. - Default: <code>h:i:s A T</code>.'
+      notes:
+        - 'Displays the current time in the specified timezone.'
