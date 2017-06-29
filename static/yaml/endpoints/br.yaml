@@ -1,11 +1,11 @@
 base_path: "/br"
 endpoints:
-    - route: "player/{ID}/{TYPE}"
+    - route: "player/:id/:type"
       parameters:
-        - name: "{ID}"
+        - name: ":id"
           description: "The BR player ID, or Steam64 ID of the player."
           type: "int64"
-        - name: "{TYPE}"
+        - name: ":type"
           description: "Either <code>hardcore</code> or <code>regular</code>. Defaults to regular."
           optional: true
       qs:

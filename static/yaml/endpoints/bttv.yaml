@@ -1,8 +1,8 @@
 base_path: "/bttv"
 endpoints:
-    - route: "emotes/{CHANNEL}"
+    - route: "emotes/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: "The channel to retrieve BetterTTV emotes for"
       qs:
         - name: "types"
