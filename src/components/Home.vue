@@ -144,11 +144,13 @@
 </template>
 
 <script>
+    import config from '../config';
+
     export default {
         data() {
             return {
                 baseEndpoints: [],
-                baseUrl: 'https://decapi.me',
+                baseUrl: config.baseUrl,
             };
         },
 

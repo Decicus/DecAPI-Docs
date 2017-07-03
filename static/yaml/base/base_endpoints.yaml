@@ -16,9 +16,6 @@
   icon: "calculator"
 - name: misc
   title: "Miscellaneous"
-- name: r6
-  title: "Rainbow 6"
-  icon: "gamepad"
 - name: random
   title: "Random"
   icon: "random"

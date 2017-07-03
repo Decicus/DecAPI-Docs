@@ -156,7 +156,7 @@ endpoints:
       notes:
         - 'Generates a "multi stream" URL based on the channel names passed to it.'
         - 'While the <code>streams</code> <strong>query</strong> parameter is optional, you have to specify the streams as <strong>either</strong> a <strong>route</strong> parameter or as the <code>streams</code> <strong>query</strong> parameter.'
-    - route: "random_sub"
+    - route: "random_sub/:channel"
       qs:
         - name: "token"
           required: true
@@ -208,7 +208,7 @@ endpoints:
           description: 'The team identifier.'
       qs:
         - name: "sort"
-          description: 'If this is specified, it will sort the members of the team alphabetically. &mdash; Recommended for a consistent list between requests.'
+          description: 'If this is specified, it will sort the members of the team alphabetically.<br><strong>Recommended for a consistent list between requests.</strong>'
         - name: "text"
           description: 'If this is specified, the list will be returned in plaintext compared to a JSON array.'
         - name: "implode"
