@@ -27,7 +27,7 @@
                     <li class="list-group-item">For endpoints that mention JSON support without any further information, send <code>Accept: application/json</code> in the request header to receive the response as JSON instead.</li>
                     <li class="list-group-item">Parameters are <strong>always</strong> required.</li>
                     <li class="list-group-item">Query strings are <strong>never</strong> required.</li>
-                    <li class="list-group-item">Parameter/query string examples may be surrounded by "curly brackets", for example: <code>{USERNAME}</code>. These should be omitted in the actual requests.</li>
+                    <li class="list-group-item">Parameter/query string examples may be prefixed by a colon (<code>:</code>), for example: <code>:username</code>. This should be omitted in the actual requests.</li>
                 </div>
             </div>
         </div>
@@ -82,7 +82,7 @@
                         <br>
                         This means that in the URL, they have to be specified in the order that the placeholders mention them in.
                         <br>
-                        For the examples below, I'll be using the <code>/twitch/followage</code> endpoint. This endpoint is displayed as: <code>{{ baseUrl }}/twitch/followage/{CHANNEL}/{USER}</code>
+                        For the examples below, I'll be using the <code>/twitch/followage</code> endpoint. This endpoint is displayed as: <code>{{ baseUrl }}/twitch/followage/:channel/:user</code>
                         <br>
                         Example #1: <code>{{ baseUrl }}/twitch/followage/tsm_smak/decicus</code>
                         <br>
@@ -98,7 +98,7 @@
                     <li class="list-group-item">
                         Unlike QS parameters, they are <strong>NOT key/value pairs</strong>, and just the values.
                         <br>
-                        This means that <code>{CHANNEL}</code> should just be <code>decicus</code> (example).
+                        This means that <code>:channel</code> should just be <code>decicus</code> (example).
                     </li>
                 </ul>
 
@@ -111,7 +111,7 @@
                         <br>
                         Using the information you read through earlier about these parameters, you just modify the URL.
                         <br>
-                        I have done a few examples below, using the <code>/twitch/followers/{CHANNEL}</code> endpoint.
+                        I have done a few examples below, using the <code>/twitch/followers/:channel</code> endpoint.
                     </li>
                     <li class="list-group-item">
                         <strong>Nightbot</strong> example: <code>$(urlfetch {{ baseUrl }}/twitch/followers/decicus?count=5&amp;direction=desc)</code>
@@ -148,7 +148,7 @@
         data() {
             return {
                 baseEndpoints: [],
-                baseUrl: 'https://beta.decapi.me',
+                baseUrl: 'https://decapi.me',
             };
         },
 
