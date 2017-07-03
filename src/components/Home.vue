@@ -27,7 +27,7 @@
                     <li class="list-group-item">For endpoints that mention JSON support without any further information, send <code>Accept: application/json</code> in the request header to receive the response as JSON instead.</li>
                     <li class="list-group-item">Parameters are <strong>always</strong> required.</li>
                     <li class="list-group-item">Query strings are <strong>never</strong> required.</li>
-                    <li class="list-group-item">Parameter/query string examples may be prefixed by a colon (<code>:</code>), for example: <code>:username</code>. This should be omitted in the actual requests.</li>
+                    <li class="list-group-item">Parameter/query string examples may be prefixed by a colon (<code>:</code>), for example: <code>:username</code> or <code>:channel</code>. These should be omitted and replaced by the input value from the actual requests.</li>
                 </div>
             </div>
         </div>
