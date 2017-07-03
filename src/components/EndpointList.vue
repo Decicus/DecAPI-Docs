@@ -1,7 +1,22 @@
 <template>
     <div id="app">
-        <h2>Endpoints:
+        <h2>
+            Endpoints:
             {{ this.$route.name }}
+
+            <div class="dropdown pull-right">
+                <button class="dropdown-toggle btn btn-info" data-toggle="dropdown" type="button">
+                    <i class="fa fa-1x fa-cog"></i> Bot example settings <span class="caret"></span>
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li><a><input type="checkbox" v-model="bots.nightbot"> Nightbot</a></li>
+                    <li><a><input type="checkbox" v-model="bots.ankhbot"> Ankhbot</a></li>
+                    <li><a><input type="checkbox" v-model="bots.deepbot"> Deepbot</a></li>
+                    <li><a><input type="checkbox" v-model="bots.phantombot"> PhantomBot</a></li>
+                    <li><a><input type="checkbox" v-model="bots.ohbot"> Ohbot</a></li>
+                </ul>
+            </div>
         </h2>
 
         <div class="modal fade" id="endpoint">
@@ -13,100 +28,98 @@
                     </div>
 
                     <div class="modal-body">
-                        <div class="panel-body" id="main-body">
-                            <template v-if="e.notes && e.notes.length > 0">
-                                <h4 class="text-muted">Notes:</h4>
-                                <ul class="list-group text-primary" v-for="note in e.notes">
-                                    <li class="list-group-item" v-html="note"></li>
-                                </ul>
+                        <template v-if="e.notes && e.notes.length > 0">
+                            <h4 class="text-muted">Notes:</h4>
+                            <ul class="list-group text-primary" v-for="note in e.notes">
+                                <li class="list-group-item" v-html="note"></li>
+                            </ul>
+                        </template>
+
+                        <h4 class="text-muted">Standard request:</h4>
+                        <pre><strong class="text-primary">{{ e.method || 'GET' }}</strong> <code>{{ config.baseUrl + route }}</code></pre>
+
+                        <div id="bots" v-if="e.bots !== false">
+                            <template v-if="bots.nightbot">
+                                <!-- Nightbot -->
+                                <strong class="text-primary"><a href="https://beta.nightbot.tv/">Nightbot</a> command:</strong>
+                                <pre><code>$(urlfetch {{ e.url }})</code></pre>
                             </template>
 
-                            <h4 class="text-muted">Standard request:</h4>
-                            <pre><strong class="text-primary">{{ e.method || 'GET' }}</strong> <code>{{ config.baseUrl + route }}</code></pre>
+                            <template v-if="bots.ankhbot">
+                                <!-- Ankhbot -->
+                                <strong class="text-primary"><a href="http://marcinswierzowski.com/Gallery/Projects/AnkhBotR2/">Ankhbot</a> command:</strong>
+                                <pre><code>$readapi({{ e.url }})</code></pre>
+                            </template>
 
-                            <div id="bots">
-                                <template v-if="bots.nightbot">
-                                    <!-- Nightbot -->
-                                    <strong class="text-primary"><a href="https://beta.nightbot.tv/">Nightbot</a> command:</strong>
-                                    <pre><code>$(urlfetch {{ e.url }})</code></pre>
-                                </template>
+                            <template v-if="bots.deepbot">
+                                <!-- Deepbot -->
+                                <strong class="text-primary"><a href="https://deepbot.deep.sg/">Deepbot</a> command:</strong>
+                                <pre><code>@customapi@[{{ e.url }}]</code></pre>
+                            </template>
 
-                                <template v-if="bots.ankhbot">
-                                    <!-- Ankhbot -->
-                                    <strong class="text-primary"><a href="http://marcinswierzowski.com/Gallery/Projects/AnkhBotR2/">Ankhbot</a> command:</strong>
-                                    <pre><code>$readapi({{ e.url }})</code></pre>
-                                </template>
+                            <template v-if="bots.phantombot">
+                                <!-- PhantomBot -->
+                                <strong class="text-primary"><a href="https://phantombot.tv/">PhantomBot</a> command:</strong>
+                                <pre><code>(customapi {{ e.url }})</code></pre>
+                            </template>
 
-                                <template v-if="bots.deepbot">
-                                    <!-- Deepbot -->
-                                    <strong class="text-primary"><a href="https://deepbot.deep.sg/">Deepbot</a> command:</strong>
-                                    <pre><code>@customapi@[{{ e.url }}]</code></pre>
-                                </template>
+                            <template v-if="bots.ohbot">
+                                <!-- Ohbot -->
+                                <strong class="text-primary"><a href="https://ohbot.3v.fi/">Ohbot</a> command:</strong>
+                                <pre><code>[customapi {{ e.url }}]</code></pre>
+                            </template>
+                        </div>
 
-                                <template v-if="bots.phantombot">
-                                    <!-- PhantomBot -->
-                                    <strong class="text-primary"><a href="https://phantombot.tv/">PhantomBot</a> command:</strong>
-                                    <pre><code>(customapi {{ e.url }})</code></pre>
-                                </template>
+                        <div id="routes" v-if="e.parameters && e.parameters.length > 0">
+                            <h4 class="text-muted">Route parameters:</h4>
 
-                                <template v-if="bots.ohbot">
-                                    <!-- Ohbot -->
-                                    <strong class="text-primary"><a href="https://ohbot.3v.fi/">Ohbot</a> command:</strong>
-                                    <pre><code>[customapi {{ e.url }}]</code></pre>
-                                </template>
-                            </div>
+                            <table class="table table-bordered" id="route-body">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter name:</th>
+                                        <th>Description:</th>
+                                        <th>Required:</th>
+                                        <th>Type:</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="p in e.parameters">
+                                        <th>{{ p.name }}</th>
 
-                            <div id="routes" v-if="e.parameters && e.parameters.length > 0">
-                                <h4 class="text-muted">Route parameters:</h4>
+                                        <td v-if="Array.isArray(p.description)" v-html="p.description.join('<br>')"></td>
+                                        <td v-else v-html="p.description"></td>
 
-                                <table class="table table-bordered" id="route-body">
-                                    <thead>
-                                        <tr>
-                                            <th>Parameter name:</th>
-                                            <th>Description:</th>
-                                            <th>Required:</th>
-                                            <th>Type:</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr v-for="p in e.parameters">
-                                            <th>{{ p.name }}</th>
+                                        <td><i class="fa fa-1x" v-bind:class="p.optional ? 'fa-times' : 'fa-check'"></i></td>
+                                        <td><code>{{ p.type || 'string' }}</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                                            <td v-if="Array.isArray(p.description)" v-html="p.description.join('<br>')"></td>
-                                            <td v-else v-html="p.description"></td>
+                        <div id="qs" v-if="e.qs && e.qs.length > 0">
+                            <h4 class="text-muted">Query string parameters:</h4>
 
-                                            <td><i class="fa fa-1x" v-bind:class="p.optional ? 'fa-times' : 'fa-check'"></i></td>
-                                            <td><code>{{ p.type || 'string' }}</code></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <table class="table table-bordered table-striped table-hover" id="qs-body">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter name:</th>
+                                        <th>Description:</th>
+                                        <th>Required:</th>
+                                        <th>Type:</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="p in e.qs">
+                                        <th>{{ p.name }}</th>
 
-                            <div id="qs" v-if="e.qs && e.qs.length > 0">
-                                <h4 class="text-muted">Query string parameters:</h4>
+                                        <td v-if="Array.isArray(p.description)">{{ p.description.join("<br>") }}</td>
+                                        <td v-else v-html="p.description"></td>
 
-                                <table class="table table-bordered table-striped table-hover" id="qs-body">
-                                    <thead>
-                                        <tr>
-                                            <th>Parameter name:</th>
-                                            <th>Description:</th>
-                                            <th>Required:</th>
-                                            <th>Type:</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr v-for="p in e.qs">
-                                            <th>{{ p.name }}</th>
-
-                                            <td v-if="Array.isArray(p.description)">{{ p.description.join("<br>") }}</td>
-                                            <td v-else v-html="p.description"></td>
-
-                                            <td><i class="fa fa-1x" v-bind:class="p.required ? 'fa-check' : 'fa-times'"></i></td>
-                                            <td><code>{{ p.type || 'string' }}</code></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                        <td><i class="fa fa-1x" v-bind:class="p.required ? 'fa-check' : 'fa-times'"></i></td>
+                                        <td><code>{{ p.type || 'string' }}</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
 
@@ -163,6 +176,8 @@
         methods: {
             openModal(route) {
                 this.route = `${this.$route.path}/${route}`;
+
+                this.e.url = config.baseUrl + this.route;
 
                 this.endpoints.forEach((end) => {
                     if (route !== end.route) {
