@@ -188,7 +188,7 @@ endpoints:
           description: "The channel name."
       notes:
         - 'Retrieves the subscriber count of the specified channel.'
-        - '<strong>This only works for channels that have authenticated and authorized this app</strong>.'
+        - '<strong>This only works for channels that have <a href="{{baseUrl}}/auth/twitch?scopes=user_read+channel_subscriptions&redirect=subcount" target="_blank" rel="noopener noreferrer">authenticated and authorized</a> this app</strong>.'
     - route: "subscriber_emotes/:channel"
       parameters:
         - name: ":channel"

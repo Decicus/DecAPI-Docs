@@ -30,8 +30,8 @@
                     <div class="modal-body">
                         <template v-if="e.notes && e.notes.length > 0">
                             <h4 class="text-muted">Notes:</h4>
-                            <ul class="list-group text-primary" v-for="note in e.notes">
-                                <li class="list-group-item" v-html="note"></li>
+                            <ul class="list-group text-primary" v-for="note in e.notes" id="notes">
+                                <li class="list-group-item" v-html="note.replace(/{{baseUrl}}/g, config.baseUrl)"></li>
                             </ul>
                         </template>
 
@@ -137,6 +137,12 @@
         </div>
     </div>
 </template>
+
+<style>
+    #notes a {
+        text-decoration: underline;
+    }
+</style>
 
 <script>
     import yaml from 'js-yaml';
