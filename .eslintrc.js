@@ -24,6 +24,7 @@ module.exports = {
   },
   // add your custom rules here
   'rules': {
+    'arrow-body-style': ['error', 'always'],
     'indent': ['error', 4],
     'no-param-reassign': [2, {
         "props": false,

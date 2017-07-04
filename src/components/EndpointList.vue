@@ -10,11 +10,11 @@
                 </button>
 
                 <ul class="dropdown-menu">
-                    <li><a><input type="checkbox" v-model="bots.nightbot"> Nightbot</a></li>
-                    <li><a><input type="checkbox" v-model="bots.ankhbot"> Ankhbot</a></li>
-                    <li><a><input type="checkbox" v-model="bots.deepbot"> Deepbot</a></li>
-                    <li><a><input type="checkbox" v-model="bots.phantombot"> PhantomBot</a></li>
-                    <li><a><input type="checkbox" v-model="bots.ohbot"> Ohbot</a></li>
+                    <li v-for="bot in Object.keys(bots)">
+                        <a v-on:click="bots[bot] = !bots[bot]; updateBotStore()">
+                            <input type="checkbox" v-bind:checked="bots[bot]"> {{ botNames[bot] }}
+                        </a>
+                    </li>
                 </ul>
             </div>
         </h2>
@@ -145,18 +145,26 @@
     import config from '../config';
 
     const $ = jQuery;
+    const bots = {
+        ankhbot: false,
+        deepbot: false,
+        nightbot: false,
+        ohbot: false,
+        phantombot: false,
+    };
 
     export default {
         name: 'EndpointList',
         data() {
             return {
                 basePath: '',
-                bots: {
-                    ankhbot: false,
-                    deepbot: false,
-                    nightbot: false,
-                    ohbot: false,
-                    phantombot: false,
+                bots,
+                botNames: {
+                    ankhbot: 'Ankhbot',
+                    deepbot: 'Deepbot',
+                    nightbot: 'Nightbot',
+                    ohbot: 'Ohbot',
+                    phantombot: 'PhantomBot',
                 },
                 config,
                 // Endpoint data
@@ -199,6 +207,9 @@
                     $('#endpoint').modal('toggle');
                 });
             },
+            updateBotStore() {
+                localStorage.setItem('bots', JSON.stringify(bots));
+            },
         },
 
         mounted() {
@@ -229,10 +240,26 @@
                 });
             });
 
+            let getBots = localStorage.getItem('bots');
+
+            if (getBots) {
+                getBots = JSON.parse(getBots);
+
+                Object.keys(getBots).forEach((name) => {
+                    bots[name] = getBots[name];
+                });
+            }
+
             $('#endpoint').on('hidden.bs.modal', () => {
                 this.$router.push({
                     query: {},
                 });
+            });
+
+            $('.dropdown-menu').on({
+                click: (e) => {
+                    e.stopPropagation();
+                },
             });
         },
     };
