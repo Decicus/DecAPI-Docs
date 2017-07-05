@@ -30,27 +30,6 @@ Vue.http.get(`${yamlPath}/base/base_endpoints.yaml`).then((response) => {
             name: title,
             component: EndpointList,
         });
-
-        Vue.http.get(`${yamlPath}/endpoints/${name}.yaml`).then((endResp) => {
-            const endpointRoutes = [];
-            const { body } = endResp;
-            const data = yaml.load(body);
-            const basePath = data.base_path;
-            const { endpoints } = data;
-
-            endpoints.forEach((end) => {
-                const { route } = end;
-                const path = `${basePath}/${route}`;
-
-                endpointRoutes.push({
-                    path,
-                    name: path,
-                    component: Endpoint,
-                });
-            });
-
-            router.addRoutes(endpointRoutes);
-        });
     });
 
     router.addRoutes(routes);
