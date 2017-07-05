@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import VueResource from 'vue-resource';
 import Router from 'vue-router';
-import Endpoint from '@/components/Endpoint';
 import EndpointList from '@/components/EndpointList';
 import Home from '@/components/Home';
 import yaml from 'js-yaml';
