@@ -6,9 +6,13 @@
   icon: "gamepad"
 - name: bttv
   title: "BetterTTV"
+  icon: "smile-o"
 - name: dayz
   title: "DayZ"
   icon: "gamepad"
+- name: ffz
+  title: "FrankerFaceZ"
+  icon: "smile-o"
 - name: lever
   title: "Lever"
 - name: math
