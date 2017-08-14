@@ -1,26 +1,26 @@
 base_path: "/example"
 endpoints:
-    - route: "sample/{CHANNEL}/{USER}"
+    - route: "sample/:channel/:user"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: "The channel name"
-        - name: "{USER}"
+        - name: ":user"
           description: "The name of the user"
           optional: true
       qs:
-        - name: "key={API_KEY}"
+        - name: "key=:api_key"
           description: "Your custom API key"
-        - name: "limit={NUMBER}"
+        - name: "limit=:number"
           description: "The limit of list entries - Max: 100"
           type: "int"
       notes:
         - "This is just an example note."
-    - route: "test/{USER}"
+    - route: "test/:user"
       parameters:
-        - name: "{USER}"
+        - name: ":user"
           description: "The name of the user"
       qs:
-        - name: "limit={NUMBER}"
+        - name: "limit=:number"
           description: "The limit of list entries"
           type: "int"
       notes:

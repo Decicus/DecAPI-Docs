@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>DecAPI Docs</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-h21C2fcDk/eFsW9sC9h0dhokq5pDinLNklTKoxIZRUn3+hvmgQSffLLQ4G4l2eEr" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <style media="screen">
+            body {
+                padding-bottom: 80px;
+            }
+
+            .fa-heart {
+                color: #be1931;
+            }
+
+            #back-to-top:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+
+            #description .list-group-item a {
+                font-weight: bold;
+            }
+        </style>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-56279022-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">DecAPI Docs</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://github.com/Decicus/DecAPI-Docs"><i class="fa fa-1x fa-book"></i> DecAPI Docs on GitHub</a></li>
+                    <li><a href="https://github.com/Decicus/DecAPI"><i class="fa fa-1x fa-github"></i> DecAPI on GitHub</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid" id="content">
+            <i class="hidden fa fa-1x" id="fa-template"></i>
+
+            <div class="hidden" id="base-template">
+                <div class="page-header">
+                    <h4><i class="fa fa-1x fa-fw"></i> <span></span></h4>
+                </div>
+            </div>
+
+
+            <div class="panel panel-success hidden" id="endpoint-template">
+                <div class="panel-heading">
+                    <h3 class="panel-title" id="title">
+                        <a href="#"><span id="base"></span><span id="route"></span></a>
+                    </h3>
+                </div>
+                <div class="panel-body" id="main-body">
+                    <p class="text-warning">Notes:</p>
+                    <ul id="description" class="list-group text-primary"></ul>
+                    <strong class="text-primary">Standard request:</strong>
+                    <pre id="http"><strong class="text-primary"></strong> <code></code></pre>
+
+                    <div class="hidden" id="bots">
+                        <!-- Nightbot -->
+                        <strong class="text-primary"><a href="https://beta.nightbot.tv/">Nightbot</a> command:</strong>
+                        <pre><code>$(urlfetch <span id="url"></span>)</code></pre>
+
+                        <!-- Ankhbot -->
+                        <strong class="text-primary"><a href="http://marcinswierzowski.com/Gallery/Projects/AnkhBotR2/">Ankhbot</a> command:</strong>
+                        <pre><code>$readapi(<span id="url"></span>)</code></pre>
+
+                        <!-- Deepbot -->
+                        <strong class="text-primary"><a href="https://deepbot.deep.sg/">Deepbot</a> command:</strong>
+                        <pre><code>@customapi@[<span id="url"></span>]</code></pre>
+
+                        <!-- PhantomBot -->
+                        <strong class="text-primary"><a href="https://phantombot.tv/">PhantomBot</a> command:</strong>
+                        <pre><code>(customapi <span id="url"></span>)</code></pre>
+
+                        <!-- Ohbot -->
+                        <strong class="text-primary"><a href="https://ohbot.3v.fi/">Ohbot</a> command:</strong>
+                        <pre><code>[customapi <span id="url"></span>]</code></pre>
+                    </div>
+
+                    <div id="routes" class="hidden">
+                        <p class="text-warning">Route parameters:</p>
+
+                        <table class="table table-bordered" id="route-body">
+                            <thead>
+                                <tr>
+                                    <th>Parameter name:</th>
+                                    <th>Description:</th>
+                                    <th>Required:</th>
+                                    <th>Type:</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                    <div id="qs" class="hidden">
+                        <p class="text-warning">Query string parameters:</p>
+
+                        <table class="table table-bordered table-striped table-hover" id="qs-body">
+                            <thead>
+                                <tr>
+                                    <th>Parameter name:</th>
+                                    <th>Description:</th>
+                                    <th>Required:</th>
+                                    <th>Type:</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-header">
+                <h1>DecAPI Docs</h1>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-1x fa-info"></i> General information</h3>
+                </div>
+                <div class="panel-body">
+                    These pages will house the documentation of endpoints under DecAPI.
+                    <br>
+                    This is currently <strong>work in progress</strong> and <strong>incomplete</strong>, which means that some endpoints lack documentation or may not be fully documented.
+                    <br>
+                    If you would like to contribute, take a look at the <a href="https://github.com/Decicus/DecAPI-Docs"><i class="fa fa-github fa-1x"></i> GitHub repository</a> for this documentation.
+                </div>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-1x fa-cog"></i> Default options &amp; results</h3>
+                </div>
+                <div class="panel-body">
+                    <p>These are options or results that will be the default, <strong>unless the notes about the endpoint mention otherwise</strong>.</p>
+                    <div class="list-group">
+                        <li class="list-group-item">The base URL for all endpoints is <code><span id="base_url"></span></code>.</li>
+                        <li class="list-group-item"><strong>HTTP</strong> requests are supported, but <strong>HTTPS (TLS 1.x)</strong> is encouraged.</li>
+                        <li class="list-group-item">The default HTTP method supported is <code>GET</code>.</li>
+                        <li class="list-group-item">Responses are typically <code>Content-Type: text/plain</code>.</li>
+                        <li class="list-group-item">For endpoints that mention JSON support without any further information, send <code>Accept: application/json</code> in the request header to receive the response as JSON instead.</li>
+                        <li class="list-group-item">Parameters are <strong>always</strong> required.</li>
+                        <li class="list-group-item">Query strings are <strong>never</strong> required.</li>
+                        <li class="list-group-item">Parameter/query string examples may be surrounded by "curly brackets", for example: <code>{USERNAME}</code>. These should be omitted in the actual requests.</li>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-primary" id="nondev">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><a href="#nondev"><i class="fa fa-1x fa-question"></i> Information for non-developers:</a></h3>
+                </div>
+                <div class="panel-body">
+                    This page is primarily meant for developers, but some of you might be looking at this to use it with bots or similar (in this case they're often called "custom APIs").
+                    <br>
+                    In that case you're probably really confused as to how to use this, so this is an attempt to explain a few things for some of you.
+                    <br>
+                    If you have any further questions after reading this, then feel free to contact me via the information on my <a href="https://blog.decicus.com/contact/">contact page</a>, and I will attempt to reply to the best of my ability.
+                    <br>
+
+                    <h4 id="nondev-qs"><strong><a href="#nondev-qs">Query string (aka "QS") parameters:</a></strong></h4>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            QS parameters are <i>normally</i> key/value pairs.
+                            <br>
+                            Example: <code>channel=decicus</code>.
+                        </li>
+                        <li class="list-group-item">
+                            QS parameters that do not have a value are specified with just the key name, but can <i>optionally</i> be specified with a value.
+                            <br>
+                            Example: <code>list</code> instead of <code>list=value</code>
+                        </li>
+                        <li class="list-group-item">
+                            To specify a QS parameter, you put a <code>?</code> after the main URL and specify your key or key/value.
+                            <br>
+                            Full URL example: <code><span id="base_url"></span>/twitch/uptime?channel=decicus</code>
+                        </li>
+                        <li class="list-group-item">
+                            If you wish to specify <strong>more than one</strong> QS parameter, place an <code>&amp;</code> between each key or key/value pair.
+                            <br>
+                            Full URL example: <code><span id="base_url"></span>/misc/currency?from=USD&amp;to=NOK&amp;value=25</code>
+                        </li>
+                        <li class="list-group-item">
+                            Because QS parameters are key/value pairs, their order <strong>does not matter</strong>. The two examples below achieve the same result.
+                            <br>
+                            Example #1: <code><span id="base_url"></span>/misc/currency?value=25&amp;from=USD&amp;to=NOK</code>
+                            <br>
+                            Example #2: <code><span id="base_url"></span>/misc/currency?from=USD&amp;to=NOK&amp;value=25</code>
+                        </li>
+                    </ul>
+
+                    <h4 id="nondev-routes"><strong><a href="#nondev-routes">Route parameters:</a></strong></h4>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            Route parameters are ordered values.
+                            <br>
+                            This means that in the URL, they have to be specified in the order that the placeholders mention them in.
+                            <br>
+                            For the examples below, I'll be using the <a href="#twitch_followage_CHANNEL_USER">/twitch/followage</a> endpoint. This endpoint is displayed as: <code><span id="base_url"></span>/twitch/followage/{CHANNEL}/{USER}</code>
+                            <br>
+                            Example #1: <code><span id="base_url"></span>/twitch/followage/xsmak/decicus</code>
+                            <br>
+                            Compared to (example #2): <code><span id="base_url"></span>/twitch/followage/decicus/xsmak</code>
+                            <br>
+                            <br>
+                            Notice how for the first example, <strong>"xsmak"</strong> is the <strong>first</strong> name and "decicus" is the <strong>second</strong> one. This means that "xsmak" is the channel to check, and "decicus" is the user.
+                            <br>
+                            When you change the positions of these names, you also change what they are treated as.
+                            <br>
+                            In example #2, while it looks very similar, "decicus" is the first parameter, meaning it's treated as the channel. While "xsmak" is the user, giving a completely different result.
+                        </li>
+                        <li class="list-group-item">
+                            Unlike QS parameters, they are <strong>NOT key/value pairs</strong>, and just the values.
+                            <br>
+                            This means that <code>{CHANNEL}</code> should just be <code>decicus</code> (example).
+                        </li>
+                    </ul>
+
+                    <h4 id="nondev-bots"><strong><a href="#nondev-bots">Bot usage:</a></strong></h4>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            If you have already looked at some of the API endpoints, you might have noticed that they mention a few bots and how to add the specific endpoint to these bots.
+                            <br>
+                            But each endpoint is displayed without any route/query string parameters, which means you have to add them yourself.
+                            <br>
+                            Using the information you read through earlier about these parameters, you just modify the URL.
+                            <br>
+                            I have done a few examples below, using the <a href="#twitch_followers_CHANNEL">/twitch/followers/{CHANNEL}</a> endpoint.
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Nightbot</strong> example: <code>$(urlfetch <span id="base_url"></span>/twitch/followers/decicus?count=5&amp;direction=desc)</code>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Ankhbot</strong> example: <code>$readapi(<span id="base_url"></span>/twitch/followers/decicus?count=5&amp;direction=desc)</code>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel panel-primary hidden" id="toc">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><a href="#toc"><i class="fa fa-1x fa-table"></i> Table of contents:</a></h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        The table of contents will only link you to the specific "categories", and not to any specific endpoints.
+                        <br>
+                        However, you can click the path/header for the endpoint and it will allow you to directly link to that section.
+                    </p>
+                    <div class="list-group"></div>
+                </div>
+            </div>
+
+            <div class="page-header">
+                <h1>Endpoints:</h1>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <div class="container-fluid">
+                <p class="navbar-text">Design &amp; layout heavily inspired by <a href="https://xpaw.me/" class="navbar-link">xPaw</a> from their <a href="https://lab.xpaw.me/steam_api_documentation.html" class="navbar-link">Steam Web API Documentation</a>. Special thanks <i class="fa fa-1x fa-heart"></i></p>
+
+                <span class="pull-right navbar-text" id="back-to-top" title="Back to top"><i class="fa fa-1x fa-arrow-circle-up"></i> Back to top</span>
+            </div>
+        </nav>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.7.0/js-yaml.min.js" integrity="sha256-8PanqYAVOGlOct+i65R+HqibK3KPsXINnrSfxN+Y/J0=" crossorigin="anonymous"></script>
+        <script src="./js/main.js" charset="utf-8"></script>
+    </body>
+</html>

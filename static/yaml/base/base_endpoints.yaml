@@ -6,9 +6,13 @@
   icon: "gamepad"
 - name: bttv
   title: "BetterTTV"
+  icon: "smile-o"
 - name: dayz
   title: "DayZ"
   icon: "gamepad"
+- name: ffz
+  title: "FrankerFaceZ"
+  icon: "smile-o"
 - name: lever
   title: "Lever"
 - name: math
@@ -16,9 +20,6 @@
   icon: "calculator"
 - name: misc
   title: "Miscellaneous"
-- name: r6
-  title: "Rainbow 6"
-  icon: "gamepad"
 - name: random
   title: "Random"
   icon: "random"

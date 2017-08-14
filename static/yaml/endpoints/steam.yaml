@@ -6,12 +6,12 @@ endpoints:
       notes:
         - 'Lists currencies available on Steam (3-letter code + full name)'
         - 'Send the header <code>Accept: application/json</code> to retrieve a JSON object.'
-    - route: "hours/{STEAM_ID}/{APP_ID}/readable"
+    - route: "hours/:steam_id/:app_id/readable"
       parameters:
-        - name: "{STEAM_ID}"
+        - name: ":steam_id"
           description: 'The Steam64 ID of the user. See: <a href="http://steamid.co/">steamid.co</a>'
           type: "int64"
-        - name: "{APP_ID}"
+        - name: ":app_id"
           description: 'The Steam application ID.'
           type: "int"
         - name: "readable"
@@ -26,9 +26,9 @@ endpoints:
       notes:
         - "Retrieves the player's time played in the specified game (app ID)."
         - 'The Steam API key can be retrieved here: <a href="https://steamcommunity.com/dev/">https://steamcommunity.com/dev/</a>'
-    - route: "server_ip/{STEAM_ID}"
+    - route: "server_ip/:steam_id"
       parameters:
-        - name: "{STEAM_ID}"
+        - name: ":steam_id"
           description: 'The Steam64 ID of the user. See: <a href="http://steamid.co/">steamid.co</a>'
           type: "int64"
       qs:

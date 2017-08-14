@@ -1,3 +1,4 @@
+/* eslint-disable */
 function scrollTo(section)
 {
     $('html, body').animate({

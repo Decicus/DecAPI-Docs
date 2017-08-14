@@ -3,31 +3,31 @@ endpoints:
     - route: ""
       notes:
         - 'Lists the currently available endpoints - <strong>Returns a JSON object</strong>'
-    - route: "accountage/{USER}"
+    - route: "accountage/:user"
       parameters:
-        - name: "{USER}"
+        - name: ":user"
           description: 'The name of the user to retrieve the account age for.'
       qs:
         - name: "precision"
           description: 'How precise the timestamp should be in terms of years, months, weeks, days, hours, minutes & seconds.- Default: <code>2</code>.'
       notes:
         - 'Retrieves the account age of the specified user.'
-    - route: "chat_rules/{CHANNEL}"
+    - route: "chat_rules/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: 'The channel name to retrieve the chat rules for.'
       notes:
         - 'Gives a "newlined" list of chat rules for the specified channel.'
-    - route: "clusters/{CHANNEL}"
+    - route: "clusters/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: 'The channel to check chat cluster for.'
       notes:
         - 'Retrieves the chat cluster name for the channel specified.'
         - 'Note that this is essentially useless from now on, as all requests will (most likely) return <code>aws</code>.'
-    - route: "creation/{USER}"
+    - route: "creation/:user"
       parameters:
-        - name: "{USER}"
+        - name: ":user"
           description: "The name of the user."
       notes:
         - Retrieves the creation date/time of the specified user.
@@ -42,39 +42,39 @@ endpoints:
           description: 'Specify the timezone that you want the date/time to be displayed as. <a href="https://secure.php.net/manual/en/timezones.php">Click here for valid timezones</a>'
           required: false
           type: "string"
-    - route: "emoteslots/{CHANNEL}"
+    - route: "emoteslots/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: 'The name of the channel. Will only be used for reference.'
       qs:
         - name: "subscribers"
           description: 'The amount of subscribers, used for calculating how many subscribers are needed to get the next amount of emote slots.'
           required: true
           type: "int"
-    - route: "followage/{CHANNEL}/{USER}"
+    - route: "followage/:channel/:user"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: 'The channel name that will be used as reference for checking the "follow age".'
-        - name: "{USER}"
+        - name: ":user"
           description: 'The name of the user that you wish to check the "follow age" for.'
       qs:
         - name: "precision"
           description: 'How precise the timestamp should be in terms of years, months, weeks, days, hours, minutes & seconds.- Default: <code>2</code>.'
           type: "int"
       notes:
-        - 'Gets the time difference (also known as the "follow age") between when <code>{USER}</code> followed <code>{CHANNEL}</code>'
-    - route: "followed/{CHANNEL}/{USER}"
+        - 'Gets the time difference (also known as the "follow age") between when <code>:user</code> followed <code>:channel</code>'
+    - route: "followed/:channel/:user"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: 'The channel name.'
-        - name: "{USER}"
+        - name: ":user"
           description: 'The name of the user.'
       notes:
         - 'Retrieves the date and time of when the user followed the channel.'
         - 'Example format: <code>Mar 13. 2016 - 07:31:29 PM (UTC)</code>'
-    - route: "followers/{CHANNEL}"
+    - route: "followers/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: 'The channel name of the channel you wish to retrieve followers for.'
       qs:
         - name: "count"
@@ -91,15 +91,15 @@ endpoints:
           type: "none"
       notes:
         - 'Lists the most recent follower(s) a channel has.'
-    - route: "game/{CHANNEL}"
+    - route: "game/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: "The channel name."
       notes:
         - 'Retrieves the current game the channel has been set to.'
-    - route: "help/{SEARCH}"
+    - route: "help/:search"
       parameters:
-        - name: "{SEARCH}"
+        - name: ":search"
           description: 'The string to search for in the titles of the help articles.'
       qs:
         - name: "list"
@@ -107,15 +107,15 @@ endpoints:
       notes:
         - 'Allows you to search help article titles and return the full title + URL.'
         - '<strong>JSON results are supported for most requests</strong> (search + help articles).'
-    - route: "highlight/{CHANNEL}"
+    - route: "highlight/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: 'The channel name.'
       notes:
         - 'Retrieves the latest "highlight" of the specified channel.'
-    - route: "hosts/{CHANNEL}"
+    - route: "hosts/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: 'The channel name.'
       qs:
         - name: "display_name"
@@ -129,34 +129,34 @@ endpoints:
       notes:
         - 'Returns a list of channel names hosting the specified channel.'
         - '<strong>JSON results are returned by default. See <code>list/implode</code> query string.</strong>.'
-    - route: "hostscount/{CHANNEL}"
+    - route: "hostscount/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: 'The channel name.'
       notes:
         - 'This will return the <strong>channel count</strong> of how many channels are currently hosting the <i>specified channel</i>.'
-    - route: "id/{USER}"
+    - route: "id/:user"
       parameters:
-        - name: "{USER}"
+        - name: ":user"
           description: 'The name of the user.'
       notes:
         - 'Returns the Twitch user ID of the specified user (if valid).'
     - route: "ingests"
       notes:
         - 'Returns a formatted list of available ingest servers.'
-    - route: "multi/{STREAMS}"
+    - route: "multi/:streams"
       parameters:
-        - name: "{STREAMS}"
+        - name: ":streams"
           description: 'A space-separated list of streams to generate a multi link with.'
       qs:
         - name: "streams"
-          description: 'Can be used as an alternative to the <code>{STREAMS}</code> route parameter.'
+          description: 'Can be used as an alternative to the <code>:streams</code> route parameter.'
         - name: "service"
           description: 'Chooses which multistream service you want to use. Specify something bogus for this parameter to get a list of available services. Default: <code>multistream</code>.'
       notes:
         - 'Generates a "multi stream" URL based on the channel names passed to it.'
         - 'While the <code>streams</code> <strong>query</strong> parameter is optional, you have to specify the streams as <strong>either</strong> a <strong>route</strong> parameter or as the <code>streams</code> <strong>query</strong> parameter.'
-    - route: "random_sub"
+    - route: "random_sub/:channel"
       qs:
         - name: "token"
           required: true
@@ -171,9 +171,9 @@ endpoints:
       notes:
         - 'Retrieves a random subscriber from the channel, based on their OAuth (authentication) token.'
         - 'If you need to retrieve an OAuth token, you can use <a href="https://decicus.github.io/twitch-oauth-token/#channel_subscriptions">another project of mine</a>.'
-    - route: "random_user/{CHANNEL}"
+    - route: "random_user/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: "The channel to retrieve the logged in users from."
       qs:
         - name: "exclude"
@@ -182,33 +182,33 @@ endpoints:
           description: 'A comma-separated list of <strong>groups</strong> you wish to ignore. These groups are the specific user types. Currently that means the following: <code>moderators, staff, admins, global_mods, viewers</code>.'
       notes:
         - 'Retrieves a list of users that are <strong>currently logged into chat</strong> in the specified channel, then picks one of them randomly.'
-    - route: "subcount/{CHANNEL}"
+    - route: "subcount/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: "The channel name."
       notes:
         - 'Retrieves the subscriber count of the specified channel.'
-        - '<strong>This only works for channels that have authenticated and authorized this app</strong>.'
-    - route: "subscriber_emotes/{CHANNEL}"
+        - '<strong>This only works for channels that have <a href="{{baseUrl}}/auth/twitch?scopes=user_read+channel_subscriptions&redirect=subcount" target="_blank" rel="noopener noreferrer">authenticated and authorized</a> this app</strong>.'
+    - route: "subscriber_emotes/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: 'The channel name.'
       notes:
         - 'Retrieves the subscriber emotes for the specified channels and lists them (space-separated).'
         - '<strong>JSON results are supported</strong>.'
-    - route: "status/{CHANNEL}"
+    - route: "status/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: 'The channel name.'
       notes:
         - 'Retrieves the current title set on the channel.'
-    - route: "team_members/{TEAM_ID}"
+    - route: "team_members/:team_id"
       parameters:
-        - name: "{TEAM_ID}"
+        - name: ":team_id"
           description: 'The team identifier.'
       qs:
         - name: "sort"
-          description: 'If this is specified, it will sort the members of the team alphabetically. &mdash; Recommended for a consistent list between requests.'
+          description: 'If this is specified, it will sort the members of the team alphabetically.<br><strong>Recommended for a consistent list between requests.</strong>'
         - name: "text"
           description: 'If this is specified, the list will be returned in plaintext compared to a JSON array.'
         - name: "implode"
@@ -219,27 +219,27 @@ endpoints:
         - 'Retrieves the members of a specified team.'
         - 'The team identifier is the identifier used in URLs. Example: The team "New Game Plus" has the identifier "newgameplus".'
         - '<strong>JSON results are returned by default. See <code>text</code> or <code>implode</code> query string.</strong>.'
-    - route: "title/{CHANNEL}"
+    - route: "title/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: "The channel name."
       notes:
         - 'Works identical to <code>status</code> - Retrieves the current title set on the channel.'
-    - route: "total_views/{CHANNEL}"
+    - route: "total_views/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: "The channel name."
       notes:
         - 'Displays the "total views" a channel has.'
-    - route: "upload/{CHANNEL}"
+    - route: "upload/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: "The channel name."
       notes:
         - 'Returns the latest uploaded video (title + URL) for the specified channel.'
-    - route: "uptime/{CHANNEL}"
+    - route: "uptime/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: "The channel name."
       qs:
         - name: "precision"
@@ -247,9 +247,9 @@ endpoints:
       notes:
         - 'Returns how long the specified channel has been live for the current broadcast.'
         - '<strong>Rate-limited:</strong> This is rate-limited to 100 requests per minute.'
-    - route: "viewercount/{CHANNEL}"
+    - route: "viewercount/:channel"
       parameters:
-        - name: "{CHANNEL}"
+        - name: ":channel"
           description: "The channel name."
       notes:
         - 'Returns how many viewers the channel has, if they are currently streaming.'

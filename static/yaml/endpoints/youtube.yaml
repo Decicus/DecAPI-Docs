@@ -12,7 +12,7 @@ endpoints:
       notes:
         - 'Retrieves the latest video uploaded to the specified channel and returns the title + URL for it.'
         - 'Either <code>user</code> or <code>id</code> has to be specified. If both are specified, <code>id</code> will be used.'
-        - 'If a YouTube channel URL is in the <code>/c/decicus</code> format, you should use <code>id</code>. One method of retrieving your channel ID is by visiting <a href="https://www.youtube.com/account_advanced" target="_blank">https://www.youtube.com/account_advanced</a> and copying the "YouTube channel ID". See <a href="./img/yt_latestvideo1.png" target="_blank">this screenshot</a> for reference.'
+        - 'If a YouTube channel URL is in the <code>/c/decicus</code> format, you should use <code>id</code>. One method of retrieving your channel ID is by visiting <a href="https://www.youtube.com/account_advanced" target="_blank">https://www.youtube.com/account_advanced</a> and copying the "YouTube channel ID". See <a href="/static/img/yt_latestvideo1.png" target="_blank">this screenshot</a> for reference.'
     - route: "latest_pl_video"
       qs:
         - name: "id"
@@ -20,11 +20,11 @@ endpoints:
           type: "string"
           required: true
       notes:
-        - '<strong>Important:</strong> Because of a bit of a limitation with the YouTube API, the owner of the playlist has to go into the "Playlist settings" and order the playlist by "Date added/published (newest)" for this to work correctly. <br> <a href="./img/yt_plvideo1.png" target="_blank"><i class="fa fa-1x fa-image"></i> Screenshot</a>'
+        - '<strong>Important:</strong> Because of a bit of a limitation with the YouTube API, the owner of the playlist has to go into the "Playlist settings" and order the playlist by "Date added/published (newest)" for this to work correctly. <br> <a href="/static/img/yt_plvideo1.png" target="_blank"><i class="fa fa-1x fa-image"></i> Screenshot</a>'
         - 'Retrieves the latest video added to a <strong>playlist</strong>.'
-    - route: "videoid/{SEARCH}"
+    - route: "videoid/:search"
       parameters:
-        - name: "{SEARCH}"
+        - name: ":search"
           description: 'The search string.'
       qs:
         - name: "show_url"

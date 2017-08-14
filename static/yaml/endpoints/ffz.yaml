@@ -1,0 +1,11 @@
+base_path: "/ffz"
+endpoints:
+    - route: "emotes/:channel"
+      parameters:
+        - name: ":channel"
+          description: "The channel name of the channel to retrieve FrankerFaceZ emotes from."
+      qs:
+        - name: 'separator'
+          description: "The character(s) that should separate each emote. By default it's a single <code>space</code> character."
+      notes:
+        - "Returns a list (space-separated by default) of FrankerFaceZ channel emotes available in the channel."

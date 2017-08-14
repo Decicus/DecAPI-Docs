@@ -1,16 +1,16 @@
 base_path: "/random"
 endpoints:
-    - route: "number/{MIN}/{MAX}"
+    - route: "number/:min/:max"
       parameters:
-        - name: "{MIN}"
+        - name: ":min"
           description: "The minimum number the result can be - Default: 0."
           type: "int"
-        - name: "{MAX}"
+        - name: ":max"
           description: "The maximum number the result can be - Default: 100."
           type: "int"
       qs:
         - name: "format"
           description: 'If specified, number will be formatted using the default options of <code><a href="https://secure.php.net/manual/en/function.number-format.php">number_format()</a></code>'
       notes:
-        - 'Picks a random number between {MIN} and {MAX}.'
+        - 'Picks a random number between :min and :max.'
         - 'This only uses <code><a href="https://secure.php.net/manual/en/function.rand.php">rand()</a></code> and should not be used if you want a "truly random" number.'

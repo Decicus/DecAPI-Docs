@@ -1,8 +1,8 @@
 base_path: "/twitter"
 endpoints:
-    - route: "latest"
+    - route: "latest/:user"
       parameters:
-        - name: "{USER}"
+        - name: ":user"
           description: 'The name of the user.'
       qs:
         - name: "no_rts"
