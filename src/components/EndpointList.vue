@@ -202,6 +202,14 @@
                         if (this.e[name] !== undefined) {
                             this.e[name] = end[name];
                         }
+
+                        if (!end.qs || end.qs.length === 0) {
+                            this.e.qs = [];
+                        }
+
+                        if (!end.parameters || end.parameters.length === 0) {
+                            this.e.parameters = [];
+                        }
                     });
 
                     this.$router.push({
