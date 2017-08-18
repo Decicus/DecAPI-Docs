@@ -246,7 +246,7 @@
                         return;
                     }
 
-                    if (end.route === '' && route !== '/' && end.route !== route) {
+                    if ((end.route === '' && route !== '/') || end.route !== route) {
                         return;
                     }
 
