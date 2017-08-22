@@ -112,7 +112,7 @@
                                     <tr v-for="p in e.qs">
                                         <th>{{ p.name }}</th>
 
-                                        <td v-if="Array.isArray(p.description)">{{ p.description.join("<br>") }}</td>
+                                        <td v-if="Array.isArray(p.description)" v-html="p.description.join('<br>')"></td>
                                         <td v-else v-html="p.description"></td>
 
                                         <td><i class="fa fa-1x" v-bind:class="p.required ? 'fa-check' : 'fa-times'"></i></td>
