@@ -156,7 +156,7 @@ endpoints:
       notes:
         - 'Generates a "multi stream" URL based on the channel names passed to it.'
         - 'While the <code>streams</code> <strong>query</strong> parameter is optional, you have to specify the streams as <strong>either</strong> a <strong>route</strong> parameter or as the <code>streams</code> <strong>query</strong> parameter.'
-    - route: "random_sub/:channel"
+    - route: "random_sub"
       qs:
         - name: "token"
           required: true
