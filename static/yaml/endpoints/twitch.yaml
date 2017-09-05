@@ -193,6 +193,9 @@ endpoints:
       parameters:
         - name: ":channel"
           description: "The channel name."
+      qs:
+        - name: "include"
+          description: "A comma-separated list of extras to include. Currently only supports <code>next_level</code>, which will include the amount of subpoints needed to unlock the new level of emoteslots."
       notes:
         - 'Retrieves the amount of subscriber points for the specified channel.'
         - '<strong>This only works for channels that have <a href="{{baseUrl}}/auth/twitch?scopes=user_read+channel_subscriptions&redirect=subpoints" target="_blank" rel="noopener noreferrer">authenticated and authorized</a> this app</strong> (if the channel already uses subcount, this works already).'
