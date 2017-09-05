@@ -152,9 +152,9 @@
 
     const $ = jQuery;
     const bots = {
-        ankhbot: false,
+        ankhbot: true,
         deepbot: false,
-        nightbot: false,
+        nightbot: true,
         ohbot: false,
         phantombot: false,
     };
