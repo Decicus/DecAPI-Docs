@@ -12,6 +12,13 @@ endpoints:
           description: 'How precise the timestamp should be in terms of years, months, weeks, days, hours, minutes & seconds.- Default: <code>2</code>.'
       notes:
         - 'Retrieves the account age of the specified user.'
+    - route: "avatar/:user"
+      parameters:
+        - name: ':user'
+          description: 'The name of the user to retrieve the avatar for.'
+      notes:
+        - 'Retrieves the URL of the avatar for the specified user'
+        - 'Will fallback to the default Twitch avatar if the user does not have an avatar.'
     - route: "chat_rules/:channel"
       parameters:
         - name: ":channel"
