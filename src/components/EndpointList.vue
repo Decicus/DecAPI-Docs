@@ -36,6 +36,7 @@
                         </template>
 
                         <h4 class="text-muted">Standard request:</h4>
+                        <p>Please remember that the <code>:</code> in front of each parameter is just a placeholder and should not be included in the request.</p>
                         <pre><strong class="text-primary">{{ e.method || 'GET' }}</strong> <code>{{ config.baseUrl + route }}</code></pre>
 
                         <div id="bots" v-if="e.bots !== false">
