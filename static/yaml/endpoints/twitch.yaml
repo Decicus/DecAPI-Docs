@@ -189,6 +189,21 @@ endpoints:
           description: 'A comma-separated list of <strong>groups</strong> you wish to ignore. These groups are the specific user types. Currently that means the following: <code>moderators, staff, admins, global_mods, viewers</code>.'
       notes:
         - 'Retrieves a list of users that are <strong>currently logged into chat</strong> in the specified channel, then picks one of them randomly.'
+    - route: "subage/:channel/:user"
+      parameters:
+        - name: ":channel"
+          description: "The channel the user is subscribed to."
+        - name: ":user"
+          description: "The user subscribed to the channel."
+      qs:
+        - name: "precision"
+          description: 'How precise the timestamp should be in terms of years, months, weeks, days, hours, minutes & seconds.- Default: <code>2</code>.'
+          type: "int"
+      notes:
+        - "Returns the time since the subscription was started."
+        - '<span class="text text-warning">Subscription age" in this case is a pretty loose term, as there is something called a subscription anniversary that is typically posted in chat (e.g. "Decicus has been subscribed for 21 months in a row!"). This is <strong>not the same</strong> as the anniversary.</span>'
+        - '<span class="text text-warning">This endpoint only counts the time since the subscription payments started. So if someone changes their payment information, this will only count the time since they updated their payment information.</span>'
+        - '<span class="text text-warning">Another good example is Twitch Prime subscriptions: If you have a user consistently subscribing to you with their Twitch Prime every month, this endpoint will reset every single month for that specific user.</span>'
     - route: "subcount/:channel"
       parameters:
         - name: ":channel"
