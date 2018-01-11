@@ -134,9 +134,9 @@
                     However, you can click the path/header for the endpoint and it will allow you to directly link to that section.
                 </p>
                 <div class="list-group">
-                    <a v-for="base in baseEndpoints" v-bind:href="'#' + base.name" class="list-group-item">
+                    <router-link v-for="base in baseEndpoints" v-bind:to="base.name" v-bind:key="base.name" class="list-group-item">
                         <i class="fa fa-1x fa-fw" v-bind:class="'fa-' + (base.icon ? base.icon : 'info')"></i> {{ base.title }}
-                    </a>
+                    </router-link>
                 </div>
             </div>
         </div>
