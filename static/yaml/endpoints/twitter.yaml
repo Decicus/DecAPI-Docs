@@ -7,7 +7,8 @@ endpoints:
       qs:
         - name: "precision"
           description: "How precise the timestamp should be in terms of years, months, weeks, days, hours, minutes & seconds.- Default: <code>2</code>."
-      notes: 'Retrieves the account age of the specified Twitter user.'
+      notes:
+        - 'Retrieves the account age of the specified Twitter user.'
     - route: "latest/:user"
       parameters:
         - name: ":user"
