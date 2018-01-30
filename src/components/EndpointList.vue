@@ -48,7 +48,7 @@
 
                             <template v-if="bots.ankhbot">
                                 <!-- Ankhbot -->
-                                <strong class="text-primary"><a href="http://marcinswierzowski.com/Gallery/Projects/AnkhBotR2/">Ankhbot</a> command:</strong>
+                                <strong class="text-primary"><a href="https://streamlabs.com/chatbot">Streamlabs Chatbot (formerly Ankhbot)</a> command:</strong>
                                 <pre><code>$readapi({{ e.url }})</code></pre>
                             </template>
 
