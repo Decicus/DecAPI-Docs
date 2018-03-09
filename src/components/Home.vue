@@ -13,9 +13,9 @@
             </div>
         </div>
 
-        <div class="panel panel-primary">
+        <div class="panel panel-primary" id="default-options">
             <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-1x fa-cog"></i> Default options &amp; results</h3>
+                <h3 class="panel-title"><a href="#default-options"><i class="fa fa-1x fa-cog"></i> Default options &amp; results</a></h3>
             </div>
             <div class="panel-body">
                 <p>These are options or results that will be the default, <strong>unless the notes about the endpoint mention otherwise</strong>.</p>
@@ -32,9 +32,33 @@
             </div>
         </div>
 
+        <div class="panel panel-primary" id="rate-limits">
+            <div class="panel-heading">
+                <h3 class="panel-title"><a href="#rate-limits"><i class="fa fa-1x fa-cog"></i> Rate limits</a></h3>
+            </div>
+
+            <div class="panel-body">
+                For the <strong>most part</strong> requests to DecAPI are not rate limited. However, there are a few exceptions to prevent abuse of the service.
+                <br>
+                If your application requires more requests than what is listed below, I suggest you look into using the API of the service directly instead.
+
+                <h3>Currently rate limited routes:</h3>
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <h4 class="list-group-item-heading"><a href="#/twitch"><code>/twitch/*</code> routes:</a></h4>
+                        <p class="list-group-item-text">
+                            Currently rate limited to <strong>100 requests per 60 seconds</strong>.
+                            <br>
+                            <a href="https://dev.twitch.tv/docs">Twitch API documentation</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="panel panel-primary" id="nondev">
             <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-1x fa-question"></i> Information for non-developers:</h3>
+                <h3 class="panel-title"><a href="#nondev"><i class="fa fa-1x fa-question"></i> Information for non-developers:</a></h3>
             </div>
             <div class="panel-body">
                 This page is primarily meant for developers, but some of you might be looking at this to use it with bots or similar (in this case they're often called "custom APIs").
@@ -125,7 +149,7 @@
 
         <div class="panel panel-primary" id="toc" v-if="baseEndpoints.length > 0">
             <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-1x fa-table"></i> Table of contents:</h3>
+                <h3 class="panel-title"><a href="#toc"><i class="fa fa-1x fa-table"></i> Table of contents:</a></h3>
             </div>
             <div class="panel-body">
                 <p>

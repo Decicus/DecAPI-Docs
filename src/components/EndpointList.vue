@@ -10,7 +10,7 @@
                 </button>
 
                 <ul class="dropdown-menu">
-                    <li v-for="bot in Object.keys(bots)">
+                    <li v-for="bot in Object.keys(bots)" :key="bot">
                         <a v-on:click="bots[bot] = !bots[bot]; updateBotStore()">
                             <input type="checkbox" v-bind:checked="bots[bot]"> {{ botNames[bot] }}
                         </a>
@@ -30,7 +30,7 @@
                     <div class="modal-body">
                         <template v-if="e.notes && e.notes.length > 0">
                             <h4 class="text-muted">Notes:</h4>
-                            <ul class="list-group text-primary" v-for="note in e.notes" id="notes">
+                            <ul class="list-group text-primary" v-for="note in e.notes" id="notes" :key="note">
                                 <li class="list-group-item" v-html="note.replace(/{{baseUrl}}/g, config.baseUrl)"></li>
                             </ul>
                         </template>
@@ -84,7 +84,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="p in e.parameters">
+                                    <tr v-for="p in e.parameters" :key="p">
                                         <th>{{ p.name }}</th>
 
                                         <td v-if="Array.isArray(p.description)" v-html="p.description.join('<br>')"></td>
@@ -110,7 +110,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="p in e.qs">
+                                    <tr v-for="p in e.qs" :key="p">
                                         <th>{{ p.name }}</th>
 
                                         <td v-if="Array.isArray(p.description)" v-html="p.description.join('<br>')"></td>
@@ -132,7 +132,7 @@
         </div>
 
         <div class="list-group" v-if="endpoints.length > 0">
-            <a class="list-group-item" v-for="endpoint in endpoints" v-on:click="openModal(endpoint.route)">
+            <a class="list-group-item" v-for="endpoint in endpoints" v-on:click="openModal(endpoint.route)" :key="endpoint">
                 {{ basePath }}/{{ endpoint.route }}
             </a>
         </div>

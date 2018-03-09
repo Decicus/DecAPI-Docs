@@ -9,6 +9,7 @@ Vue.use(Router);
 Vue.use(VueResource);
 
 const router = new Router({
+    mode: 'history',
     routes: [
         {
             path: '/',
