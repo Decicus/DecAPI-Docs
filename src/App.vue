@@ -3,11 +3,11 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#/">DecAPI Docs</a>
+                    <a class="navbar-brand" href="/">DecAPI Docs</a>
                 </div>
 
                 <ul class="nav navbar-nav">
-                    <li v-bind:class="{ active: this.$route.name === 'Home' }"><a href="#/"><i class="fa fa-1x fa-home"></i> Home</a></li>
+                    <li v-bind:class="{ active: this.$route.name === 'Home' }"><a href="/"><i class="fa fa-1x fa-home"></i> Home</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
