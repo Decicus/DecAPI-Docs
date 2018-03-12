@@ -41,6 +41,8 @@
                 For the <strong>most part</strong> requests to DecAPI are not rate limited. However, there are a few exceptions to prevent abuse of the service.
                 <br>
                 If your application requires more requests than what is listed below, I suggest you look into using the API of the service directly instead.
+                <br>
+                Rate limits are applied based on the IP address the request originates from.
 
                 <h3>Currently rate limited routes:</h3>
                 <div class="list-group">
