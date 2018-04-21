@@ -24,6 +24,7 @@ endpoints:
         - name: "key"
           description: "A custom Steam API key. In some cases this is necessary to retrieve profile information about private/friends-only profiles."
       notes:
+        - '<span class="text-warning">Please keep in mind, that due to a recent change (as of April 2018) with Steam, game information is now set to "Friends-only" <strong>by default</strong>.<br>A workaround is to make the profile owner set their game privacy to "Public", which can be done by visiting <a href="https://steamcommunity.com/my/profile" target="_blank" rel="noopener noreferrer">https://steamcommunity.com/my/profile</a> and clicking "Edit profile" -> "My privacy settings". (<a href="https://i.decic.us/2018-04-14_1lmkyr.png" target="_blank" rel="noopener noreferrer">Screenshot for reference</a>)</span>'
         - "Retrieves the player's time played in the specified game (app ID)."
         - 'The Steam API key can be retrieved here: <a href="https://steamcommunity.com/dev/">https://steamcommunity.com/dev/</a>'
     - route: "server_ip/:steam_id"
