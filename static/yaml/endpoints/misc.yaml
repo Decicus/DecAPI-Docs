@@ -35,3 +35,4 @@ endpoints:
       notes:
         - 'Returns a list of supported timezones.'
         - 'Supports JSON responses.'
+      bots: false
