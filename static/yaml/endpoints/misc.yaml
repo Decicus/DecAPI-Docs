@@ -31,3 +31,7 @@ endpoints:
           description: 'The <a href="https://secure.php.net/manual/en/function.date.php#refsect1-function.date-parameters">PHP date()</a> format you want the time to be displayed in. - Default: <code>h:i:s A T</code>.'
       notes:
         - 'Displays the current time in the specified timezone.'
+    - route: "timezones"
+      notes:
+        - 'Returns a list of supported timezones.'
+        - 'Supports JSON responses.'
