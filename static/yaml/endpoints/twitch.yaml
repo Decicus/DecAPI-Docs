@@ -155,6 +155,21 @@ endpoints:
     - route: "ingests"
       notes:
         - 'Returns a formatted list of available ingest servers.'
+    - route: "latest_sub/:channel"
+      qs:
+        - name: "token"
+          description: 'The OAuth token belonging to the channel owner with the <code>channel_subscriptions</code> scope.'
+        - name: "count"
+          description: "The amount of subscribers to retrieve - Default: <code>1</code>."
+          type: "int"
+        - name: "field"
+          description: 'What field from the user object to retrieve. See <a href="https://dev.twitch.tv/docs/v5/reference/channels/#get-channel-subscribers">Twitch API docs</a> to see which ones are available. Default: <code>name</code>.'
+        - name: "separator"
+          description: 'What character(s) should separate each subscriber value from each other. Default: <code>, </code>.'
+      notes:
+        - 'Retrieves the latest subscriber(s) from the channel, based on their OAuth (authentication) token, or by logging in (similar to subcount).'
+        - 'If you wish to retrieve an OAuth token, you can use <a href="https://decicus.github.io/twitch-oauth-token/#channel_subscriptions">another project of mine</a>.'
+        - 'The <code>:channel</code> parameter is optional if a <code>token</code> is specified.'
     - route: "multi/:streams"
       parameters:
         - name: ":streams"
@@ -167,10 +182,9 @@ endpoints:
       notes:
         - 'Generates a "multi stream" URL based on the channel names passed to it.'
         - 'While the <code>streams</code> <strong>query</strong> parameter is optional, you have to specify the streams as <strong>either</strong> a <strong>route</strong> parameter or as the <code>streams</code> <strong>query</strong> parameter.'
-    - route: "random_sub"
+    - route: "random_sub/:channel"
       qs:
         - name: "token"
-          required: true
           description: 'The OAuth token belonging to the channel owner with the <code>channel_subscriptions</code> scope.'
         - name: "count"
           description: "The amount of subscribers to retrieve - Default: <code>1</code>."
@@ -180,8 +194,9 @@ endpoints:
         - name: "separator"
           description: 'What character(s) should separate each subscriber value from each other. Default: <code>, </code>.'
       notes:
-        - 'Retrieves a random subscriber from the channel, based on their OAuth (authentication) token.'
-        - 'If you need to retrieve an OAuth token, you can use <a href="https://decicus.github.io/twitch-oauth-token/#channel_subscriptions">another project of mine</a>.'
+        - 'Retrieves a random subscriber from the channel, based on their OAuth (authentication) token, or by logging in (similar to subcount).'
+        - 'If you wish to retrieve an OAuth token, you can use <a href="https://decicus.github.io/twitch-oauth-token/#channel_subscriptions">another project of mine</a>.'
+        - 'The <code>:channel</code> parameter is optional if a <code>token</code> is specified.'
     - route: "random_user/:channel"
       parameters:
         - name: ":channel"
