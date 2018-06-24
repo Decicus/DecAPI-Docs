@@ -10,6 +10,8 @@
                 This is currently <strong>work in progress</strong> and <strong>incomplete</strong>, which means that some endpoints lack documentation or may not be fully documented.
                 <br>
                 If you would like to contribute, take a look at the <a href="https://github.com/Decicus/DecAPI-Docs"><i class="fa fa-github fa-1x"></i> GitHub repository</a> for this documentation.
+                <br>
+                DecAPI also has a <a href="https://links.decapi.me/discord">Discord server</a> if you're interested in joining.
             </div>
         </div>
 
@@ -47,7 +49,7 @@
                 <h3>Currently rate limited routes:</h3>
                 <div class="list-group">
                     <div class="list-group-item">
-                        <h4 class="list-group-item-heading"><a href="#/twitch"><code>/twitch/*</code> routes:</a></h4>
+                        <h4 class="list-group-item-heading"><a href="/twitch"><code>/twitch/*</code> routes:</a></h4>
                         <p class="list-group-item-text">
                             Currently rate limited to <strong>100 requests per 60 seconds</strong>.
                             <br>
