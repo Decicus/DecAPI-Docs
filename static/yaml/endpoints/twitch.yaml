@@ -101,8 +101,34 @@ endpoints:
         - name: "num"
           description: "Prefixes each follower with a number."
           type: "none"
+        - name: "cursor"
+          description: "Used in offsetting as an alternative to <code>offset</code>."
+          type: "string"
       notes:
         - 'Lists the most recent follower(s) a channel has.'
+        - 'Supports JSON responses via the header <code>Accept: application/json</code>'
+    - route: "following/:user"
+      parameters:
+        - name: ":user"
+          description: 'The username of the user you wanna get the "following" channels from.'
+      qs:
+        - name: "direction"
+          description: 'The direction to retrieve channels in. <code>desc</code> or <code>desc</code>. Default: <code>desc</code>.'
+          type: "string"
+        - name: "limit"
+          description: 'Specifies the max amount of channels listed per request. Minimum: 1. Maximum: 100. Default: 25.'
+          type: "int"
+        - name: "offset"
+          description: 'Specifies the amount to offset by in terms of pagination. Default: 0.'
+          type: "int"
+        - name: "separator"
+          description: '<strong>Not applicable</strong> for JSON responses &mdash; Specifies the separator used when listing channel names. Default: <code>, </code>.'
+          type: "string"
+        - name: "fields"
+          description: '<strong>Only applicable</strong> for JSON responses &mdash; Comma-separated list of fields to include from the <code>channel</code> object from each followed channel. <a href="https://dev.twitch.tv/docs/v5/reference/users/#get-user-follows">Click here for a reference</a>. Default: <code>name,_id</code>'
+          type: "string"
+        - name: "field"
+          description: '<strong>Not applicable</strong> for JSON responses &mdash; Name of field to use when listing channels in a text response. <a href="https://dev.twitch.tv/docs/v5/reference/users/#get-user-follows">Click here for a reference</a>. Default: <code>name</code>.'
     - route: "game/:channel"
       parameters:
         - name: ":channel"
