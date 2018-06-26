@@ -1,25 +1,39 @@
 <template>
     <div id="app">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-1x fa-info"></i> General information</h3>
-            </div>
-            <div class="panel-body">
+        <div class="card">
+            <h5 class="card-header bg-primary text-white">
+                <i class="fas fa-info"></i> General information
+            </h5>
+            <div class="card-body">
                 These pages will house the documentation of endpoints under DecAPI.
                 <br>
                 This is currently <strong>work in progress</strong> and <strong>incomplete</strong>, which means that some endpoints lack documentation or may not be fully documented.
                 <br>
-                If you would like to contribute, take a look at the <a href="https://github.com/Decicus/DecAPI-Docs"><i class="fa fa-github fa-1x"></i> GitHub repository</a> for this documentation.
-                <br>
-                DecAPI also has a <a href="https://links.decapi.me/discord">Discord server</a> if you're interested in joining.
+                If you would like to contribute, take a look at the <a href="https://github.com/Decicus/DecAPI-Docs"><i class="fab fa-github"></i> GitHub repository</a> for this documentation.
             </div>
         </div>
 
-        <div class="panel panel-primary" id="default-options">
-            <div class="panel-heading">
-                <h3 class="panel-title"><a href="#default-options"><i class="fa fa-1x fa-cog"></i> Default options &amp; results</a></h3>
+        <br>
+
+        <div class="card" id="general-questions">
+            <a href="#general-questions">
+                <h5 class="card-header bg-primary text-white"><i class="fas fa-question"></i> General questions/support</h5>
+            </a>
+            <div class="card-body">
+                If you have any general questions or need some help, DecAPI now has a <a href="https://links.decapi.me/discord">Discord server</a> that you could join.
+                <br>
+                <br>
+                For other ways of contact, please take a look at <a href="/contact">the contact page</a>.
             </div>
-            <div class="panel-body">
+        </div>
+
+        <br>
+
+        <div class="card" id="default-options">
+            <a href="#default-options">
+                <h5 class="card-header bg-primary text-white"><i class="fa fa-1x fa-cog"></i> Default options &amp; results</h5>
+            </a>
+            <div class="card-body">
                 <p>These are options or results that will be the default, <strong>unless the notes about the endpoint mention otherwise</strong>.</p>
                 <div class="list-group">
                     <li class="list-group-item">The base URL for all endpoints is <code>{{ baseUrl }}</code>.</li>
@@ -34,22 +48,24 @@
             </div>
         </div>
 
-        <div class="panel panel-primary" id="rate-limits">
-            <div class="panel-heading">
-                <h3 class="panel-title"><a href="#rate-limits"><i class="fa fa-1x fa-cog"></i> Rate limits</a></h3>
-            </div>
+        <br>
 
-            <div class="panel-body">
+        <div class="card" id="rate-limits">
+            <a href="#rate-limits">
+                <h5 class="card-header bg-primary text-white"><i class="fa fa-1x fa-cog"></i> Rate limits</h5>
+            </a>
+
+            <div class="card-body">
                 For the <strong>most part</strong> requests to DecAPI are not rate limited. However, there are a few exceptions to prevent abuse of the service.
                 <br>
                 If your application requires more requests than what is listed below, I suggest you look into using the API of the service directly instead.
                 <br>
                 Rate limits are applied based on the IP address the request originates from.
 
-                <h3>Currently rate limited routes:</h3>
+                <h5>Currently rate limited routes:</h5>
                 <div class="list-group">
                     <div class="list-group-item">
-                        <h4 class="list-group-item-heading"><a href="/twitch"><code>/twitch/*</code> routes:</a></h4>
+                        <h5 class="list-group-item-heading"><a href="/twitch"><code>/twitch/*</code> routes:</a></h5>
                         <p class="list-group-item-text">
                             Currently rate limited to <strong>100 requests per 60 seconds</strong>.
                             <br>
@@ -60,19 +76,21 @@
             </div>
         </div>
 
-        <div class="panel panel-primary" id="nondev">
-            <div class="panel-heading">
-                <h3 class="panel-title"><a href="#nondev"><i class="fa fa-1x fa-question"></i> Information for non-developers:</a></h3>
-            </div>
-            <div class="panel-body">
+        <br>
+
+        <div class="card" id="nondev">
+            <a href="#nondev">
+                <h5 class="card-header bg-primary text-white"><i class="fa fa-1x fa-question"></i> Information for non-developers:</h5>
+            </a>
+            <div class="card-body">
                 This page is primarily meant for developers, but some of you might be looking at this to use it with bots or similar (in this case they're often called "custom APIs").
                 <br>
                 In that case you're probably really confused as to how to use this, so this is an attempt to explain a few things for some of you.
                 <br>
-                If you have any further questions after reading this, then feel free to contact me via the information on my <a href="https://blog.decicus.com/contact/">contact page</a>, and I will attempt to reply to the best of my ability.
+                If you have any further questions after reading this, then feel free to contact me via the information on my <a href="/contact">contact page</a>, and I will attempt to reply to the best of my ability.
                 <br>
 
-                <h4 id="nondev-qs"><strong>Query string (aka "QS") parameters:</strong></h4>
+                <h5 id="nondev-qs"><strong>Query string (aka "QS") parameters:</strong></h5>
                 <ul class="list-group">
                     <li class="list-group-item">
                         QS parameters are <i>normally</i> key/value pairs.
@@ -103,7 +121,9 @@
                     </li>
                 </ul>
 
-                <h4 id="nondev-routes"><strong>Route parameters:</strong></h4>
+                <br>
+
+                <h5 id="nondev-routes"><strong>Route parameters:</strong></h5>
                 <ul class="list-group">
                     <li class="list-group-item">
                         Route parameters are ordered values.
@@ -130,7 +150,9 @@
                     </li>
                 </ul>
 
-                <h4 id="nondev-bots"><strong>Bot usage:</strong></h4>
+                <br>
+
+                <h5 id="nondev-bots"><strong>Bot usage:</strong></h5>
                 <ul class="list-group">
                     <li class="list-group-item">
                         If you have already looked at some of the API endpoints, you might have noticed that they mention a few bots and how to add the specific endpoint to these bots.
@@ -151,11 +173,13 @@
             </div>
         </div>
 
-        <div class="panel panel-primary" id="toc" v-if="baseEndpoints.length > 0">
-            <div class="panel-heading">
-                <h3 class="panel-title"><a href="#toc"><i class="fa fa-1x fa-table"></i> Table of contents:</a></h3>
-            </div>
-            <div class="panel-body">
+        <br>
+
+        <div class="card" id="toc" v-if="baseEndpoints.length > 0">
+            <a href="#toc">
+                <h5 class="card-header bg-primary text-white"><i class="fas fa-table"></i> Table of contents:</h5>
+            </a>
+            <div class="card-body">
                 <p>
                     The table of contents will only link you to the specific "categories", and not to any specific endpoints.
                     <br>
@@ -163,7 +187,7 @@
                 </p>
                 <div class="list-group">
                     <router-link v-for="base in baseEndpoints" v-bind:to="base.name" v-bind:key="base.name" class="list-group-item">
-                        <i class="fa fa-1x fa-fw" v-bind:class="'fa-' + (base.icon ? base.icon : 'info')"></i> {{ base.title }}
+                        <i class="fa-fw" v-bind:class="'fa-' + (base.icon ? base.icon : 'info fas')"></i> {{ base.title }}
                     </router-link>
                 </div>
             </div>

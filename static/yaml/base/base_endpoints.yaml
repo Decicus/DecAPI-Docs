@@ -1,37 +1,37 @@
 - name: askfm
   title: "ASKfm"
-  icon: "question"
+  icon: "question fas"
 - name: br
   title: "Battle Royale (Arma 3 Mod)"
-  icon: "gamepad"
+  icon: "gamepad fas"
 - name: bttv
   title: "BetterTTV"
-  icon: "smile-o"
+  icon: "smile far"
 - name: dayz
   title: "DayZ"
-  icon: "gamepad"
+  icon: "gamepad fas"
 - name: ffz
   title: "FrankerFaceZ"
-  icon: "smile-o"
+  icon: "smile far"
 - name: lever
   title: "Lever"
 - name: math
   title: "Math"
-  icon: "calculator"
+  icon: "calculator fas"
 - name: misc
   title: "Miscellaneous"
 - name: random
   title: "Random"
-  icon: "random"
+  icon: "random fas"
 - name: steam
   title: "Steam"
-  icon: "steam"
+  icon: "steam fab"
 - name: twitch
   title: "Twitch"
-  icon: "twitch"
+  icon: "twitch fab"
 - name: twitter
   title: "Twitter"
-  icon: "twitter"
+  icon: "twitter fab"
 - name: youtube
   title: "YouTube"
-  icon: "youtube"
+  icon: "youtube fab"

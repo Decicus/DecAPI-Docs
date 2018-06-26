@@ -4,14 +4,14 @@
             Endpoints:
             {{ this.$route.name }}
 
-            <div class="dropdown pull-right">
+            <div class="dropdown float-right">
                 <button class="dropdown-toggle btn btn-info" data-toggle="dropdown" type="button">
                     <i class="fa fa-1x fa-cog"></i> Bot example settings <span class="caret"></span>
                 </button>
 
                 <ul class="dropdown-menu">
-                    <li v-for="bot in Object.keys(bots)" :key="bot">
-                        <a v-on:click="bots[bot] = !bots[bot]; updateBotStore()">
+                    <li v-for="(bot) in Object.keys(bots)" :key="bot">
+                        <a class="dropdown-item botSelection" v-on:click="bots[bot] = !bots[bot]; updateBotStore()">
                             <input type="checkbox" v-bind:checked="bots[bot]"> {{ botNames[bot] }}
                         </a>
                     </li>
@@ -19,62 +19,68 @@
             </div>
         </h2>
 
+        <br>
+
         <div class="modal fade" id="endpoint">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4><a v-bind:href="'?endpoint=' + route">{{ route }}</a></h4>
+                        <h4 class="modal-title"><a v-bind:href="'?endpoint=' + route">{{ route }}</a></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="Close">&times;</button>
                     </div>
 
                     <div class="modal-body">
                         <template v-if="e.notes && e.notes.length > 0">
                             <h4 class="text-muted">Notes:</h4>
-                            <ul class="list-group text-primary" v-for="note in e.notes" id="notes" :key="note">
+                            <ul class="list-group text-primary" v-for="(note, index) in e.notes" id="notes" :key="index">
                                 <li class="list-group-item" v-html="note.replace(/{{baseUrl}}/g, config.baseUrl)"></li>
                             </ul>
                         </template>
 
+                        <br>
+
                         <h4 class="text-muted">Standard request:</h4>
                         <p>Please remember that the <code>:</code> in front of each parameter is just a placeholder and should not be included in the request.</p>
-                        <pre><strong class="text-primary">{{ e.method || 'GET' }}</strong> <code>{{ config.baseUrl + route }}</code></pre>
+                        <pre><strong class="text-primary">{{ e.method || 'GET' }}</strong> <kbd>{{ config.baseUrl + route }}</kbd></pre>
 
                         <div id="bots" v-if="e.bots !== false">
                             <template v-if="bots.nightbot">
                                 <!-- Nightbot -->
                                 <strong class="text-primary"><a href="https://beta.nightbot.tv/">Nightbot</a> command:</strong>
-                                <pre><code>$(urlfetch {{ e.url }})</code></pre>
+                                <pre><kbd>$(urlfetch {{ e.url }})</kbd></pre>
                             </template>
 
                             <template v-if="bots.ankhbot">
                                 <!-- Ankhbot -->
-                                <strong class="text-primary"><a href="https://streamlabs.com/chatbot">Streamlabs Chatbot (formerly Ankhbot)</a> command:</strong>
-                                <pre><code>$readapi({{ e.url }})</code></pre>
+                                <strong class="text-primary"><a href="https://streamlabs.com/chatbot">Streamlabs Chatbot</a> command:</strong>
+                                <pre><kbd>$readapi({{ e.url }})</kbd></pre>
                             </template>
 
                             <template v-if="bots.deepbot">
                                 <!-- Deepbot -->
                                 <strong class="text-primary"><a href="https://deepbot.deep.sg/">Deepbot</a> command:</strong>
-                                <pre><code>@customapi@[{{ e.url }}]</code></pre>
+                                <pre><kbd>@customapi@[{{ e.url }}]</kbd></pre>
                             </template>
 
                             <template v-if="bots.phantombot">
                                 <!-- PhantomBot -->
                                 <strong class="text-primary"><a href="https://phantombot.tv/">PhantomBot</a> command:</strong>
-                                <pre><code>(customapi {{ e.url }})</code></pre>
+                                <pre><kbd>(customapi {{ e.url }})</kbd></pre>
                             </template>
 
                             <template v-if="bots.ohbot">
                                 <!-- Ohbot -->
                                 <strong class="text-primary"><a href="https://ohbot.3v.fi/">Ohbot</a> command:</strong>
-                                <pre><code>[customapi {{ e.url }}]</code></pre>
+                                <pre><kbd>[customapi {{ e.url }}]</kbd></pre>
                             </template>
                         </div>
+
+                        <br>
 
                         <div id="routes" v-if="e.parameters && e.parameters.length > 0">
                             <h4 class="text-muted">Route parameters:</h4>
 
-                            <table class="table table-bordered" id="route-body">
+                            <table class="table table-bordered table-striped table-hover" id="route-body">
                                 <thead>
                                     <tr>
                                         <th>Parameter name:</th>
@@ -84,7 +90,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="p in e.parameters" :key="p">
+                                    <tr v-for="(p, index) in e.parameters" :key="index">
                                         <th>{{ p.name }}</th>
 
                                         <td v-if="Array.isArray(p.description)" v-html="p.description.join('<br>')"></td>
@@ -96,6 +102,8 @@
                                 </tbody>
                             </table>
                         </div>
+
+                        <br>
 
                         <div id="qs" v-if="e.qs && e.qs.length > 0">
                             <h4 class="text-muted">Query string parameters:</h4>
@@ -110,7 +118,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="p in e.qs" :key="p">
+                                    <tr v-for="(p, index) in e.qs" :key="index">
                                         <th>{{ p.name }}</th>
 
                                         <td v-if="Array.isArray(p.description)" v-html="p.description.join('<br>')"></td>
@@ -132,7 +140,7 @@
         </div>
 
         <div class="list-group" v-if="endpoints.length > 0">
-            <a class="list-group-item" v-for="endpoint in endpoints" v-on:click="openModal(endpoint.route)" :key="endpoint">
+            <a class="list-group-item endpointListItem" v-for="(endpoint, index) in endpoints" v-on:click="openModal(endpoint.route)" :key="index">
                 {{ basePath }}/{{ endpoint.route }}
             </a>
         </div>
@@ -167,7 +175,7 @@
                 basePath: '',
                 bots,
                 botNames: {
-                    ankhbot: 'Streamlabs Chatbot (formerly Ankhbot)',
+                    ankhbot: 'Streamlabs Chatbot',
                     deepbot: 'Deepbot',
                     nightbot: 'Nightbot',
                     ohbot: 'Ohbot',

@@ -3,6 +3,7 @@ endpoints:
     - route: ""
       notes:
         - 'Lists the currently available endpoints - <strong>Returns a JSON object</strong>'
+      bots: false
     - route: "accountage/:user"
       parameters:
         - name: ":user"
@@ -168,7 +169,7 @@ endpoints:
           description: 'What character(s) should separate each subscriber value from each other. Default: <code>, </code>.'
       notes:
         - 'Retrieves the latest subscriber(s) from the channel, based on their OAuth (authentication) token, or by logging in (similar to subcount).'
-        - 'If you wish to retrieve an OAuth token, you can use <a href="https://decicus.github.io/twitch-oauth-token/#channel_subscriptions">another project of mine</a>.'
+        - 'If you wish to retrieve an OAuth token, you can use <a href="https://token.decicus.com/#channel_subscriptions">another project of mine</a>.'
         - 'The <code>:channel</code> parameter is optional if a <code>token</code> is specified.'
     - route: "multi/:streams"
       parameters:
@@ -195,7 +196,7 @@ endpoints:
           description: 'What character(s) should separate each subscriber value from each other. Default: <code>, </code>.'
       notes:
         - 'Retrieves a random subscriber from the channel, based on their OAuth (authentication) token, or by logging in (similar to subcount).'
-        - 'If you wish to retrieve an OAuth token, you can use <a href="https://decicus.github.io/twitch-oauth-token/#channel_subscriptions">another project of mine</a>.'
+        - 'If you wish to retrieve an OAuth token, you can use <a href="https://token.decicus.com/#channel_subscriptions">another project of mine</a>.'
         - 'The <code>:channel</code> parameter is optional if a <code>token</code> is specified.'
     - route: "random_user/:channel"
       parameters:
@@ -298,7 +299,6 @@ endpoints:
           description: 'How precise the timestamp should be in terms of days, hours, minutes & seconds - Default: 4.'
       notes:
         - 'Returns how long the specified channel has been live for the current broadcast.'
-        - '<strong>Rate-limited:</strong> This is rate-limited to 100 requests per minute.'
     - route: "viewercount/:channel"
       parameters:
         - name: ":channel"
