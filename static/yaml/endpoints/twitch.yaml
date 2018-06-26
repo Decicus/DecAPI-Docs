@@ -129,6 +129,9 @@ endpoints:
           type: "string"
         - name: "field"
           description: '<strong>Not applicable</strong> for JSON responses &mdash; Name of field to use when listing channels in a text response. <a href="https://dev.twitch.tv/docs/v5/reference/users/#get-user-follows">Click here for a reference</a>. Default: <code>name</code>.'
+      notes:
+        - 'Retrieves a list of channels that the specified user is following.'
+        - 'Supports JSON responses if you send the header: <code>Accept: application/json</code>.'
     - route: "game/:channel"
       parameters:
         - name: ":channel"
