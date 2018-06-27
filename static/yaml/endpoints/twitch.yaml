@@ -59,6 +59,7 @@ endpoints:
           description: 'The amount of subscribers, used for calculating how many subscribers are needed to get the next amount of emote slots.'
           required: true
           type: "int"
+      deprecated: true
     - route: "followage/:channel/:user"
       parameters:
         - name: ":channel"

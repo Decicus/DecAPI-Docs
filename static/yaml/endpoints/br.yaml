@@ -10,6 +10,6 @@ endpoints:
           optional: true
       qs:
         - name: "options"
-          description: "A comma-separated list of options. Available options can be listed if you specify <code>list</code> instead of <code>{OPTIONS}</code>. Similarly, specifying <code>default</code> will list the default options."
+          description: "A comma-separated list of options. Available options can be listed if you specify <code>list</code> - Similarly, specifying <code>default</code> will list the default options."
       notes:
         - 'Returns stats from the leaderboards API about the player.'

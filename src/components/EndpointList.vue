@@ -1,12 +1,16 @@
 <template>
     <div id="app">
+        <a href="/#toc" class="btn btn-sm btn-primary"><i class="fas fa-arrow-left fa-fw"></i> Back to endpoint categories</a>
+
+        <br><br>
+
         <h2>
             Endpoints:
             {{ this.$route.name }}
 
             <div class="dropdown float-right">
                 <button class="dropdown-toggle btn btn-info" data-toggle="dropdown" type="button">
-                    <i class="fa fa-1x fa-cog"></i> Bot example settings <span class="caret"></span>
+                    <i class="fas fa-1x fa-fw fa-cog"></i> Bot example settings <span class="caret"></span>
                 </button>
 
                 <ul class="dropdown-menu">
@@ -30,6 +34,12 @@
                     </div>
 
                     <div class="modal-body">
+                        <template v-if="e.deprecated === true">
+                            <div class="alert alert-danger">
+                                <strong>Warning!</strong> This endpoint has been scheduled for deprecation and could be removed at any time.
+                            </div>
+                        </template>
+
                         <template v-if="e.notes && e.notes.length > 0">
                             <h4 class="text-muted">Notes:</h4>
                             <ul class="list-group text-primary" v-for="(note, index) in e.notes" id="notes" :key="index">
@@ -43,7 +53,7 @@
                         <p>Please remember that the <code>:</code> in front of each parameter is just a placeholder and should not be included in the request.</p>
                         <pre><strong class="text-primary">{{ e.method || 'GET' }}</strong> <kbd>{{ config.baseUrl + route }}</kbd></pre>
 
-                        <div id="bots" v-if="e.bots !== false">
+                        <div id="bots" v-if="e.bots !== undefined && e.bots !== false">
                             <template v-if="bots.nightbot">
                                 <!-- Nightbot -->
                                 <strong class="text-primary"><a href="https://beta.nightbot.tv/">Nightbot</a> command:</strong>
@@ -185,6 +195,7 @@
                 // Endpoint data
                 e: {
                     bots: true,
+                    deprecated: false,
                     method: 'GET',
                     notes: [],
                     parameters: [],
@@ -211,6 +222,16 @@
                         if (this.e[name] !== undefined) {
                             this.e[name] = end[name];
                         }
+
+                        /**
+                         * If an endpoint isn't targeted towards bots, it's explicitly marked as such.
+                         * Default should be to assume it's targeted towards bots.
+                         */
+                        if (end.bots === undefined) {
+                            end.bots = true;
+                        }
+
+                        this.e.deprecated = !!end.deprecated;
 
                         if (!end.qs || end.qs.length === 0) {
                             this.e.qs = [];
