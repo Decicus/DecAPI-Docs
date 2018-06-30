@@ -336,3 +336,22 @@ endpoints:
       notes:
         - 'Returns how many viewers the channel has, if they are currently streaming.'
         - 'Keep in mind this might be slightly inaccurate, due to caching on the Twitch API side.'
+    - route: "videos/:channel"
+      parameters:
+        - name: ":channel"
+          description: "The channel name to retrieve videos for."
+      qs:
+        - name: 'offset'
+          description: 'How many videos to offset by. Default: 0.'
+        - name: 'limit'
+          description: 'How many videos to retrieve at once. Minimum: 1. Maximum: 100. Default: 1.'
+        - name: 'broadcast_type'
+          description: 'Comma-separated list of video types to retrieve. <a href="https://dev.twitch.tv/docs/v5/reference/channels/#get-channel-videos">Click here for reference</a>. Since dedicated endpoints for highlights and uploads already exists, this defaults to <code>archive</code>.'
+        - name: 'separator'
+          description: '<strong>Not applicable</strong> for JSON responses. Specifies what the separator between each video is.'
+        - name: 'video_format'
+          description: '<strong>Not applicable</strong> for JSON responses. Specifies the format of each video. Certain "variables" are supported: <code>${title}</code> and <code>${url}</code>. Default value is: <code>${title} - ${url}</code>'
+      notes:
+        - 'Retrieves the latest videos from a channel.'
+        - 'Since it is primarily provided as an alternative to the "latest highlight" and "latest upload" endpoints, it is set to only retrieve VODs (stream archives) by default. Use the <code>broadcast_type</code> parameter to override this.'
+        - 'Supports JSON responses via the header: <code>Accept: application/json</code>'

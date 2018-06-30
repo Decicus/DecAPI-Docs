@@ -20,7 +20,7 @@
                 <h5 class="card-header bg-primary text-white"><i class="fas fa-question"></i> General questions/support</h5>
             </a>
             <div class="card-body">
-                If you have any general questions or need some help, DecAPI now has a <a href="https://links.decapi.me/discord">Discord server</a> that you could join.
+                If you have any general questions or need some help, DecAPI now has a <a v-bind:href="config.discordUrl">Discord server</a> that you could join.
                 <br>
                 <br>
                 For other ways of contact, please take a look at <a href="/contact">the contact page</a>.
@@ -87,7 +87,8 @@
                 <br>
                 In that case you're probably really confused as to how to use this, so this is an attempt to explain a few things for some of you.
                 <br>
-                If you have any further questions after reading this, then feel free to contact me via the information on my <a href="/contact">contact page</a>, and I will attempt to reply to the best of my ability.
+                If you have any further questions after reading this, then feel free to <a v-bind:href="config.discordUrl">visit our <i class="fab fa-discord"></i> Discord server</a> or contact me via the information on my <a href="/contact">contact page</a>, and I will attempt to reply to the best of my ability.
+                <br>
                 <br>
 
                 <h5 id="nondev-qs"><strong>Query string (aka "QS") parameters:</strong></h5>
@@ -203,6 +204,7 @@
             return {
                 baseEndpoints: [],
                 baseUrl: config.baseUrl,
+                config,
             };
         },
 

@@ -18,7 +18,7 @@
 
                 <ul class="nav navbar-nav justify-content-end">
                     <li class="navbar-item">
-                        <a href="https://links.decapi.me/discord" class="nav-link"><i class="fab fa-discord fa-fw"></i> Discord server</a>
+                        <a v-bind:href="config.discordUrl" class="nav-link"><i class="fab fa-discord fa-fw"></i> Discord server</a>
                     </li>
                     <li class="navbar-item">
                         <a href="https://github.com/Decicus/DecAPI-Docs" class="nav-link"><i class="fas fa-book fa-fw"></i> DecAPI Docs on GitHub</a>
@@ -37,10 +37,17 @@
 </template>
 
 <script>
-export default {
-    name: 'app',
-    created() {
-        this.$store.dispatch('LOAD_BASE_ENDPOINTS');
-    },
-};
+    import config from './config';
+
+    export default {
+        name: 'app',
+        created() {
+            this.$store.dispatch('LOAD_BASE_ENDPOINTS');
+        },
+        data() {
+            return {
+                config,
+            };
+        },
+    };
 </script>

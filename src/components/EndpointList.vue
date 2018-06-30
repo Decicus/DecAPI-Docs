@@ -47,6 +47,15 @@
                             </ul>
                         </template>
 
+
+                        <br>
+
+                        <p class="text-muted">
+                            Not a developer? Confused? Please read the part of the homepage <a href="/#nondev">dedicated to non-developers</a>, which tries to explain some of these things.
+                            <br>
+                            Still confused? Feel free to <a v-bind:href="config.discordUrl">visit our Discord server</a> and you will most likely get help with your issue.
+                        </p>
+
                         <br>
 
                         <h4 class="text-muted">Standard request:</h4>
