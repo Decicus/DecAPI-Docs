@@ -355,3 +355,15 @@ endpoints:
         - 'Retrieves the latest videos from a channel.'
         - 'Since it is primarily provided as an alternative to the "latest highlight" and "latest upload" endpoints, it is set to only retrieve VODs (stream archives) by default. Use the <code>broadcast_type</code> parameter to override this.'
         - 'Supports JSON responses via the header: <code>Accept: application/json</code>'
+    - route: "vod_replay/:channel"
+      parameters:
+        - name: ":channel"
+          description: "The channel name to retrieve the 'VOD replay' for."
+      qs:
+        - name: "minutes"
+          description: "The amount of minutes to go back and link the 'replay' to. Default: 5."
+        - name: "offset"
+          description: "How many VODs to offset when retrieving the VOD information. Default: 0."
+      notes:
+        - 'The VOD replay endpoint retrieves the latest VOD (in relation to the <code>offset</code>), takes the specified amount of <code>minutes</code> and returns a timestamped URL. Example: If the streamer has been streaming for roughly 2 hours and 25 minutes and the minutes specified is 15, the URL will be linking to 2 hours and 10 minutes into the VOD.'
+        - '<strong>Keep in mind that VOD lengths are not fully updated in realtime, and might be "lagging" a few minutes behind the length of the livestream.</strong>'

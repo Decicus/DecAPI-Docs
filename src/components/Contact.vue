@@ -7,7 +7,7 @@
                 <br>
                 General bug or feedback? Please use the <a href="https://github.com/Decicus/DecAPI/issues"><i class="fab fa-github"></i> GitHub issue tracker</a>.
                 <br>
-                Security issue? Please contact me privately via email: <a href="mailto:alex@thomassen.xyz"><i class="fas fa-envelope"></i> alex@thomassen.xyz</a>
+                Security issue or other concerns? Please contact me privately via email: <a href="mailto:alex@thomassen.xyz"><i class="fas fa-envelope"></i> alex@thomassen.xyz</a>
             </div>
         </div>
     </div>
