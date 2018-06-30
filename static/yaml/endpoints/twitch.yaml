@@ -3,6 +3,7 @@ endpoints:
     - route: ""
       notes:
         - 'Lists the currently available endpoints - <strong>Returns a JSON object</strong>'
+      bots: false
     - route: "accountage/:user"
       parameters:
         - name: ":user"
@@ -58,6 +59,7 @@ endpoints:
           description: 'The amount of subscribers, used for calculating how many subscribers are needed to get the next amount of emote slots.'
           required: true
           type: "int"
+      deprecated: true
     - route: "followage/:channel/:user"
       parameters:
         - name: ":channel"
@@ -100,8 +102,37 @@ endpoints:
         - name: "num"
           description: "Prefixes each follower with a number."
           type: "none"
+        - name: "cursor"
+          description: "Used in offsetting as an alternative to <code>offset</code>."
+          type: "string"
       notes:
         - 'Lists the most recent follower(s) a channel has.'
+        - 'Supports JSON responses via the header <code>Accept: application/json</code>'
+    - route: "following/:user"
+      parameters:
+        - name: ":user"
+          description: 'The username of the user you wanna get the "following" channels from.'
+      qs:
+        - name: "direction"
+          description: 'The direction to retrieve channels in. <code>desc</code> or <code>desc</code>. Default: <code>desc</code>.'
+          type: "string"
+        - name: "limit"
+          description: 'Specifies the max amount of channels listed per request. Minimum: 1. Maximum: 100. Default: 25.'
+          type: "int"
+        - name: "offset"
+          description: 'Specifies the amount to offset by in terms of pagination. Default: 0.'
+          type: "int"
+        - name: "separator"
+          description: '<strong>Not applicable</strong> for JSON responses &mdash; Specifies the separator used when listing channel names. Default: <code>, </code>.'
+          type: "string"
+        - name: "fields"
+          description: '<strong>Only applicable</strong> for JSON responses &mdash; Comma-separated list of fields to include from the <code>channel</code> object from each followed channel. <a href="https://dev.twitch.tv/docs/v5/reference/users/#get-user-follows">Click here for a reference</a>. Default: <code>name,_id</code>'
+          type: "string"
+        - name: "field"
+          description: '<strong>Not applicable</strong> for JSON responses &mdash; Name of field to use when listing channels in a text response. <a href="https://dev.twitch.tv/docs/v5/reference/users/#get-user-follows">Click here for a reference</a>. Default: <code>name</code>.'
+      notes:
+        - 'Retrieves a list of channels that the specified user is following.'
+        - 'Supports JSON responses if you send the header: <code>Accept: application/json</code>.'
     - route: "game/:channel"
       parameters:
         - name: ":channel"
@@ -168,7 +199,7 @@ endpoints:
           description: 'What character(s) should separate each subscriber value from each other. Default: <code>, </code>.'
       notes:
         - 'Retrieves the latest subscriber(s) from the channel, based on their OAuth (authentication) token, or by logging in (similar to subcount).'
-        - 'If you wish to retrieve an OAuth token, you can use <a href="https://decicus.github.io/twitch-oauth-token/#channel_subscriptions">another project of mine</a>.'
+        - 'If you wish to retrieve an OAuth token, you can use <a href="https://token.decicus.com/#channel_subscriptions">another project of mine</a>.'
         - 'The <code>:channel</code> parameter is optional if a <code>token</code> is specified.'
     - route: "multi/:streams"
       parameters:
@@ -195,7 +226,7 @@ endpoints:
           description: 'What character(s) should separate each subscriber value from each other. Default: <code>, </code>.'
       notes:
         - 'Retrieves a random subscriber from the channel, based on their OAuth (authentication) token, or by logging in (similar to subcount).'
-        - 'If you wish to retrieve an OAuth token, you can use <a href="https://decicus.github.io/twitch-oauth-token/#channel_subscriptions">another project of mine</a>.'
+        - 'If you wish to retrieve an OAuth token, you can use <a href="https://token.decicus.com/#channel_subscriptions">another project of mine</a>.'
         - 'The <code>:channel</code> parameter is optional if a <code>token</code> is specified.'
     - route: "random_user/:channel"
       parameters:
@@ -298,7 +329,6 @@ endpoints:
           description: 'How precise the timestamp should be in terms of days, hours, minutes & seconds - Default: 4.'
       notes:
         - 'Returns how long the specified channel has been live for the current broadcast.'
-        - '<strong>Rate-limited:</strong> This is rate-limited to 100 requests per minute.'
     - route: "viewercount/:channel"
       parameters:
         - name: ":channel"
@@ -306,3 +336,34 @@ endpoints:
       notes:
         - 'Returns how many viewers the channel has, if they are currently streaming.'
         - 'Keep in mind this might be slightly inaccurate, due to caching on the Twitch API side.'
+    - route: "videos/:channel"
+      parameters:
+        - name: ":channel"
+          description: "The channel name to retrieve videos for."
+      qs:
+        - name: 'offset'
+          description: 'How many videos to offset by. Default: 0.'
+        - name: 'limit'
+          description: 'How many videos to retrieve at once. Minimum: 1. Maximum: 100. Default: 1.'
+        - name: 'broadcast_type'
+          description: 'Comma-separated list of video types to retrieve. <a href="https://dev.twitch.tv/docs/v5/reference/channels/#get-channel-videos">Click here for reference</a>. Since dedicated endpoints for highlights and uploads already exists, this defaults to <code>archive</code>.'
+        - name: 'separator'
+          description: '<strong>Not applicable</strong> for JSON responses. Specifies what the separator between each video is.'
+        - name: 'video_format'
+          description: '<strong>Not applicable</strong> for JSON responses. Specifies the format of each video. Certain "variables" are supported: <code>${title}</code> and <code>${url}</code>. Default value is: <code>${title} - ${url}</code>'
+      notes:
+        - 'Retrieves the latest videos from a channel.'
+        - 'Since it is primarily provided as an alternative to the "latest highlight" and "latest upload" endpoints, it is set to only retrieve VODs (stream archives) by default. Use the <code>broadcast_type</code> parameter to override this.'
+        - 'Supports JSON responses via the header: <code>Accept: application/json</code>'
+    - route: "vod_replay/:channel"
+      parameters:
+        - name: ":channel"
+          description: "The channel name to retrieve the 'VOD replay' for."
+      qs:
+        - name: "minutes"
+          description: "The amount of minutes to go back and link the 'replay' to. Default: 5."
+        - name: "offset"
+          description: "How many VODs to offset when retrieving the VOD information. Default: 0."
+      notes:
+        - 'The VOD replay endpoint retrieves the latest VOD (in relation to the <code>offset</code>), takes the specified amount of <code>minutes</code> and returns a timestamped URL. Example: If the streamer has been streaming for roughly 2 hours and 25 minutes and the minutes specified is 15, the URL will be linking to 2 hours and 10 minutes into the VOD.'
+        - '<strong>Keep in mind that VOD lengths are not fully updated in realtime, and might be "lagging" a few minutes behind the length of the livestream.</strong>'

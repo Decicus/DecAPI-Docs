@@ -26,6 +26,7 @@ endpoints:
       notes:
         - 'Queries the specified DayZ server and returns a player count in format of: <code>{PLAYERCOUNT}/{MAXPLAYERS}</code>'
         - 'Note: This should also work with other games that use the Source query protocol (such as Miscreated or Counter-Strike: Global Offensive).'
+        - 'You may notice that even if the IP and ports are correct, you are still getting an error. This might be because the provider that runs the production environment does not allow me to whitelist big ranges of outgoing ports (thus not being able to query the server). Please <a href="/contact">contact me</a> for any questions.'
     - route: "status-report"
       parameters:
       qs:

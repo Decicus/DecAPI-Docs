@@ -1,27 +1,34 @@
 <template>
     <div id="app">
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="/">DecAPI Docs</a>
-                </div>
+        <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark" role="navigation">
+            <a class="navbar-brand" href="/">DecAPI Docs</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavDropdown" aria-controls="topNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <ul class="nav navbar-nav">
-                    <li v-bind:class="{ active: this.$route.name === 'Home' }"><a href="/"><i class="fa fa-1x fa-home"></i> Home</a></li>
+            <div class="collapse navbar-collapse" id="topNavDropdown">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="navbar-item" v-bind:class="{ active: this.$route.name === 'Home' }">
+                        <a href="/" class="nav-link"><i class="fas fa-home fa-fw"></i> Home</a>
+                    </li>
+                    <li class="navbar-item" v-bind:class="{ active: this.$route.name === 'Contact' }">
+                        <a href="/contact" class="nav-link"><i class="far fa-envelope fa-fw"></i> Contact</a>
+                    </li>
                 </ul>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="https://github.com/Decicus/DecAPI-Docs"><i class="fa fa-1x fa-book"></i> DecAPI Docs on GitHub</a></li>
-                    <li><a href="https://github.com/Decicus/DecAPI"><i class="fa fa-1x fa-github"></i> DecAPI on GitHub</a></li>
+                <ul class="nav navbar-nav justify-content-end">
+                    <li class="navbar-item">
+                        <a v-bind:href="config.discordUrl" class="nav-link"><i class="fab fa-discord fa-fw"></i> Discord server</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="https://github.com/Decicus/DecAPI-Docs" class="nav-link"><i class="fas fa-book fa-fw"></i> DecAPI Docs on GitHub</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="https://github.com/Decicus/DecAPI" class="nav-link"><i class="fab fa-github fa-fw"></i> DecAPI on GitHub</a>
+                    </li>
                 </ul>
             </div>
         </nav>
-
-        <div class="container-fluid">
-            <div class="page-header">
-                <h1>DecAPI Docs</h1>
-            </div>
-        </div>
 
         <div class="container-fluid">
             <router-view></router-view>
@@ -30,10 +37,17 @@
 </template>
 
 <script>
-export default {
-    name: 'app',
-    created() {
-        this.$store.dispatch('LOAD_BASE_ENDPOINTS');
-    },
-};
+    import config from './config';
+
+    export default {
+        name: 'app',
+        created() {
+            this.$store.dispatch('LOAD_BASE_ENDPOINTS');
+        },
+        data() {
+            return {
+                config,
+            };
+        },
+    };
 </script>
