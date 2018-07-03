@@ -62,7 +62,9 @@
                 <br>
                 Rate limits are applied based on the IP address the request originates from.
 
-                <h5>Currently rate limited routes:</h5>
+                <br><br>
+
+                <h4>Currently rate limited routes:</h4>
                 <div class="list-group">
                     <div class="list-group-item">
                         <h5 class="list-group-item-heading"><a href="/twitch"><code>/twitch/*</code> routes:</a></h5>
@@ -73,6 +75,29 @@
                         </p>
                     </div>
                 </div>
+
+                <br>
+
+                <h4>Bypassing rate limits:</h4>
+                Most people will be fine with the few (and relatively generous) rate limits I have applied.
+                <br>
+                However, if you notice you're getting rate limited relatively often, you have the following options:
+                <div class="list-group">
+                    <a href="https://dev.twitch.tv/docs">Use the API(s) directly (for now it's only the Twitch API).</a>
+                    <a href="https://www.patreon.com/Decicus" class="list-group-item"><i class="fab fa-patreon"></i> Support me on Patreon to bypass it.</a>
+                    <a href="https://github.com/Decicus/DecAPI#setup" class="list-group-item"><i class="fab fa-github"></i> Host it yourself and set your own rate limits.</a>
+                </div>
+                <br>
+                Of course, if you have no issues with the current rate limits, you don't have to do change anything at all.
+
+                <br><br>
+
+                <h4>Instructions for API keys:</h4>
+                If you have a valid API key, you have (for now) absolutely no rate limit and you bypass it completely.
+                <br>
+                To use your API key, you have to specify the header: <code>X-API-Key: aaaa-bbbb-cccc-dddd</code>, where <code>aaaa-bbbb-cccc-dddd</code> is your API key.
+                <br>
+                Keep in mind that if you have a valid API key, the <code>X-RateLimit-*</code> and <code>RetryAfter</code> headers are not included in the responses.
             </div>
         </div>
 
