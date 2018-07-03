@@ -83,7 +83,7 @@
                 <br>
                 However, if you notice you're getting rate limited relatively often, you have the following options:
                 <div class="list-group">
-                    <a href="https://dev.twitch.tv/docs">Use the API(s) directly (for now it's only the Twitch API).</a>
+                    <a href="https://dev.twitch.tv/docs" class="list-group-item">Use the API(s) directly (for now it's only the Twitch API).</a>
                     <a href="https://www.patreon.com/Decicus" class="list-group-item"><i class="fab fa-patreon"></i> Support me on Patreon to bypass it.</a>
                     <a href="https://github.com/Decicus/DecAPI#setup" class="list-group-item"><i class="fab fa-github"></i> Host it yourself and set your own rate limits.</a>
                 </div>
