@@ -82,6 +82,9 @@ endpoints:
         - name: "tz"
           description: 'Uses a different timezone for displaying date & time other than UTC. <a href="https://decapi.me/misc/timezones">List of supported timezones.</a>'
           type: "string"
+        - name: "format"
+          description: 'Changes the formatting of the returned date & time. See the <a href="https://secure.php.net/manual/en/function.date.php#refsect1-function.date-parameters"><code>PHP date()</code> documentation</a> for reference.<br>Default format string: <code>M j. Y - h:i:s A (e)</code>'
+          type: "string"
       notes:
         - 'Retrieves the date and time of when the user followed the channel.'
         - 'Example format: <code>Mar 13. 2016 - 07:31:29 PM (UTC)</code>'
