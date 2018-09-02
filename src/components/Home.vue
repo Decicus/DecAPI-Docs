@@ -87,9 +87,21 @@
                     <a href="https://www.patreon.com/Decicus" class="list-group-item"><i class="fab fa-patreon"></i> Support me on Patreon to bypass it.</a>
                     <a href="https://github.com/Decicus/DecAPI#setup" class="list-group-item"><i class="fab fa-github"></i> Host it yourself and set your own rate limits.</a>
                 </div>
-                <br>
-                Of course, if you have no issues with the current rate limits, you don't have to do change anything at all.
 
+                <br>
+
+                <div class="d-flex">
+                    <h4>Self-hosting</h4>
+                </div>
+
+                <div class="d-flex">
+                    <div class="p-2"><a v-bind:href="config.beastnodeUrl" id="beastnode-logo" class="justify-content-center"><img src="/static/img/BeastNode.png" alt="BeastNode Logo" title="BeastNode Logo - Affiliate link" /></a></div>
+                    <div class="p-2">
+                        For those of you that plan on hosting DecAPI yourself, I would definitely recommend getting <a v-bind:href="config.beastnodeUrl">a VPS from BeastNode</a> (affiliate link).
+                        <br>
+                        I've been using them for a few years already and I'm really happy with their performance and customer support.
+                    </div>
+                </div>
                 <br><br>
 
                 <h4>Instructions for API keys:</h4>
