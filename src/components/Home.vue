@@ -50,6 +50,27 @@
 
         <br>
 
+        <div class="card" id="localization">
+            <a href="#localization">
+                <h5 class="card-header bg-primary text-white"><i class="fa fa-1x fa-globe"></i> Localization / translations</h5>
+            </a>
+
+            <div class="card-body">
+                DecAPI now has some basic localization support for certain endpoints. As of right now, it's only <code>/twitch</code> routes, but eventually it'll be expanded to support the other routes as well.
+                <br><br>
+                To use the localization options, use the two-letter country code defined in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> in the <code>GET</code> parameter <code>lang</code>. The default value is <code>en</code> (English) and you would (for example) use <code>de</code> for German, or <code>no</code> for Norwegian. English is also used as a "fallback" if a language isn't supported for certain types of messages.
+                <br>
+                Keep in mind that the translations are provided by volunteers. If you'd like to translate something into another language, take a look at the <a href="https://github.com/Decicus/DecAPI/tree/master/resources/lang">'lang' directory on GitHub</a> for examples. Feel free to visit <a href="https://links.decapi.me/discord">the Discord server</a> if you need assistance getting started.
+                <br><br>
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Example #1:</strong> Accountage with precision 7 and language set to Norwegian - <a href="https://decapi.me/twitch/accountage/decicus?precision=7&lang=no">https://decapi.me/twitch/accountage/decicus?precision=7&lang=no</a></li>
+                    <li class="list-group-item"><strong>Example #2:</strong> Accountage with only language set to Norwegian - <a href="https://decapi.me/twitch/accountage/decicus?lang=no">https://decapi.me/twitch/accountage/decicus?lang=no</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <br>
+
         <div class="card" id="rate-limits">
             <a href="#rate-limits">
                 <h5 class="card-header bg-primary text-white"><i class="fa fa-1x fa-cog"></i> Rate limits</h5>
