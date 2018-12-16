@@ -50,16 +50,6 @@ endpoints:
           description: 'Specify the timezone that you want the date/time to be displayed as. <a href="https://decapi.me/misc/timezones">List of supported timezones.</a>'
           required: false
           type: "string"
-    - route: "emoteslots/:channel"
-      parameters:
-        - name: ":channel"
-          description: 'The name of the channel. Will only be used for reference.'
-      qs:
-        - name: "subscribers"
-          description: 'The amount of subscribers, used for calculating how many subscribers are needed to get the next amount of emote slots.'
-          required: true
-          type: "int"
-      deprecated: true
     - route: "followage/:channel/:user"
       parameters:
         - name: ":channel"
