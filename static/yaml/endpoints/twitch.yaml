@@ -62,6 +62,12 @@ endpoints:
           type: "int"
       notes:
         - 'Gets the time difference (also known as the "follow age") between when <code>:user</code> followed <code>:channel</code>'
+    - route: "followcount/:channel"
+      parameters:
+        - name: "channel"
+          description: 'The channel name to retrieve the current follower count for.'
+      notes:
+        - 'Retrieves the current amount of followers a Twitch channel has.'
     - route: "followed/:channel/:user"
       parameters:
         - name: ":channel"
