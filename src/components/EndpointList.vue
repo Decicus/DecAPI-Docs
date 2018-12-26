@@ -194,7 +194,7 @@
                 basePath: '',
                 bots,
                 botNames: {
-                    ankhbot: 'Streamlabs Chatbot',
+                    ankhbot: 'Streamlabs Chatbot (NOT Streamlabs OBS)',
                     deepbot: 'Deepbot',
                     nightbot: 'Nightbot',
                     ohbot: 'Ohbot',
