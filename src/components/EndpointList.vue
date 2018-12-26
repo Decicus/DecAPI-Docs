@@ -13,7 +13,7 @@
                     <i class="fas fa-1x fa-fw fa-cog"></i> Bot example settings <span class="caret"></span>
                 </button>
 
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-right">
                     <li v-for="(bot) in Object.keys(bots)" :key="bot">
                         <a class="dropdown-item botSelection" v-on:click="bots[bot] = !bots[bot]; updateBotStore()">
                             <input type="checkbox" v-bind:checked="bots[bot]"> {{ botNames[bot] }}
