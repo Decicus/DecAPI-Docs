@@ -59,7 +59,9 @@
                         <br>
 
                         <h4 class="text-muted">Standard request:</h4>
-                        <p>Please remember that the <code>:</code> in front of each parameter is just a placeholder and should not be included in the request.</p>
+                        <p>Please remember that the <code>:</code> in front of each parameter is just a placeholder and should not be included in the request.
+                        <br>
+                        Example: If your channel name or username is <code>decicus</code>, then you would put just <code>decicus</code> and <strong>NOT</strong> <code>:decicus</code> or <code>:decicus</code>.</p>
                         <pre><strong class="text-primary">{{ e.method || 'GET' }}</strong> <kbd>{{ config.baseUrl + route }}</kbd></pre>
 
                         <div id="bots" v-if="e.bots !== undefined && e.bots !== false">
@@ -71,7 +73,7 @@
 
                             <template v-if="bots.ankhbot">
                                 <!-- Ankhbot -->
-                                <strong class="text-primary"><a href="https://streamlabs.com/chatbot">Streamlabs Chatbot</a> command:</strong>
+                                <strong class="text-primary"><a href="https://streamlabs.com/chatbot">Streamlabs Chatbot</a> (NOT Streamlabs OBS) command:</strong>
                                 <pre><kbd>$readapi({{ e.url }})</kbd></pre>
                             </template>
 
@@ -189,6 +191,10 @@
     import config from '../config';
 
     const $ = jQuery;
+
+    /**
+     * Set default setting in "Bot example settings" dropdown.
+     */
     const bots = {
         ankhbot: true,
         deepbot: false,
@@ -205,6 +211,9 @@
             return {
                 basePath: '',
                 bots,
+                /**
+                 * Display names in "Bot example settings" dropdown.
+                 */
                 botNames: {
                     ankhbot: 'Streamlabs Chatbot (NOT Streamlabs OBS)',
                     deepbot: 'Deepbot',
