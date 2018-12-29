@@ -26,7 +26,7 @@
         <br>
 
         <div class="modal fade" id="endpoint">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-lg mw-100 w-75">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title"><a v-bind:href="'?endpoint=' + route">{{ route }}</a></h4>

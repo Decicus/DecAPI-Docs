@@ -104,6 +104,10 @@ endpoints:
         - name: "cursor"
           description: "Used in offsetting as an alternative to <code>offset</code>."
           type: "string"
+        - name: "username"
+          description: "Specify ANY value to have the endpoint return a list of USERNAMES and not DISPLAY NAMES."
+        - name: "separator"
+          description: "Specify the character(s) used for separating each follower. Default: <pre><kbd>, </kbd></pre>"
       notes:
         - 'Lists the most recent follower(s) a channel has.'
         - 'Supports JSON responses via the header <code>Accept: application/json</code>'
