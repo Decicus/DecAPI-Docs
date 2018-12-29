@@ -75,6 +75,16 @@
                                 <pre><kbd>$readapi({{ e.url }})</kbd></pre>
                             </template>
 
+                            <template v-if="bots.streamelements">
+                                <strong class="text-primary"><a href="https://streamelements.com/">StreamElements</a> command:</strong>
+                                <pre><kbd>${customapi.{{ e.url }}}</kbd></pre>
+                            </template>
+
+                            <template v-if="bots.fossabot">
+                                <strong class="text-primary"><a href="https://fossabot.com/">Fossabot</a> command:</strong>
+                                <pre><kbd>$(customapi {{ e.url }})</kbd></pre>
+                            </template>
+
                             <template v-if="bots.deepbot">
                                 <!-- Deepbot -->
                                 <strong class="text-primary"><a href="https://deepbot.deep.sg/">Deepbot</a> command:</strong>
@@ -182,9 +192,11 @@
     const bots = {
         ankhbot: true,
         deepbot: false,
+        fossabot: true,
         nightbot: true,
         ohbot: false,
         phantombot: false,
+        streamelements: true,
     };
 
     export default {
@@ -196,9 +208,11 @@
                 botNames: {
                     ankhbot: 'Streamlabs Chatbot (NOT Streamlabs OBS)',
                     deepbot: 'Deepbot',
+                    fossabot: 'Fossabot',
                     nightbot: 'Nightbot',
                     ohbot: 'Ohbot',
                     phantombot: 'PhantomBot',
+                    streamelements: 'StreamElements',
                 },
                 config,
                 // Endpoint data
