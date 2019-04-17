@@ -330,6 +330,8 @@ endpoints:
       qs:
         - name: "precision"
           description: 'How precise the timestamp should be in terms of days, hours, minutes & seconds - Default: 4.'
+        - name: "offline_msg"
+          description: 'A custom message to display when the channel is offline. - Default: CHANNEL_NAME is offline'
       notes:
         - 'Returns how long the specified channel has been live for the current broadcast.'
     - route: "viewercount/:channel"
