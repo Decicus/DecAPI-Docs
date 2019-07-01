@@ -72,10 +72,17 @@
                             </template>
 
                             <template v-if="bots.ankhbot">
-                                <!-- Ankhbot -->
-                                <strong class="text-primary"><a href="https://streamlabs.com/chatbot">Streamlabs Chatbot</a> (NOT Streamlabs OBS) command:</strong>
+                                <!-- Ankhbot / Streamlabs Chatbot -->
+                                <strong class="text-primary"><a href="https://streamlabs.com/chatbot">Streamlabs Chatbot</a> command:</strong>
                                 <pre><kbd>$readapi({{ e.url }})</kbd></pre>
                             </template>
+
+                            <template v-if="bots.slcloudbot">
+                                <!-- Streamlabs Cloudbot -->
+                                <strong class="text-primary"><a href="https://blog.streamlabs.com/streamlabs-cloudbot-has-landed-e696ff23af4c">Streamlabs Cloudbot</a> command:</strong>
+                                <pre><kbd>{readapi.{{ e.url }}}</kbd></pre>
+                            </template>
+
 
                             <template v-if="bots.streamelements">
                                 <strong class="text-primary"><a href="https://streamelements.com/">StreamElements</a> command:</strong>
@@ -197,6 +204,7 @@
      */
     const bots = {
         ankhbot: true,
+        slcloudbot: true,
         deepbot: false,
         fossabot: true,
         nightbot: true,
@@ -215,7 +223,8 @@
                  * Display names in "Bot example settings" dropdown.
                  */
                 botNames: {
-                    ankhbot: 'Streamlabs Chatbot (NOT Streamlabs OBS)',
+                    ankhbot: 'Streamlabs Chatbot',
+                    slcloudbot: 'Streamlabs Cloudbot',
                     deepbot: 'Deepbot',
                     fossabot: 'Fossabot',
                     nightbot: 'Nightbot',
