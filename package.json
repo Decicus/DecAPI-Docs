@@ -11,9 +11,9 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "bootstrap": "^4.2.1",
-    "jquery": "^3.3.1",
-    "js-yaml": "^3.12.0",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "js-yaml": "^3.13.1",
     "popper.js": "^1.14.6",
     "vue": "^2.5.21",
     "vue-resource": "^1.5.1",
