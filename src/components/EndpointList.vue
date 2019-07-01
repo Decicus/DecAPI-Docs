@@ -79,7 +79,7 @@
 
                             <template v-if="bots.slcloudbot">
                                 <!-- Streamlabs Cloudbot -->
-                                <strong class="text-primary"><a href="https://blog.streamlabs.com/streamlabs-cloudbot-has-landed-e696ff23af4c">Streamlabs Cloudbot</a> command:</strong>
+                                <strong class="text-primary"><a href="https://streamlabs.com/cloudbot">Streamlabs Cloudbot</a> command:</strong>
                                 <pre><kbd>{readapi.{{ e.url }}}</kbd></pre>
                             </template>
 
