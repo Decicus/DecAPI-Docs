@@ -111,26 +111,28 @@
 
                 <br>
 
-                <div class="d-flex">
-                    <h4>Self-hosting</h4>
-                </div>
-
-                <div class="d-flex">
-                    <div class="p-2"><a v-bind:href="config.beastnodeUrl" id="beastnode-logo" class="justify-content-center"><img src="/static/img/BeastNode.png" alt="BeastNode Logo" title="BeastNode Logo - Affiliate link" /></a></div>
-                    <div class="p-2">
-                        For those of you that plan on hosting DecAPI yourself, I would definitely recommend getting <a v-bind:href="config.beastnodeUrl">a VPS from BeastNode</a> (affiliate link).
-                        <br>
-                        I've been using them for a few years already and I'm really happy with their performance and customer support.
-                    </div>
-                </div>
-                <br><br>
-
                 <h4>Instructions for API keys:</h4>
                 If you have a valid API key, you have (for now) absolutely no rate limit and you bypass it completely.
                 <br>
                 To use your API key, you have to specify the header: <code>X-API-Key: aaaa-bbbb-cccc-dddd</code>, where <code>aaaa-bbbb-cccc-dddd</code> is your API key.
                 <br>
                 Keep in mind that if you have a valid API key, the <code>X-RateLimit-*</code> and <code>RetryAfter</code> headers are not included in the responses.
+
+                <br><br>
+
+                <h4>Domains:</h4>
+                The <i>official</i> instance of DecAPI is currently being hosted on multiple domains/sub-domains.
+                <br>
+                In the past there used to be different versions on certain domains. Nowadays that's not the case and for the most part they're running the same version.
+                <br>
+                Regardless of the list, I recommend using the primary domain: <code>decapi.me</code>
+                <br><br>
+                <h5>List of domains:</h5>
+                <ul class="list-group">
+                    <li class="list-group-item"><code>decapi.me / www.decapi.me</code></li>
+                    <li class="list-group-item"><code>beta.decapi.me</code></li>
+                    <li class="list-group-item"><code>decapi.net / www.decapi.net</code></li>
+                </ul>
             </div>
         </div>
 
