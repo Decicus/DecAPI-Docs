@@ -95,6 +95,15 @@
                             <a href="https://dev.twitch.tv/docs">Twitch API documentation</a>
                         </p>
                     </div>
+
+                    <div class="list-group-item">
+                        <h5 class="list-group-item-heading"><a href="/steam"><code>/steam/*</code> routes:</a></h5>
+                        <p class="list-group-item-text">
+                            Currently rate limited to <strong>45 requests per 60 seconds</strong>.
+                            <br>
+                            <a href="https://developer.valvesoftware.com/wiki/Steam_Web_API">Steam web API documentation</a>
+                        </p>
+                    </div>
                 </div>
 
                 <br>
@@ -104,7 +113,8 @@
                 <br>
                 However, if you notice you're getting rate limited relatively often, you have the following options:
                 <div class="list-group">
-                    <a href="https://dev.twitch.tv/docs" class="list-group-item"><i class="fab fa-twitch"></i> Use the API(s) directly (for now it's only the Twitch API).</a>
+                    <a href="https://dev.twitch.tv/docs" class="list-group-item"><i class="fab fa-twitch"></i> Use the Twitch API directly (Twitch's rate limits still apply).</a>
+                    <a href="https://developer.valvesoftware.com/wiki/Steam_Web_API" class="list-group-item"><i class="fab fa-steam"></i> Use the Steam web APIs directly.</a>
                     <a href="https://www.patreon.com/Decicus" class="list-group-item"><i class="fab fa-patreon"></i> Support me on Patreon to bypass it.</a>
                     <a href="https://github.com/Decicus/DecAPI#setup" class="list-group-item"><i class="fab fa-github"></i> Host it yourself and set your own rate limits.</a>
                 </div>
