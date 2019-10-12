@@ -61,7 +61,7 @@
                         <h4 class="text-muted">Standard request:</h4>
                         <p>Please remember that the <code>:</code> in front of each parameter is just a placeholder and should not be included in the request.
                         <br>
-                        Example: If your channel name or username is <code>decicus</code>, then you would put just <code>decicus</code> and <strong>NOT</strong> <code>:decicus</code> or <code>:decicus</code>.</p>
+                        Example: If your channel name or username is <code>decicus</code>, then you would put just <code>decicus</code> and <strong>NOT</strong> <code>:decicus</code>.</p>
                         <pre><strong class="text-primary">{{ e.method || 'GET' }}</strong> <kbd>{{ config.baseUrl + route }}</kbd></pre>
 
                         <div id="bots" v-if="e.bots !== undefined && e.bots !== false">
