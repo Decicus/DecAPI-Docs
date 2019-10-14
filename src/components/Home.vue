@@ -99,7 +99,7 @@
                     <div class="list-group-item">
                         <h5 class="list-group-item-heading"><a href="/steam"><code>/steam/*</code> routes:</a></h5>
                         <p class="list-group-item-text">
-                            Currently rate limited to <strong>45 requests per 60 seconds</strong>.
+                            Currently rate limited to <strong>15 requests per 60 seconds</strong>.
                             <br>
                             <a href="https://developer.valvesoftware.com/wiki/Steam_Web_API">Steam web API documentation</a>
                         </p>
