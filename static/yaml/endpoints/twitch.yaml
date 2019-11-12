@@ -262,6 +262,9 @@ endpoints:
       parameters:
         - name: ":channel"
           description: "The channel name."
+      qs:
+        - name: "subtract"
+          description: "Subscriber count will subtract the specified value and return the result. If you have 102 subs and you specify subtract=2, it will return 100."
       notes:
         - 'Retrieves the subscriber count of the specified channel.'
         - '<strong>This only works for channels that have <a href="{{baseUrl}}/auth/twitch?scopes=user_read+channel_subscriptions&redirect=subcount" target="_blank" rel="noopener noreferrer">authenticated and authorized</a> this app</strong>.'
@@ -269,8 +272,6 @@ endpoints:
       parameters:
         - name: ":channel"
           description: "The channel name."
-        - name: "subtract"
-          description: "Subscriber count will subtract the specified value and return the result. If you have 102 subs and you specify subtract=2, it will return 100."
       qs:
         - name: "include"
           description: "A comma-separated list of extras to include. Currently no extra options are supported."
