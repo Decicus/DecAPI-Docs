@@ -1,8 +1,9 @@
 base_path: "/lever"
 endpoints:
     - route: "twitch"
+      deprecated: true
       parameters:
       qs:
       notes:
-        - 'Returns an RSS feed of the latest <a href="https://jobs.lever.co/twitch/"><i class="fab fa-twitch"></i> Twitch jobs listings</a>.'
+        - 'This endpoint has been deprecated and no longer works.'
       bots: false
