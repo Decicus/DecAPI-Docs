@@ -37,4 +37,4 @@ endpoints:
       qs:
       deprecated: true
       notes:
-        - 'As of March 2020, this does exactly the same as <code>status-report</code>.'
+        - 'As of March 2020, this does exactly the same as <code><a href="/dayz?endpoint=status-report">status-report</a></code>. It is recommended to use that API endpoint instead.'
