@@ -13,8 +13,6 @@
 - name: ffz
   title: "FrankerFaceZ"
   icon: "smile far"
-- name: lever
-  title: "Lever"
 - name: math
   title: "Math"
   icon: "calculator fas"
