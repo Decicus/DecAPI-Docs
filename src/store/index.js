@@ -12,12 +12,14 @@ const store = new Vuex.Store({
     },
     actions: {
         LOAD_BASE_ENDPOINTS({ commit }) {
-            Vue.http.get('/static/yaml/base/base_endpoints.yaml').then(({ body }) => {
-                const baseEndpoints = yaml.load(body);
-                commit('UPDATE_BASE_ENDPOINTS', {
-                    baseEndpoints,
+            Vue.http
+                .get('/static/yaml/base/base_endpoints.yaml')
+                .then(({ body }) => {
+                    const baseEndpoints = yaml.load(body);
+                    commit('UPDATE_BASE_ENDPOINTS', {
+                        baseEndpoints,
+                    });
                 });
-            });
         },
     },
     mutations: {

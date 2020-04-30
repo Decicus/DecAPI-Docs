@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import VueResource from 'vue-resource';
 import Router from 'vue-router';
-import EndpointList from '@/components/EndpointList';
-import Home from '@/components/Home';
-import Contact from '@/components/Contact';
 import yaml from 'js-yaml';
+import EndpointList from '../components/EndpointList.vue';
+import Home from '../components/Home.vue';
+import Contact from '../components/Contact.vue';
 
 Vue.use(Router);
 Vue.use(VueResource);

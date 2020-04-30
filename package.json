@@ -1,75 +1,34 @@
 {
   "name": "decapi-docs",
-  "version": "1.0.0",
-  "description": "Docs for DecAPI",
-  "author": "Alex Thomassen <alex@thomassen.xyz>",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
-    "dev": "node build/dev-server.js",
-    "start": "node build/dev-server.js",
-    "build": "node build/build.js",
-    "lint": "eslint --ext .js,.vue src"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
+    "core-js": "^3.6.4",
     "jquery": "^3.5.0",
     "js-yaml": "^3.13.1",
     "popper.js": "^1.16.1",
     "vue": "^2.6.11",
     "vue-resource": "^1.5.1",
-    "vue-router": "^2.8.1",
-    "vuex": "^2.5.0"
+    "vue-router": "^3.1.6",
+    "vuex": "^3.1.3"
   },
   "devDependencies": {
-    "autoprefixer": "^6.7.2",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^7.1.1",
-    "babel-loader": "^6.2.10",
-    "babel-plugin-transform-runtime": "^6.22.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-2": "^6.22.0",
-    "babel-register": "^6.22.0",
-    "chalk": "^1.1.3",
-    "connect-history-api-fallback": "^1.6.0",
-    "copy-webpack-plugin": "^4.6.0",
-    "css-loader": "^3.5.3",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb-base": "^11.3.2",
-    "eslint-friendly-formatter": "^2.0.7",
-    "eslint-import-resolver-webpack": "^0.8.4",
-    "eslint-loader": "^1.7.1",
-    "eslint-plugin-html": "^2.0.0",
+    "@vue/cli-plugin-babel": "~4.3.0",
+    "@vue/cli-plugin-eslint": "~4.3.0",
+    "@vue/cli-plugin-router": "~4.3.0",
+    "@vue/cli-plugin-vuex": "~4.3.0",
+    "@vue/cli-service": "~4.3.0",
+    "@vue/eslint-config-airbnb": "^5.0.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
-    "eventsource-polyfill": "^0.9.6",
-    "express": "^4.17.1",
-    "extract-text-webpack-plugin": "^2.0.0",
-    "file-loader": "^0.11.1",
-    "friendly-errors-webpack-plugin": "^1.7.0",
-    "html-webpack-plugin": "^2.28.0",
-    "http-proxy-middleware": "^0.18.0",
-    "opn": "^4.0.2",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "ora": "^1.4.0",
-    "rimraf": "^2.7.1",
-    "semver": "^5.7.1",
-    "shelljs": "^0.7.6",
-    "url-loader": "^1.1.2",
-    "vue-loader": "^12.1.0",
-    "vue-style-loader": "^3.1.2",
-    "vue-template-compiler": "^2.6.11",
-    "webpack": "^2.6.1",
-    "webpack-bundle-analyzer": "^3.7.0",
-    "webpack-dev-middleware": "^1.12.2",
-    "webpack-hot-middleware": "^2.25.0",
-    "webpack-merge": "^4.2.2"
-  },
-  "engines": {
-    "node": ">= 4.0.0",
-    "npm": ">= 3.0.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11"
+  }
 }

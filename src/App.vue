@@ -2,7 +2,10 @@
     <div id="app">
         <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark" role="navigation">
             <a class="navbar-brand" href="/">DecAPI Docs</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavDropdown" aria-controls="topNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button
+                class="navbar-toggler" type="button"
+                data-toggle="collapse" data-target="#topNavDropdown"
+                aria-controls="topNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -18,7 +21,9 @@
 
                 <ul class="nav navbar-nav justify-content-end">
                     <li class="navbar-item">
-                        <a v-bind:href="config.discordUrl" class="nav-link"><i class="fab fa-discord fa-fw"></i> Discord server</a>
+                        <a v-bind:href="config.discordUrl" class="nav-link">
+                            <i class="fab fa-discord fa-fw"></i> Discord server
+                        </a>
                     </li>
                     <li class="navbar-item">
                         <a href="https://github.com/Decicus/DecAPI-Docs" class="nav-link"><i class="fas fa-book fa-fw"></i> DecAPI Docs on GitHub</a>
@@ -37,17 +42,17 @@
 </template>
 
 <script>
-    import config from './config';
+import config from './config';
 
-    export default {
-        name: 'app',
-        created() {
-            this.$store.dispatch('LOAD_BASE_ENDPOINTS');
-        },
-        data() {
-            return {
-                config,
-            };
-        },
-    };
+export default {
+    name: 'app',
+    created() {
+        this.$store.dispatch('LOAD_BASE_ENDPOINTS');
+    },
+    data() {
+        return {
+            config,
+        };
+    },
+};
 </script>

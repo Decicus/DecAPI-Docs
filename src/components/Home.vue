@@ -43,7 +43,9 @@
                     <li class="list-group-item">For endpoints that mention JSON support without any further information, send <code>Accept: application/json</code> in the request header to receive the response as JSON instead.</li>
                     <li class="list-group-item">Parameters are <strong>always</strong> required.</li>
                     <li class="list-group-item">Query strings are <strong>never</strong> required.</li>
-                    <li class="list-group-item">Parameter/query string examples may be prefixed by a colon (<code>:</code>), for example: <code>:username</code> or <code>:channel</code>. These should be omitted and replaced by the input value from the actual requests.</li>
+                    <li class="list-group-item">Parameter/query string examples may be prefixed by a colon (<code>:</code>),
+                        for example: <code>:username</code> or <code>:channel</code>. These should be omitted and replaced by the input value from the actual requests.
+                    </li>
                 </div>
             </div>
         </div>
@@ -157,7 +159,9 @@
                 <br>
                 In that case you're probably really confused as to how to use this, so this is an attempt to explain a few things for some of you.
                 <br>
-                If you have any further questions after reading this, then feel free to <a v-bind:href="config.discordUrl">visit our <i class="fab fa-discord"></i> Discord server</a> or contact me via the information on my <a href="/contact">contact page</a>, and I will attempt to reply to the best of my ability.
+                If you have any further questions after reading this, feel free to <a v-bind:href="config.discordUrl">visit our <i class="fab fa-discord"></i> Discord server</a>.
+                <br>
+                Alternatively contact me via the information on my <a href="/contact">contact page</a>, and I will attempt to reply to the best of my ability.
                 <br>
                 <br>
 
@@ -267,22 +271,22 @@
 </template>
 
 <script>
-    import config from '../config';
+import config from '../config';
 
-    export default {
-        data() {
-            return {
-                baseEndpoints: [],
-                baseUrl: config.baseUrl,
-                config,
-            };
-        },
+export default {
+    data() {
+        return {
+            baseEndpoints: [],
+            baseUrl: config.baseUrl,
+            config,
+        };
+    },
 
-        created() {
-            this.baseEndpoints = this.$store.state.baseEndpoints;
-            this.$store.watch((state) => {
-                this.baseEndpoints = state.baseEndpoints;
-            });
-        },
-    };
+    created() {
+        this.baseEndpoints = this.$store.state.baseEndpoints;
+        this.$store.watch((state) => {
+            this.baseEndpoints = state.baseEndpoints;
+        });
+    },
+};
 </script>

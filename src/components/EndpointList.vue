@@ -192,160 +192,161 @@
 </style>
 
 <script>
-    import yaml from 'js-yaml';
-    import jQuery from 'jquery';
-    import 'bootstrap';
-    import config from '../config';
+import yaml from 'js-yaml';
+import jQuery from 'jquery';
+import 'bootstrap';
+import config from '../config';
 
-    const $ = jQuery;
+const $ = jQuery;
 
-    /**
+/**
      * Set default setting in "Bot example settings" dropdown.
      */
-    const bots = {
-        ankhbot: true,
-        slcloudbot: true,
-        deepbot: false,
-        fossabot: true,
-        nightbot: true,
-        ohbot: false,
-        phantombot: false,
-        streamelements: true,
-    };
+const bots = {
+    ankhbot: true,
+    slcloudbot: true,
+    deepbot: false,
+    fossabot: true,
+    nightbot: true,
+    ohbot: false,
+    phantombot: false,
+    streamelements: true,
+};
 
-    export default {
-        name: 'EndpointList',
-        data() {
-            return {
-                basePath: '',
-                bots,
-                /**
+export default {
+    name: 'EndpointList',
+    data() {
+        return {
+            basePath: '',
+            bots,
+            /**
                  * Display names in "Bot example settings" dropdown.
                  */
-                botNames: {
-                    ankhbot: 'Streamlabs Chatbot',
-                    slcloudbot: 'Streamlabs Cloudbot',
-                    deepbot: 'Deepbot',
-                    fossabot: 'Fossabot',
-                    nightbot: 'Nightbot',
-                    ohbot: 'Ohbot',
-                    phantombot: 'PhantomBot',
-                    streamelements: 'StreamElements',
-                },
-                config,
-                // Endpoint data
-                e: {
-                    bots: true,
-                    deprecated: false,
-                    method: 'GET',
-                    notes: [],
-                    parameters: [],
-                    qs: [],
-                    url: '',
-                },
-                endpoints: [],
-                route: this.$route.path,
-            };
-        },
-
-        methods: {
-            openModal(route) {
-                this.route = `${this.$route.path}/${route}`;
-
-                this.e.url = config.baseUrl + this.route;
-
-                this.endpoints.forEach((end) => {
-                    if (route !== end.route) {
-                        return;
-                    }
-
-                    Object.keys(end).forEach((name) => {
-                        if (this.e[name] !== undefined) {
-                            this.e[name] = end[name];
-                        }
-
-                        /**
-                         * If an endpoint isn't targeted towards bots, it's explicitly marked as such.
-                         * Default should be to assume it's targeted towards bots.
-                         */
-                        if (end.bots === undefined) {
-                            end.bots = true;
-                        }
-
-                        this.e.deprecated = !!end.deprecated;
-
-                        if (!end.qs || end.qs.length === 0) {
-                            this.e.qs = [];
-                        }
-
-                        if (!end.parameters || end.parameters.length === 0) {
-                            this.e.parameters = [];
-                        }
-                    });
-
-                    this.$router.push({
-                        query: {
-                            endpoint: route || '/',
-                        },
-                    });
-
-                    $('#endpoint').modal('toggle');
-                });
+            botNames: {
+                ankhbot: 'Streamlabs Chatbot',
+                slcloudbot: 'Streamlabs Cloudbot',
+                deepbot: 'Deepbot',
+                fossabot: 'Fossabot',
+                nightbot: 'Nightbot',
+                ohbot: 'Ohbot',
+                phantombot: 'PhantomBot',
+                streamelements: 'StreamElements',
             },
-            updateBotStore() {
-                localStorage.setItem('bots', JSON.stringify(bots));
+            config,
+            // Endpoint data
+            e: {
+                bots: true,
+                deprecated: false,
+                method: 'GET',
+                notes: [],
+                parameters: [],
+                qs: [],
+                url: '',
             },
-        },
+            endpoints: [],
+            route: this.$route.path,
+        };
+    },
 
-        mounted() {
-            const path = this.$route.path.replace('/', '');
-            const endpoint = this.$route.query.endpoint || '';
+    methods: {
+        openModal(route) {
+            this.route = `${this.$route.path}/${route}`;
 
-            this.$http.get(`/static/yaml/endpoints/${path}.yaml`).then((response) => {
-                const { body } = response;
-                const data = yaml.load(body);
+            this.e.url = config.baseUrl + this.route;
 
-                const basePath = data.base_path;
-                const endpoints = data.endpoints;
+            this.endpoints.forEach((end) => {
+                if (route !== end.route) {
+                    return;
+                }
 
-                this.basePath = basePath;
-                this.endpoints = endpoints;
-
-                endpoints.forEach((end) => {
-                    const route = decodeURIComponent(endpoint);
-                    if (route === '') {
-                        return;
+                Object.keys(end).forEach((name) => {
+                    if (this.e[name] !== undefined) {
+                        this.e[name] = end[name];
                     }
 
-                    if ((end.route === '' && route !== '/') || end.route !== route) {
-                        return;
+                    /**
+                     * If an endpoint isn't targeted towards bots, it's explicitly marked as such.
+                     * Default should be to assume it's targeted towards bots.
+                     */
+                    if (end.bots === undefined) {
+                        // eslint-disable-next-line no-param-reassign
+                        end.bots = true;
                     }
 
-                    this.openModal(end.route);
+                    this.e.deprecated = !!end.deprecated;
+
+                    if (!end.qs || end.qs.length === 0) {
+                        this.e.qs = [];
+                    }
+
+                    if (!end.parameters || end.parameters.length === 0) {
+                        this.e.parameters = [];
+                    }
                 });
-            });
 
-            let getBots = localStorage.getItem('bots');
-
-            if (getBots) {
-                getBots = JSON.parse(getBots);
-
-                Object.keys(getBots).forEach((name) => {
-                    bots[name] = getBots[name];
-                });
-            }
-
-            $('#endpoint').on('hidden.bs.modal', () => {
                 this.$router.push({
-                    query: {},
+                    query: {
+                        endpoint: route || '/',
+                    },
                 });
-            });
 
-            $('.dropdown-menu').on({
-                click: (e) => {
-                    e.stopPropagation();
-                },
+                $('#endpoint').modal('toggle');
             });
         },
-    };
+        updateBotStore() {
+            localStorage.setItem('bots', JSON.stringify(bots));
+        },
+    },
+
+    mounted() {
+        const path = this.$route.path.replace('/', '');
+        const endpoint = this.$route.query.endpoint || '';
+
+        this.$http.get(`/static/yaml/endpoints/${path}.yaml`).then((response) => {
+            const { body } = response;
+            const data = yaml.load(body);
+
+            const basePath = data.base_path;
+            const { endpoints } = data;
+
+            this.basePath = basePath;
+            this.endpoints = endpoints;
+
+            endpoints.forEach((end) => {
+                const route = decodeURIComponent(endpoint);
+                if (route === '') {
+                    return;
+                }
+
+                if ((end.route === '' && route !== '/') || end.route !== route) {
+                    return;
+                }
+
+                this.openModal(end.route);
+            });
+        });
+
+        let getBots = localStorage.getItem('bots');
+
+        if (getBots) {
+            getBots = JSON.parse(getBots);
+
+            Object.keys(getBots).forEach((name) => {
+                bots[name] = getBots[name];
+            });
+        }
+
+        $('#endpoint').on('hidden.bs.modal', () => {
+            this.$router.push({
+                query: {},
+            });
+        });
+
+        $('.dropdown-menu').on({
+            click: (e) => {
+                e.stopPropagation();
+            },
+        });
+    },
+};
 </script>
