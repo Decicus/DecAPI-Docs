@@ -291,6 +291,9 @@ endpoints:
       notes:
         - 'Retrieves the subscriber emotes for the specified channels and lists them (space-separated).'
         - '<strong>JSON results are supported</strong>.'
+      qs:
+        - name: 'tiers'
+          description: '<strong>Only available in JSON responses</strong>. Specify the <code>tiers</code> parameter with your request and emotes are split into their respective subscriber tiers.'
     - route: "status/:channel"
       parameters:
         - name: ":channel"
