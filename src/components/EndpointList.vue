@@ -47,7 +47,6 @@
                             </ul>
                         </template>
 
-
                         <br>
 
                         <p class="text-muted">
@@ -82,7 +81,6 @@
                                 <strong class="text-primary"><a href="https://streamlabs.com/cloudbot">Streamlabs Cloudbot</a> command:</strong>
                                 <pre><kbd>{readapi.{{ e.url }}}</kbd></pre>
                             </template>
-
 
                             <template v-if="bots.streamelements">
                                 <strong class="text-primary"><a href="https://streamelements.com/">StreamElements</a> command:</strong>
