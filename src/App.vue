@@ -14,6 +14,11 @@
                     <li class="navbar-item" v-bind:class="{ active: this.$route.name === 'Home' }">
                         <a href="/" class="nav-link"><i class="fas fa-home fa-fw"></i> Home</a>
                     </li>
+
+                    <li class="navbar-item" v-bind:class="{ active: this.$route.name === 'Changelog' }">
+                        <a href="/changelog" class="nav-link"><i class="fas fa-fw fa-list-alt"></i> Changelog</a>
+                    </li>
+
                     <li class="navbar-item" v-bind:class="{ active: this.$route.name === 'Contact' }">
                         <a href="/contact" class="nav-link"><i class="far fa-envelope fa-fw"></i> Contact</a>
                     </li>

@@ -4,6 +4,7 @@ import Router from 'vue-router';
 import yaml from 'js-yaml';
 import EndpointList from '../components/EndpointList.vue';
 import Home from '../components/Home.vue';
+import Changelog from '../components/Changelog.vue';
 import Contact from '../components/Contact.vue';
 
 Vue.use(Router);
@@ -16,6 +17,11 @@ const router = new Router({
             path: '/',
             name: 'Home',
             component: Home,
+        },
+        {
+            path: '/changelog',
+            name: 'Changelog',
+            component: Changelog,
         },
         {
             path: '/contact',
