@@ -28,7 +28,7 @@ endpoints:
           description: 'The name of the timezone you want to retrieve the time for.'
           required: true
         - name: "format"
-          description: 'The <a href="https://secure.php.net/manual/en/function.date.php#refsect1-function.date-parameters">PHP date()</a> format you want the time to be displayed in. - Default: <code>h:i:s A T</code>.'
+          description: 'The <a href="https://www.php.net/manual/en/datetime.format.php#refsect1-datetime.format-parameters">PHP date()</a> format you want the time to be displayed in. - Default: <code>h:i:s A T</code>.'
       notes:
         - 'Displays the current time in the specified timezone.'
     - route: "timezones"
