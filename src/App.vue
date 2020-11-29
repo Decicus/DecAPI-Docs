@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark" role="navigation">
+        <nav class="navbar navbar-dark navbar-expand-lg bg-dark" role="navigation">
             <a class="navbar-brand" href="/">DecAPI Docs</a>
             <button
                 class="navbar-toggler" type="button"
@@ -44,9 +44,11 @@
             </div>
         </nav>
 
-        <div class="container-fluid">
-            <router-view></router-view>
-        </div>
+        <main class="py-4">
+            <div class="container-fluid">
+                <router-view></router-view>
+            </div>
+        </main>
     </div>
 </template>
 
