@@ -10,7 +10,7 @@
             However, you can browse the <a href="https://github.com/Decicus/DecAPI/commits/d4a849c7d0131ac74d64938e7850f1badb77335a">commit log prior to V2.0.0 on GitHub</a>, which should give you a decent overview.
         </p>
 
-        <div class="card" id="v2.0.1">
+        <div class="card" id="v2.1.0">
             <h4 class="card-header bg-primary text-white">
                 Version 2.1.0 - Privacy Policy &amp; Caching
 
