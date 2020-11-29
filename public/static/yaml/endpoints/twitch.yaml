@@ -20,6 +20,7 @@ endpoints:
       notes:
         - 'Retrieves the URL of the avatar for the specified user'
         - 'Will fallback to the default Twitch avatar if the user does not have an avatar.'
+        - 'Avatar URLs are cached by DecAPI for up to 300 seconds (5 minutes) per user.'
     - route: "chat_rules/:channel"
       parameters:
         - name: ":channel"
@@ -142,6 +143,7 @@ endpoints:
           description: "The channel name."
       notes:
         - 'Retrieves the current game the channel has been set to.'
+        - 'The currently set game is cached by DecAPI for up to 60 seconds (1 minute) per channel.'
     - route: "help/:search"
       parameters:
         - name: ":search"
@@ -284,6 +286,7 @@ endpoints:
         - '<strong>This only works for channels that have <a href="{{baseUrl}}/auth/twitch?scopes=user_read+channel_subscriptions&redirect=subpoints" target="_blank" rel="noopener noreferrer">authenticated and authorized</a> this app</strong> (if the channel already uses subcount, this works already).'
         - 'As of November 12th, 2019 the API has changed and might have some minor inaccuracies. I recommend specifying the "subtract" parameter, while comparing with your <a href="https://www.twitch.tv/dashboard/channel-analytics" target="_blank" rel="noopener noreferrer">dashboard stats</a>.'
         - 'Example with subtract: <code>https://decapi.me/twitch/subpoints/decicus?subtract=2</code> will remove 2 subscriber points from the returned value.'
+        - 'The subscriber point value is cached by DecAPI for up to 120 seconds (2 minutes) per channel.'
     - route: "subscriber_emotes/:channel"
       parameters:
         - name: ":channel"
@@ -300,6 +303,7 @@ endpoints:
           description: 'The channel name.'
       notes:
         - 'Retrieves the current title set on the channel.'
+        - 'The currently set stream title is cached by DecAPI for up to 60 seconds (1 minute) per channel.'
     - route: "team_members/:team_id"
       parameters:
         - name: ":team_id"
@@ -323,6 +327,7 @@ endpoints:
           description: "The channel name."
       notes:
         - 'Works identical to <code>status</code> - Retrieves the current title set on the channel.'
+        - 'The currently set stream title is cached by DecAPI for up to 60 seconds (1 minute) per channel.'
     - route: "total_views/:channel"
       parameters:
         - name: ":channel"
@@ -353,6 +358,7 @@ endpoints:
       notes:
         - 'Returns how many viewers the channel has, if they are currently streaming.'
         - 'Keep in mind this might be slightly inaccurate, due to caching on the Twitch API side.'
+        - 'Viewer count is cached by DecAPI for up to 60 seconds (1 minute) per channel.'
     - route: "videos/:channel"
       parameters:
         - name: ":channel"
