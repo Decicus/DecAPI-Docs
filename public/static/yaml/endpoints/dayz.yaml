@@ -9,6 +9,13 @@ endpoints:
       notes:
         - 'Searches for locations based on the search query string, and returns a location name together with a URL to the location on <a href="https://www.izurvive.com/">iZurvive</a>.'
         - 'This is not always 100% correct. Sorry for any locations that may be incorrect.'
+    - route: "news"
+      parameters:
+      qs:
+        - name : "search"
+          description: "Performs a case insensitive search on the news article <i>title</i>, to filter through them."
+      notes:
+        - 'Returns the latest news article from the <a href="https://dayz.com/">DayZ website</a>.'
     - route: "players"
       parameters:
       qs:
@@ -30,11 +37,12 @@ endpoints:
     - route: "status-report"
       parameters:
       qs:
+      deprecated: true
       notes:
-        - 'Retrieves the latest status report from the <a href="https://dayz.com/">DayZ website</a>.'
+        - '<strong>DEPRECATED:</strong> Returns the same as the "news" API endpoint.'
     - route: "steam-status-report"
       parameters:
       qs:
       deprecated: true
       notes:
-        - 'As of March 2020, this does exactly the same as <code><a href="/dayz?endpoint=status-report">status-report</a></code>. It is recommended to use that API endpoint instead.'
+        - '<strong>DEPRECATED:</strong> Returns the same as the "news" API endpoint.'
