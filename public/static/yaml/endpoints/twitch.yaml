@@ -21,19 +21,6 @@ endpoints:
         - 'Retrieves the URL of the avatar for the specified user'
         - 'Will fallback to the default Twitch avatar if the user does not have an avatar.'
         - 'Avatar URLs are cached by DecAPI for up to 300 seconds (5 minutes) per user.'
-    - route: "chat_rules/:channel"
-      parameters:
-        - name: ":channel"
-          description: 'The channel name to retrieve the chat rules for.'
-      notes:
-        - 'Gives a "newlined" list of chat rules for the specified channel.'
-    - route: "clusters/:channel"
-      parameters:
-        - name: ":channel"
-          description: 'The channel to check chat cluster for.'
-      notes:
-        - 'Retrieves the chat cluster name for the channel specified.'
-        - 'Note that this is essentially useless from now on, as all requests will (most likely) return <code>aws</code>.'
     - route: "creation/:user"
       parameters:
         - name: ":user"

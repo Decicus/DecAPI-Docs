@@ -6,6 +6,14 @@ endpoints:
       notes:
         - 'Lists currencies available on Steam (3-letter code + full name)'
         - 'Send the header <code>Accept: application/json</code> to retrieve a JSON object.'
+    - route: 'global-players?appid=:app_id'
+      parameters:
+      qs:
+        - name: 'appid'
+          description: 'The <a href="https://steamdb.info/apps/">Steam app ID</a> to check the global player count for.'
+      notes:
+        - "Retrieves the global player count for the specified game. That means every player that's considered 'in-game'"
+        - "The global player count for each app ID is cached for up to 1 minute (60 seconds)."
     - route: "hours/:steam_id/:app_id/readable"
       parameters:
         - name: ":steam_id"
