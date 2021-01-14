@@ -10,7 +10,66 @@
             However, you can browse the <a href="https://github.com/Decicus/DecAPI/commits/d4a849c7d0131ac74d64938e7850f1badb77335a">commit log prior to V2.0.0 on GitHub</a>, which should give you a decent overview.
         </p>
 
-        <div class="card" id="v2.1.0">
+        <div class="card mt-4" id="v2.2.0">
+            <h4 class="card-header bg-primary text-white">
+                Version 2.2.0 - Steam global player count, Turkish translations and endpoint cleanup
+
+                <span class="badge badge-secondary float-right" title="January 14th, 2021">2021-01-14</span>
+            </h4>
+
+            <div class="card-body">
+                <h5><i class="fab fa-1x fa-fw fa-steam-square"></i> Steam</h5>
+                <ul>
+                    <li>
+                        <code>/steam/global-players</code> endpoint has been added, which returns how many players are currently in-game for a specific game on Steam.
+                        <ul>
+                            <li>Keep in mind that it's <strong>Steam-only</strong>. Players using other PC platforms (GOG, EA, Epic, Ubisoft etc.) or other consoles will not be counted.</li>
+                            <li>Documentation for this endpoint is <a href="/steam?endpoint=global-players">available here</a>.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h5><i class="fas fa-1x fa-fw fa-globe"></i> Translations</h5>
+                <ul>
+                    <li>Turkish translation has been added, thanks to <a href="https://github.com/Decicus/DecAPI/pull/66">Hasan Ali Balcioglu, via #66</a>.</li>
+                </ul>
+
+                <h5><i class="fab fa-1x fa-fw fa-twitch"></i> Twitch</h5>
+                <ul>
+                    <li>
+                        <code>/twitch/latest_sub</code> had a bug due to the Twitch Kraken API not sorting subscriptions properly.
+                        <ul>
+                            <li>A temporary (&trade;) workaround has been applied that should hopefully sort the subscriptions properly.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        The following endpoints have been removed, because they were either deprecated or have now become broken due to API changes:
+                        <ul>
+                            <li><code>/lever/twitch</code> - Previously deprecated.</li>
+                            <li><code>/twitch/blog/latest</code> - Previously deprecated.</li>
+                            <li><code>/twitch/chat_rules</code> - Broken due to API change, no "real" replacement available.</li>
+                            <li><code>/twitch/clusters</code> - Previously deprecated (and obsolete).</li>
+                            <li><code>/twitch/emoteslots</code> - Previously deprecated.</li>
+                        </ul>
+                    </li>
+                    <li><code>/ingests</code> has been updated to use <a href="https://discuss.dev.twitch.tv/t/announcing-the-new-get-ingest-servers-endpoint-and-updates-to-ingest-urls/29549">the new API endpoint</a>.</li>
+                </ul>
+
+                <h5><i class="fas fa-1x fa-fw fa-info"></i> Other</h5>
+                <ul>
+                    <li>
+                        The underlying framework (Laravel) has been upgraded to <a href="https://blog.laravel.com/security-laravel-62011-7302-8221-released">the v8.22.1 security release</a>
+                        <ul>
+                            <li>I haven't been able to investigate if DecAPI is vulnerable if it isn't updated though.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p><a href="https://github.com/Decicus/DecAPI/releases/tag/v2.2.0"><i class="fab fa-1x fa-fw fa-github"></i> GitHub release page for v2.2.0</a></p>
+            </div>
+        </div>
+
+        <div class="card mt-4" id="v2.1.0">
             <h4 class="card-header bg-primary text-white">
                 Version 2.1.0 - Privacy Policy &amp; Caching
 
@@ -57,6 +116,8 @@
                         A new configuration option in <code>.env</code> has been added: <code>CACHE_PREFIX</code>. Only really useful for cases where someone is running two separate instances of DecAPI on the same host.
                     </li>
                 </ul>
+
+                <p><a href="https://github.com/Decicus/DecAPI/releases/tag/v2.1.0"><i class="fab fa-1x fa-fw fa-github"></i> GitHub release page for v2.1.0</a></p>
             </div>
         </div>
 
@@ -84,6 +145,8 @@
                         </ul>
                     </li>
                 </ul>
+
+                <p><a href="https://github.com/Decicus/DecAPI/releases/tag/v2.0.1"><i class="fab fa-1x fa-fw fa-github"></i> GitHub release page for v2.0.1</a></p>
             </div>
         </div>
 
@@ -115,6 +178,8 @@
                 <ul>
                     <li>Links on the homepage have been changes a little bit to clarify what is/isn't DecAPI-related.</li>
                 </ul>
+
+                <p><a href="https://github.com/Decicus/DecAPI/releases/tag/v2.0.0"><i class="fab fa-1x fa-fw fa-github"></i> GitHub release page for v2.0.0</a></p>
             </div>
         </div>
     </div>
