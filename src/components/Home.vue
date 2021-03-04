@@ -242,7 +242,7 @@
                         <strong>Nightbot</strong> example: <code>$(urlfetch {{ baseUrl }}/twitch/followers/decicus?count=5&amp;direction=desc)</code>
                     </li>
                     <li class="list-group-item">
-                        <strong>Streamlabs Chatbot (formerly Ankhbot)</strong> example: <code>$readapi({{ baseUrl }}/twitch/followers/decicus?count=5&amp;direction=desc)</code>
+                        <strong>Streamlabs Chatbot</strong> example: <code>$readapi({{ baseUrl }}/twitch/followers/decicus?count=5&amp;direction=desc)</code>
                     </li>
                 </ul>
             </div>
