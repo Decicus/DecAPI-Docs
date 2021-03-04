@@ -255,10 +255,18 @@ const botVariables = {
 /**
  * Replaces colon-prefixed variables with the correct bot variables.
  */
+const twitchPaths = ['/bttv', '/ffz', '/twitch'];
 function replaceBotVariables(bot, input) {
     const replacements = botVariables[bot];
 
-    if (!replacements) {
+    /**
+     * Verify that the replacements for the bot exists.
+     *
+     * Also verify that the APIs are Twitch-related, as we don't want to replace
+     * `:user` and similar variables for Twitter APIs, for instance.
+     */
+    const { path } = this.$route;
+    if (!replacements || !twitchPaths.includes(path)) {
         return input;
     }
 

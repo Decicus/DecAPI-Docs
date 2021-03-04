@@ -250,7 +250,7 @@
 
         <br>
 
-        <div class="card" id="toc" v-if="baseEndpoints.length > 0">
+        <div class="card" id="toc">
             <a href="#toc">
                 <h5 class="card-header bg-primary text-white"><i class="fas fa-table"></i> Table of contents:</h5>
             </a>
@@ -260,7 +260,7 @@
                     <br>
                     However, you can click the path/header for the endpoint and it will allow you to directly link to that section.
                 </p>
-                <div class="list-group">
+                <div class="list-group" v-if="baseEndpoints.length > 0">
                     <router-link v-for="base in baseEndpoints" v-bind:to="base.name" v-bind:key="base.name" class="list-group-item">
                         <i class="fa-fw" v-bind:class="'fa-' + (base.icon ? base.icon : 'info fas')"></i> {{ base.title }}
                     </router-link>
