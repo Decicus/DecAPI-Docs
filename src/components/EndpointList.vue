@@ -52,7 +52,7 @@
                         <p class="text-muted">
                             Not a developer? Confused? Please read the part of the homepage <a href="/#nondev">dedicated to non-developers</a>, which tries to explain some of these things.
                             <br>
-                            Still confused? Feel free to <a v-bind:href="config.discordUrl">visit our Discord server</a> and you will most likely get help with your issue.
+                            Still confused? Feel free to <a v-bind:href="config.discordUrl">visit our <i class="fab fa-discord"></i> Discord server</a> and you will most likely get help with your issue.
                         </p>
 
                         <br>
@@ -63,10 +63,17 @@
                         Example: If your channel name or username is <code>decicus</code>, then you would put just <code>decicus</code> and <strong>NOT</strong> <code>:decicus</code>.</p>
                         <pre><strong class="text-primary">{{ e.method || 'GET' }}</strong> <kbd>{{ config.baseUrl + route }}</kbd></pre>
 
+                        <h5>Bot examples:</h5>
                         <div id="bots" v-if="e.bots !== undefined && e.bots !== false">
+                            <p>
+                                Bot examples have been updated to include chat variables for Twitch APIs that will automatically translate to channel names/usernames.
+                                <br>
+                                That means you should be able to copy-paste most of the Twitch-related APIs directly and they will work "out of the box".
+                            </p>
+
                             <template v-if="bots.nightbot">
                                 <!-- Nightbot -->
-                                <strong class="text-primary"><a href="https://beta.nightbot.tv/">Nightbot</a> command:</strong>
+                                <strong class="text-primary"><a href="https://nightbot.tv/">Nightbot</a> command:</strong>
                                 <pre><kbd>$(urlfetch {{ replaceBotVariables('nightbot', e.url) }})</kbd></pre>
                             </template>
 
@@ -94,7 +101,7 @@
 
                             <template v-if="bots.deepbot">
                                 <!-- Deepbot -->
-                                <strong class="text-primary"><a href="https://deepbot.deep.sg/">Deepbot</a> command:</strong>
+                                <strong class="text-primary"><a href="https://deepbot.tv/">Deepbot</a> command:</strong>
                                 <pre><kbd>@customapi@[{{ replaceBotVariables('deepbot', e.url)  }}]</kbd></pre>
                             </template>
 
@@ -295,6 +302,7 @@ export default {
                 phantombot: 'PhantomBot',
                 streamelements: 'StreamElements',
             },
+            botVars: botVariables,
             config,
             // Endpoint data
             e: {
