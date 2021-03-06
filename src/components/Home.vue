@@ -35,7 +35,8 @@
             </a>
             <div class="card-body">
                 <p>These are options or results that will be the default, <strong>unless the notes about the endpoint mention otherwise</strong>.</p>
-                <div class="list-group">
+
+                <ul class="list-group">
                     <li class="list-group-item">The base URL for all endpoints is <code>{{ baseUrl }}</code>.</li>
                     <li class="list-group-item"><strong>HTTP</strong> requests are supported, but <strong>HTTPS (TLS 1.x)</strong> is encouraged.</li>
                     <li class="list-group-item">The default HTTP method supported is <code>GET</code>.</li>
@@ -46,7 +47,7 @@
                     <li class="list-group-item">Parameter/query string examples may be prefixed by a colon (<code>:</code>),
                         for example: <code>:username</code> or <code>:channel</code>. These should be omitted and replaced by the input value from the actual requests.
                     </li>
-                </div>
+                </ul>
             </div>
         </div>
 
