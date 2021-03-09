@@ -152,17 +152,13 @@ endpoints:
         - name: ":channel"
           description: 'The channel name.'
       qs:
-        - name: "display_name"
-          description: 'If specified, this will use the display names instead of the usernames of the users that are hosting.'
-        - name: "list"
-          description: 'If specified, the list will be in plaintext (using newlines) instead of in a JSON object.'
         - name: "implode"
-          description: 'If specified, the list will be returned comma-separated (", ") instead of JSON/a "newlined" list.'
+          description: 'If specified, the list will be returned comma-separated (", ") instead of a "newlined" list.'
         - name: "limit"
           description: "If specified, the list will be comma-separated up until the maximum 'limit' of channels. Example: If 10 channels are hosting you, and the limit is set to '2', then it will for example say: decicus, mellow and 8 others"
       notes:
         - 'Returns a list of channel names hosting the specified channel.'
-        - '<strong>JSON results are returned by default. See <code>list/implode</code> query string.</strong>.'
+        - '<strong>JSON results are no longer supported as of March 8th, 2021. Default responses will be a "newline-separated" list.</strong>.'
     - route: "hostscount/:channel"
       parameters:
         - name: ":channel"
