@@ -52,7 +52,7 @@
                         <p class="text-muted">
                             Not a developer? Confused? Please read the part of the homepage <a href="/#nondev">dedicated to non-developers</a>, which tries to explain some of these things.
                             <br>
-                            Still confused? Feel free to <a v-bind:href="config.discordUrl">visit our Discord server</a> and you will most likely get help with your issue.
+                            Still confused? Feel free to <a v-bind:href="config.discordUrl">visit our <i class="fab fa-discord"></i> Discord server</a> and you will most likely get help with your issue.
                         </p>
 
                         <br>
@@ -63,51 +63,58 @@
                         Example: If your channel name or username is <code>decicus</code>, then you would put just <code>decicus</code> and <strong>NOT</strong> <code>:decicus</code>.</p>
                         <pre><strong class="text-primary">{{ e.method || 'GET' }}</strong> <kbd>{{ config.baseUrl + route }}</kbd></pre>
 
+                        <h5>Bot examples:</h5>
                         <div id="bots" v-if="e.bots !== undefined && e.bots !== false">
+                            <p>
+                                Bot examples have been updated to include chat variables for Twitch APIs that will automatically translate to channel names/usernames.
+                                <br>
+                                That means you should be able to copy-paste most of the Twitch-related APIs directly and they will work "out of the box".
+                            </p>
+
                             <template v-if="bots.nightbot">
                                 <!-- Nightbot -->
-                                <strong class="text-primary"><a href="https://beta.nightbot.tv/">Nightbot</a> command:</strong>
-                                <pre><kbd>$(urlfetch {{ e.url }})</kbd></pre>
+                                <strong class="text-primary"><a href="https://nightbot.tv/">Nightbot</a> command:</strong>
+                                <pre><kbd>$(urlfetch {{ replaceBotVariables('nightbot', e.url) }})</kbd></pre>
                             </template>
 
                             <template v-if="bots.ankhbot">
                                 <!-- Ankhbot / Streamlabs Chatbot -->
                                 <strong class="text-primary"><a href="https://streamlabs.com/chatbot">Streamlabs Chatbot</a> command:</strong>
-                                <pre><kbd>$readapi({{ e.url }})</kbd></pre>
+                                <pre><kbd>$readapi({{ replaceBotVariables('ankhbot', e.url)  }})</kbd></pre>
                             </template>
 
                             <template v-if="bots.slcloudbot">
                                 <!-- Streamlabs Cloudbot -->
                                 <strong class="text-primary"><a href="https://streamlabs.com/cloudbot">Streamlabs Cloudbot</a> command:</strong>
-                                <pre><kbd>{readapi.{{ e.url }}}</kbd></pre>
+                                <pre><kbd>{readapi.{{ replaceBotVariables('slcloudbot', e.url)  }}}</kbd></pre>
                             </template>
 
                             <template v-if="bots.streamelements">
                                 <strong class="text-primary"><a href="https://streamelements.com/">StreamElements</a> command:</strong>
-                                <pre><kbd>${customapi.{{ e.url }}}</kbd></pre>
+                                <pre><kbd>${customapi.{{ replaceBotVariables('streamelements', e.url)  }}}</kbd></pre>
                             </template>
 
                             <template v-if="bots.fossabot">
                                 <strong class="text-primary"><a href="https://fossabot.com/">Fossabot</a> command:</strong>
-                                <pre><kbd>$(customapi {{ e.url }})</kbd></pre>
+                                <pre><kbd>$(customapi {{ replaceBotVariables('fossabot', e.url)  }})</kbd></pre>
                             </template>
 
                             <template v-if="bots.deepbot">
                                 <!-- Deepbot -->
-                                <strong class="text-primary"><a href="https://deepbot.deep.sg/">Deepbot</a> command:</strong>
-                                <pre><kbd>@customapi@[{{ e.url }}]</kbd></pre>
+                                <strong class="text-primary"><a href="https://deepbot.tv/">Deepbot</a> command:</strong>
+                                <pre><kbd>@customapi@[{{ replaceBotVariables('deepbot', e.url)  }}]</kbd></pre>
                             </template>
 
                             <template v-if="bots.phantombot">
                                 <!-- PhantomBot -->
                                 <strong class="text-primary"><a href="https://phantombot.tv/">PhantomBot</a> command:</strong>
-                                <pre><kbd>(customapi {{ e.url }})</kbd></pre>
+                                <pre><kbd>(customapi {{ replaceBotVariables('phantombot', e.url)  }})</kbd></pre>
                             </template>
 
                             <template v-if="bots.ohbot">
                                 <!-- Ohbot -->
                                 <strong class="text-primary"><a href="https://ohbot.3v.fi/">Ohbot</a> command:</strong>
-                                <pre><kbd>[customapi {{ e.url }}]</kbd></pre>
+                                <pre><kbd>[customapi {{ replaceBotVariables('ohbot', e.url)  }}]</kbd></pre>
                             </template>
                         </div>
 
@@ -198,16 +205,89 @@ import config from '../config';
 const $ = jQuery;
 
 /**
-     * Set default setting in "Bot example settings" dropdown.
+ * Replaces relevant variables with the correct bot variables.
+ */
+const botVariables = {
+    // https://cdn.streamlabs.com/chatbot/Documentation_Twitch.pdf
+    ankhbot: {
+        ':channel': '$mychannel',
+        ':user': '$touserid',
+    },
+    // https://streamlabs.com/dashboard#/cloudbot/commands/variables
+    // Requires login
+    slcloudbot: {
+        ':channel': '{channel.name}',
+        ':user': '{touser.name}',
+    },
+    // https://wiki.deepbot.tv/custom_commands
+    deepbot: {
+        ':channel': '@stream@',
+        ':user': '@user@',
+    },
+    // https://fossabot.com/docs/commands/intro
+    fossabot: {
+        ':channel': '$(channel)',
+        ':user': '$(user)',
+    },
+    // https://docs.nightbot.tv/commands/variableslist
+    nightbot: {
+        ':channel': '$(channel)',
+        ':user': '$(touser)',
+    },
+    // https://ohbot.3v.fi/commands.html
+    ohbot: {
+        ':channel': '[channel]',
+        // First parameter or fallback to user executing command... I think?
+        ':user': '[0|[user]]',
+    },
+    // https://phantombot.github.io/PhantomBot/guides/#guide=content/commands/command-variables
+    phantombot: {
+        ':channel': '(channelname)',
+        ':user': '(touser)',
+    },
+    // https://streamelements.com/dashboard/bot-commands/variables
+    streamelements: {
+        ':channel': '${channel}', // eslint-disable-line no-template-curly-in-string
+        ':user': '${touser}', // eslint-disable-line no-template-curly-in-string
+    },
+};
+
+/**
+ * Replaces colon-prefixed variables with the correct bot variables.
+ */
+const twitchPaths = ['/bttv', '/ffz', '/twitch'];
+function replaceBotVariables(bot, input) {
+    const replacements = botVariables[bot];
+
+    /**
+     * Verify that the replacements for the bot exists.
+     *
+     * Also verify that the APIs are Twitch-related, as we don't want to replace
+     * `:user` and similar variables for Twitter APIs, for instance.
      */
+    const { path } = this.$route;
+    if (!replacements || !twitchPaths.includes(path)) {
+        return input;
+    }
+
+    const channel = replacements[':channel'];
+    const user = replacements[':user'];
+    return input
+        .replaceAll(':channel', channel)
+        .replaceAll(':user', user);
+}
+
+/**
+ * Set default setting in "Bot example settings" dropdown.
+ */
 const bots = {
     ankhbot: true,
     slcloudbot: true,
-    deepbot: false,
+    deepbot: true,
     fossabot: true,
     nightbot: true,
-    ohbot: false,
-    phantombot: false,
+    ohbot: true,
+    phantombot: true,
     streamelements: true,
 };
 
@@ -218,8 +298,8 @@ export default {
             basePath: '',
             bots,
             /**
-                 * Display names in "Bot example settings" dropdown.
-                 */
+             * Display names in "Bot example settings" dropdown.
+             */
             botNames: {
                 ankhbot: 'Streamlabs Chatbot',
                 slcloudbot: 'Streamlabs Cloudbot',
@@ -230,6 +310,7 @@ export default {
                 phantombot: 'PhantomBot',
                 streamelements: 'StreamElements',
             },
+            botVars: botVariables,
             config,
             // Endpoint data
             e: {
@@ -294,6 +375,7 @@ export default {
         updateBotStore() {
             localStorage.setItem('bots', JSON.stringify(bots));
         },
+        replaceBotVariables,
     },
 
     mounted() {

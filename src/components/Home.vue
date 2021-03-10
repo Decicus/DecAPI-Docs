@@ -35,7 +35,8 @@
             </a>
             <div class="card-body">
                 <p>These are options or results that will be the default, <strong>unless the notes about the endpoint mention otherwise</strong>.</p>
-                <div class="list-group">
+
+                <ul class="list-group">
                     <li class="list-group-item">The base URL for all endpoints is <code>{{ baseUrl }}</code>.</li>
                     <li class="list-group-item"><strong>HTTP</strong> requests are supported, but <strong>HTTPS (TLS 1.x)</strong> is encouraged.</li>
                     <li class="list-group-item">The default HTTP method supported is <code>GET</code>.</li>
@@ -46,7 +47,7 @@
                     <li class="list-group-item">Parameter/query string examples may be prefixed by a colon (<code>:</code>),
                         for example: <code>:username</code> or <code>:channel</code>. These should be omitted and replaced by the input value from the actual requests.
                     </li>
-                </div>
+                </ul>
             </div>
         </div>
 
@@ -242,7 +243,7 @@
                         <strong>Nightbot</strong> example: <code>$(urlfetch {{ baseUrl }}/twitch/followers/decicus?count=5&amp;direction=desc)</code>
                     </li>
                     <li class="list-group-item">
-                        <strong>Streamlabs Chatbot (formerly Ankhbot)</strong> example: <code>$readapi({{ baseUrl }}/twitch/followers/decicus?count=5&amp;direction=desc)</code>
+                        <strong>Streamlabs Chatbot</strong> example: <code>$readapi({{ baseUrl }}/twitch/followers/decicus?count=5&amp;direction=desc)</code>
                     </li>
                 </ul>
             </div>
@@ -250,7 +251,7 @@
 
         <br>
 
-        <div class="card" id="toc" v-if="baseEndpoints.length > 0">
+        <div class="card" id="toc">
             <a href="#toc">
                 <h5 class="card-header bg-primary text-white"><i class="fas fa-table"></i> Table of contents:</h5>
             </a>
@@ -260,7 +261,7 @@
                     <br>
                     However, you can click the path/header for the endpoint and it will allow you to directly link to that section.
                 </p>
-                <div class="list-group">
+                <div class="list-group" v-if="baseEndpoints.length > 0">
                     <router-link v-for="base in baseEndpoints" v-bind:to="base.name" v-bind:key="base.name" class="list-group-item">
                         <i class="fa-fw" v-bind:class="'fa-' + (base.icon ? base.icon : 'info fas')"></i> {{ base.title }}
                     </router-link>
