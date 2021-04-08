@@ -183,9 +183,11 @@
         </div>
 
         <div class="list-group" v-if="endpoints.length > 0">
-            <a class="list-group-item endpointListItem" v-for="(endpoint, index) in endpoints" v-on:click="openModal(endpoint.route)" :key="index">
-                {{ basePath }}/{{ endpoint.route }}
-            </a>
+            <div class="list-group-item" v-for="(endpoint, index) in endpoints" :key="index">
+                <a class="endpointListItem" v-on:click="openModal(endpoint.route)">{{ basePath }}/{{ endpoint.route }}</a>
+
+                <span v-if="endpoint.deprecated == true" class="badge badge-danger badge-pill ml-2">Deprecated</span>
+            </div>
         </div>
     </div>
 </template>
