@@ -1,3 +1,5 @@
+# Netlify is no longer being used by the project.
+# However, I am keeping this here in case others want to host their own instance via Netlify :)
 [[redirects]]
 from = "/*"
 to = "/index.html"
