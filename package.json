@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
-    "core-js": "^3.9.1",
+    "core-js": "^3.10.1",
     "jquery": "^3.6.0",
     "js-yaml": "^3.14.1",
     "popper.js": "^1.16.1",
