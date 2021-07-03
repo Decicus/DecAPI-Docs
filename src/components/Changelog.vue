@@ -10,6 +10,48 @@
             However, you can browse the <a href="https://github.com/Decicus/DecAPI/commits/d4a849c7d0131ac74d64938e7850f1badb77335a">commit log prior to V2.0.0 on GitHub</a>, which should give you a decent overview.
         </p>
 
+        <div class="card mt-4" id="v2.3.0">
+            <h4 class="card-header bg-primary text-white">
+                Version 2.3.0 - Use Twitch's New API for Subscriber Emotes and other various fixes.
+
+                <span class="badge badge-secondary float-right" title="July 3rd, 2021">2021-07-03</span>
+            </h4>
+
+            <div class="card-body">
+                <h5><i class="fab fa-1x fa-fw fa-twitch"></i> Twitch</h5>
+                <ul>
+                    <li>
+                        <code>/twitch/subscriber_emotes</code> has been migrated to use <a href="https://discuss.dev.twitch.tv/t/announcing-api-endpoints-for-twitch-emotes/32073" target="_blank" rel="noopener noreferrer">Twitch's new Helix API</a>.
+                    </li>
+                    <li>
+                        Fix an issue where other parameters would be ignored/removed if <code>user</code> or <code>channel</code> parameters were present.
+                        <ul>
+                            <li>This only occurred when DecAPI attempted to filter away preceding <code>@</code> characters for user/channel and only triggered if either was specified.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        The following endpoints have been deprecated, because Twitch no longer provides any feasible way of retrieving the data needed:
+                        <ul>
+                            <li><code>/twitch/hosts</code></li>
+                            <li><code>/twitch/hostscount</code></li>
+                        </ul>
+                        These will now report <code>410 Gone - Removed by Twitch</code> for the time being, and have also been marked as deprecated in the docs. Complete removal is planned in the near future (404 Not Found).
+                    </li>
+                    <li>Fixed a bug in <code>/twitch/followage</code> where it would not return translated "Follow not found" messages for users that aren't following the channel.</li>
+                </ul>
+
+                <h5><i class="fab fa-1x fa-fw fa-youtube"></i> YouTube</h5>
+                <ul>
+                    <li>
+                        Fix crash in <code>/youtube/latest_video</code> in certain scenarios, due to private videos not including a publish timestamp and breaking when attempting to sort them by newest first.
+                    </li>
+                </ul>
+
+                <p><a href="https://github.com/Decicus/DecAPI/releases/tag/v2.3.0"><i class="fab fa-1x fa-fw fa-github"></i> GitHub release page for v2.3.0</a></p>
+                <p><a href="https://github.com/Decicus/DecAPI/compare/v2.2.0...v2.3.0"><i class="fab fa-1x fa-fw fa-github"></i> See changes between v2.2.0 and v2.3.0</a></p>
+            </div>
+        </div>
+
         <div class="card mt-4" id="v2.2.0">
             <h4 class="card-header bg-primary text-white">
                 Version 2.2.0 - Steam global player count, Turkish translations and endpoint cleanup

@@ -280,6 +280,7 @@ endpoints:
           description: 'The channel name.'
       notes:
         - 'Retrieves the subscriber emotes for the specified channels and lists them (space-separated).'
+        - 'Emotes are cached for up to 1 hour (60 minutes).'
         - '<strong>JSON results are supported</strong>.'
       qs:
         - name: 'tiers'
