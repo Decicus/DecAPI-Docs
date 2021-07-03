@@ -18,6 +18,11 @@
             </h4>
 
             <div class="card-body">
+                <h5><i class="far fa-1x fa-fw fa-smile"></i> BetterTTV (BTTV)</h5>
+                <ul>
+                    <li>The "Channel emotes lookup" page under <code>/bttv</code> has been cleaned up a bit. Emotes are now loaded 4 per "row" on the page, instead of one per row.</li>
+                </ul>
+
                 <h5><i class="fab fa-1x fa-fw fa-twitch"></i> Twitch</h5>
                 <ul>
                     <li>
