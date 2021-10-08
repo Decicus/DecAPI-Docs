@@ -9,6 +9,8 @@ endpoints:
         - name: "skip"
           description: 'Skips the specified amount of uploads. - Default: 0. - Maximum: 50.'
           type: "int"
+        - name: "format"
+          description: "Customize the output format of the latest video. Available variables are: <code>{title}</code>, <code>{id}</code>, <code>{url}</code>. Default format is: <kbd>{title} - {url}</kbd>"
       notes:
         - 'Retrieves the latest video uploaded to the specified channel and returns the title + URL for it.'
         - 'Either <code>user</code> or <code>id</code> has to be specified. If both are specified, <code>id</code> will be used.'
