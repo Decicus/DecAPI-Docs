@@ -258,22 +258,19 @@ endpoints:
       notes:
         - 'Retrieves the subscriber count of the specified channel.'
         - '<strong>This only works for channels that have <a href="{{baseUrl}}/auth/twitch?scopes=user_read+channel_subscriptions&redirect=subcount" target="_blank" rel="noopener noreferrer">authenticated and authorized</a> this app</strong>.'
+        - 'Subcount is cached for up 60 seconds (1 minute) per channel.'
+        - 'Caching is <strong>shared</strong> with subpoints, meaning they will both be cached together for the same amount of time.'
     - route: "subpoints/:channel"
       parameters:
         - name: ":channel"
           description: "The channel name."
       qs:
-        - name: "include"
-          description: "A comma-separated list of extras to include. Currently no extra options are supported."
-        - name: "subtract"
-          description: "Subscriber points will subtract the specified value and return the result. If you have 102 points and you specify subtract=2, it will return 100."
-          type: "int"
       notes:
         - 'Retrieves the amount of subscriber points for the specified channel.'
         - '<strong>This only works for channels that have <a href="{{baseUrl}}/auth/twitch?scopes=user_read+channel_subscriptions&redirect=subpoints" target="_blank" rel="noopener noreferrer">authenticated and authorized</a> this app</strong> (if the channel already uses subcount, this works already).'
-        - 'As of November 12th, 2019 the API has changed and might have some minor inaccuracies. I recommend specifying the "subtract" parameter, while comparing with your <a href="https://www.twitch.tv/dashboard/channel-analytics" target="_blank" rel="noopener noreferrer">dashboard stats</a>.'
-        - 'Example with subtract: <code>https://decapi.me/twitch/subpoints/decicus?subtract=2</code> will remove 2 subscriber points from the returned value.'
-        - 'The subscriber point value is cached by DecAPI for up to 120 seconds (2 minutes) per channel.'
+        - 'As of October 2nd, 2021 the subscriber points value is now <i>accurately</i> retrieved from the Twitch API. The "subtract" parameter no longer applies and will be ignored.'
+        - 'The subscriber point value is cached by DecAPI for up to 60 seconds (1 minute) per channel.'
+        - 'Caching is <strong>shared</strong> with subcount, meaning they will both be cached together for the same amount of time.'
     - route: "subscriber_emotes/:channel"
       parameters:
         - name: ":channel"
