@@ -28,7 +28,7 @@ endpoints:
           description: "The name of the user."
       notes:
         - Retrieves the creation date/time of the specified user.
-        - "The user's creation date (from which the accountage is calculated from) is cached for up to 6 hours, which may cause inaccuracies in certain situations depending on account status (suspended/disabled, username changed etc.)"
+        - "The user's creation date is cached for up to 6 hours, which may cause inaccuracies in certain situations depending on account status (suspended/disabled, username changed etc.)"
       qs:
         - name: "format"
           description:
