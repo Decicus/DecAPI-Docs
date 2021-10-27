@@ -13,7 +13,7 @@ endpoints:
           description: 'How precise the timestamp should be in terms of years, months, weeks, days, hours, minutes & seconds.- Default: <code>2</code>.'
       notes:
         - 'Retrieves the account age of the specified user.'
-        - 'Creation date (from which the accountage is calculated from) is cached for up to 6 hours, which may inaccuracies in certain situations (account suspensions/disabling, username changes etc.)'
+        - "The user's creation date (from which the accountage is calculated from) is cached for up to 6 hours, which may cause inaccuracies in certain situations depending on account status (suspended/disabled, username changed etc.)"
     - route: "avatar/:user"
       parameters:
         - name: ':user'
@@ -28,7 +28,7 @@ endpoints:
           description: "The name of the user."
       notes:
         - Retrieves the creation date/time of the specified user.
-        - 'Creation date (from which the accountage is calculated from) is cached for up to 6 hours, which may inaccuracies in certain situations (account suspensions/disabling, username changes etc.)'
+        - "The user's creation date (from which the accountage is calculated from) is cached for up to 6 hours, which may cause inaccuracies in certain situations depending on account status (suspended/disabled, username changed etc.)"
       qs:
         - name: "format"
           description:
