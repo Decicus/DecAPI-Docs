@@ -261,6 +261,7 @@ endpoints:
         - 'Retrieves the subscriber count of the specified channel.'
         - '<strong>This only works for channels that have <a href="{{baseUrl}}/auth/twitch?scopes=user_read+channel_subscriptions&redirect=subcount" target="_blank" rel="noopener noreferrer">authenticated and authorized</a> this app</strong>.'
         - 'Subcount is cached for up 60 seconds (1 minute) per channel.'
+        - "As of October 2nd, 2021 the subscriber count no longer includes lifetime bot subscriptions or the broadcaster's own subscription. You may need to adjust the <code>subtract</code> parameter if it was previously used for accuracy reasons."
         - 'Caching is <strong>shared</strong> with subpoints, meaning they will both be cached together for the same amount of time.'
     - route: "subpoints/:channel"
       parameters:
