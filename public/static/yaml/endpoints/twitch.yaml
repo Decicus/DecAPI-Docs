@@ -13,6 +13,7 @@ endpoints:
           description: 'How precise the timestamp should be in terms of years, months, weeks, days, hours, minutes & seconds.- Default: <code>2</code>.'
       notes:
         - 'Retrieves the account age of the specified user.'
+        - 'Creation date (from which the accountage is calculated from) is cached for up to 6 hours, which may inaccuracies in certain situations (account suspensions/disabling, username changes etc.)'
     - route: "avatar/:user"
       parameters:
         - name: ':user'
@@ -27,6 +28,7 @@ endpoints:
           description: "The name of the user."
       notes:
         - Retrieves the creation date/time of the specified user.
+        - 'Creation date (from which the accountage is calculated from) is cached for up to 6 hours, which may inaccuracies in certain situations (account suspensions/disabling, username changes etc.)'
       qs:
         - name: "format"
           description:
@@ -299,9 +301,7 @@ endpoints:
         - name: "text"
           description: 'If this is specified, the list will be returned in plaintext compared to a JSON array.'
         - name: "implode"
-          description: 'Works similarly to <code>text</code>.<br />
-          Specify the text that should separate each team member in a plaintext response. This is an alternative to having a list of members separated by a newline.<br />
-          If this is specified, specifying the <code>text</code> query string is not necessary as that will already be implied.'
+          description: 'Works similarly to <code>text</code>.<br />Specify the text that should separate each team member in a plaintext response. This is an alternative to having a list of members separated by a newline.<br />If this is specified, specifying the <code>text</code> query string is not necessary as that will already be implied.'
       notes:
         - 'Retrieves the members of a specified team.'
         - 'The team identifier is the identifier used in URLs. Example: The team "New Game Plus" has the identifier "newgameplus".'
