@@ -58,6 +58,7 @@ endpoints:
           description: 'The channel name to retrieve the current follower count for.'
       notes:
         - 'Retrieves the current amount of followers a Twitch channel has.'
+        - 'Follower count is cached for up to 1 minute (60 seconds) per channel.'
     - route: "followed/:channel/:user"
       parameters:
         - name: ":channel"
@@ -82,25 +83,13 @@ endpoints:
         - name: "count"
           description: 'How many followers to get with the request. Default: <code>1</code>. Max: <code>100</code>.'
           type: "int"
-        - name: "offset"
-          description: 'How many followers to offset from the beginning of the object.'
-          type: "int"
-        - name: "direction"
-          description: "What direction to retrieve followers in. Can either be 'asc' or 'desc'. Default: <code>desc</code>."
-          type: "string"
         - name: "num"
           description: "Prefixes each follower with a number."
           type: "none"
-        - name: "cursor"
-          description: "Used in offsetting as an alternative to <code>offset</code>."
-          type: "string"
-        - name: "username"
-          description: "Specify ANY value to have the endpoint return a list of USERNAMES and not DISPLAY NAMES."
         - name: "separator"
           description: "Specify the character(s) used for separating each follower. Default: <pre><kbd>, </kbd></pre>"
       notes:
         - 'Lists the most recent follower(s) a channel has.'
-        - 'Supports JSON responses via the header <code>Accept: application/json</code>'
     - route: "following/:user"
       parameters:
         - name: ":user"
