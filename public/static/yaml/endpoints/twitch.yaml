@@ -138,28 +138,6 @@ endpoints:
           description: 'The channel name.'
       notes:
         - 'Retrieves the latest "highlight" of the specified channel.'
-    - route: "hosts/:channel"
-      deprecated: true
-      parameters:
-        - name: ":channel"
-          description: 'The channel name.'
-      qs:
-        - name: "implode"
-          description: 'If specified, the list will be returned comma-separated (", ") instead of a "newlined" list.'
-        - name: "limit"
-          description: "If specified, the list will be comma-separated up until the maximum 'limit' of channels. Example: If 10 channels are hosting you, and the limit is set to '2', then it will for example say: decicus, mellow and 8 others"
-      notes:
-        - '<strong>April 7th, 2021:</strong> Twitch completely removed the undocumented/unsupported API that has been used since March 2021. Because of that, this API endpoint has been deprecated.'
-        - 'Returns a list of channel names hosting the specified channel.'
-        - '<strong>JSON results are no longer supported as of March 8th, 2021. Default responses will be a "newline-separated" list.</strong>.'
-    - route: "hostscount/:channel"
-      deprecated: true
-      parameters:
-        - name: ":channel"
-          description: 'The channel name.'
-      notes:
-        - '<strong>April 7th, 2021:</strong> Twitch completely removed the undocumented/unsupported API that has been used since March 2021. Because of that, this API endpoint has been deprecated.'
-        - 'This will return the <strong>channel count</strong> of how many channels are currently hosting the <i>specified channel</i>.'
     - route: "id/:user"
       parameters:
         - name: ":user"
