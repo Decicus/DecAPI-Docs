@@ -63,7 +63,7 @@
                         Example: If your channel name or username is <code>decicus</code>, then you would put just <code>decicus</code> and <strong>NOT</strong> <code>:decicus</code>.</p>
                         <pre><strong class="text-primary">{{ e.method || 'GET' }}</strong> <kbd>{{ config.baseUrl + route }}</kbd></pre>
 
-                        <h5>Bot examples:</h5>
+                        <h5 v-if="e.bots !== undefined && e.bots !== false">Bot examples:</h5>
                         <div id="bots" v-if="e.bots !== undefined && e.bots !== false">
                             <p>
                                 Bot examples have been updated to include chat variables for Twitch APIs that will automatically translate to channel names/usernames.

@@ -87,7 +87,7 @@ endpoints:
           description: "Prefixes each follower with a number."
           type: "none"
         - name: "separator"
-          description: "Specify the character(s) used for separating each follower. Default: <pre><kbd>, </kbd></pre>"
+          description: "Specify the character(s) used for separating each follower. Default: <kbd>, </kbd>"
       notes:
         - 'Lists the most recent follower(s) a channel has.'
     - route: "following/:user"
@@ -148,6 +148,7 @@ endpoints:
       notes:
         - 'Returns a formatted list of available ingest servers.'
     - route: "latest_sub/:channel"
+      deprecated: true
       qs:
         - name: "token"
           description: 'The OAuth token belonging to the channel owner with the <code>channel_subscriptions</code> scope.'
@@ -159,6 +160,7 @@ endpoints:
         - name: "separator"
           description: 'What character(s) should separate each subscriber value from each other. Default: <code>, </code>.'
       notes:
+        - "<strong>February 18th, 2022:</strong> This API has been deprecated as Twitch's new API does not provide the 'subscription date', which would normally be used for sorting subscribers."
         - 'Retrieves the latest subscriber(s) from the channel, based on their OAuth (authentication) token, or by logging in (similar to subcount).'
         - 'If you wish to retrieve an OAuth token, you can use <a href="https://token.decicus.com/#channel_subscriptions">another project of mine</a>.'
         - 'The <code>:channel</code> parameter is optional if a <code>token</code> is specified.'
@@ -176,19 +178,16 @@ endpoints:
         - 'While the <code>streams</code> <strong>query</strong> parameter is optional, you have to specify the streams as <strong>either</strong> a <strong>route</strong> parameter or as the <code>streams</code> <strong>query</strong> parameter.'
     - route: "random_sub/:channel"
       qs:
-        - name: "token"
-          description: 'The OAuth token belonging to the channel owner with the <code>channel_subscriptions</code> scope.'
         - name: "count"
-          description: "The amount of subscribers to retrieve - Default: <code>1</code>."
+          description: "The amount of subscribers to retrieve - Default: <kbd>1</kbd>."
           type: "int"
         - name: "field"
-          description: 'What field from the user object to retrieve. See <a href="https://dev.twitch.tv/docs/v5/reference/channels/#get-channel-subscribers">Twitch API docs</a> to see which ones are available. Default: <code>name</code>.'
+          description: 'What field from the user object to retrieve. See <a href="https://dev.twitch.tv/docs/api/reference#get-broadcaster-subscriptions">Twitch API docs</a> to see which ones are available. Default: <kbd>user_name</kbd>.'
         - name: "separator"
-          description: 'What character(s) should separate each subscriber value from each other. Default: <code>, </code>.'
+          description: 'What character(s) should separate each subscriber value from each other. Default: <kbd>, </kbd>.'
       notes:
-        - 'Retrieves a random subscriber from the channel, based on their OAuth (authentication) token, or by logging in (similar to subcount).'
-        - 'If you wish to retrieve an OAuth token, you can use <a href="https://token.decicus.com/#channel_subscriptions">another project of mine</a>.'
-        - 'The <code>:channel</code> parameter is optional if a <code>token</code> is specified.'
+        - 'Retrieves a random subscriber from the channel, assuming they have already authorized with DecAPI.'
+        - 'If you have already authorized via "subcount" or "subpoints", you can already use this API.'
     - route: "random_user/:channel"
       parameters:
         - name: ":channel"
@@ -200,7 +199,9 @@ endpoints:
           description: 'A comma-separated list of <strong>groups</strong> you wish to ignore. These groups are the specific user types. Currently that means the following: <code>moderators, staff, admins, global_mods, viewers</code>.'
       notes:
         - 'Retrieves a list of users that are <strong>currently logged into chat</strong> in the specified channel, then picks one of them randomly.'
+        - 'Keep in mind that this picks a user that is "logged into" <strong>chat</strong>. You can be connected to chat without watching the stream. "Chatters" is not the same as "viewers".'
     - route: "subage/:channel/:user"
+      deprecated: true
       parameters:
         - name: ":channel"
           description: "The channel the user is subscribed to."
@@ -211,6 +212,7 @@ endpoints:
           description: 'How precise the timestamp should be in terms of years, months, weeks, days, hours, minutes & seconds.- Default: <code>2</code>.'
           type: "int"
       notes:
+        - "<strong>February 18th, 2022:</strong> This API has been deprecated as Twitch's new API does not provide the 'subscription date', which is used to calculate the 'age'."
         - "Returns the time since the subscription was started."
         - '<strong>This only works for channels that have <a href="{{baseUrl}}/auth/twitch?scopes=user_read+channel_subscriptions+channel_check_subscription&redirect=subage" target="_blank" rel="noopener noreferrer">authenticated and authorized</a> this app</strong>, regardless if they already use subcount/subpoints.'
         - '<span class="text text-warning">"Subscription age" in this case is a pretty loose term, as there is something called a subscription anniversary that is typically posted in chat (e.g. "Decicus has been subscribed for 21 months in a row!"). This is <strong>not the same</strong> as the anniversary.</span>'
@@ -280,7 +282,7 @@ endpoints:
           description: "The channel name."
       notes:
         - 'Works identical to <code>status</code> - Retrieves the current title set on the channel.'
-        - 'The currently set stream title is cached by DecAPI for up to 60 seconds (1 minute) per channel.'
+        - 'The currently set stream title is cached by DecAPI for up to 120 seconds (2 minutes) per channel.'
     - route: "total_views/:channel"
       parameters:
         - name: ":channel"
@@ -306,14 +308,15 @@ endpoints:
           description: 'A custom message to display when the channel is offline. - Default: CHANNEL_NAME is offline'
       notes:
         - 'Returns how long the specified channel has been live for the current broadcast.'
+        - 'There is 120 seconds (2 minutes) of caching applied to this endpoint, which means that offline/live status might take 2 minutes to update.'
+        - 'Even with caching applied, the uptime will still be "calculated" in realtime.'
     - route: "viewercount/:channel"
       parameters:
         - name: ":channel"
           description: "The channel name."
       notes:
         - 'Returns how many viewers the channel has, if they are currently streaming.'
-        - 'Keep in mind this might be slightly inaccurate, due to caching on the Twitch API side.'
-        - 'Viewer count is cached by DecAPI for up to 60 seconds (1 minute) per channel.'
+        - 'Viewer count is cached by DecAPI for up to 120 seconds (2 minutes) per channel.'
     - route: "videos/:channel"
       parameters:
         - name: ":channel"
