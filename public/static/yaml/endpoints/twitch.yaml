@@ -282,7 +282,7 @@ endpoints:
           description: "The channel name."
       notes:
         - 'Works identical to <code>status</code> - Retrieves the current title set on the channel.'
-        - 'The currently set stream title is cached by DecAPI for up to 120 seconds (2 minutes) per channel.'
+        - 'The currently set stream title is cached by DecAPI for up to 60 seconds (1 minute) per channel.'
     - route: "total_views/:channel"
       parameters:
         - name: ":channel"
