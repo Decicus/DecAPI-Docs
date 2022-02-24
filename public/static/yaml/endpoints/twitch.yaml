@@ -160,7 +160,7 @@ endpoints:
         - name: "separator"
           description: 'What character(s) should separate each subscriber value from each other. Default: <code>, </code>.'
       notes:
-        - "<strong>February 18th, 2022:</strong> This API has been deprecated as Twitch's new API does not provide the 'subscription date', which would normally be used for sorting subscribers."
+        - "<strong>February 18th, 2022:</strong> This API has been deprecated as Twitch's new API does not provide the 'subscription date', which would normally be used for sorting subscribers. It will stop working on February 28th, possibly sooner."
         - 'Retrieves the latest subscriber(s) from the channel, based on their OAuth (authentication) token, or by logging in (similar to subcount).'
         - 'If you wish to retrieve an OAuth token, you can use <a href="https://token.decicus.com/#channel_subscriptions">another project of mine</a>.'
         - 'The <code>:channel</code> parameter is optional if a <code>token</code> is specified.'
@@ -212,7 +212,7 @@ endpoints:
           description: 'How precise the timestamp should be in terms of years, months, weeks, days, hours, minutes & seconds.- Default: <code>2</code>.'
           type: "int"
       notes:
-        - "<strong>February 18th, 2022:</strong> This API has been deprecated as Twitch's new API does not provide the 'subscription date', which is used to calculate the 'age'."
+        - "<strong>February 18th, 2022:</strong> This API has been deprecated as Twitch's new API does not provide the 'subscription date', which is used to calculate the 'age'. It will stop working on February 28th, possibly sooner."
         - "Returns the time since the subscription was started."
         - '<strong>This only works for channels that have <a href="{{baseUrl}}/auth/twitch?scopes=user_read+channel_subscriptions+channel_check_subscription&redirect=subage" target="_blank" rel="noopener noreferrer">authenticated and authorized</a> this app</strong>, regardless if they already use subcount/subpoints.'
         - '<span class="text text-warning">"Subscription age" in this case is a pretty loose term, as there is something called a subscription anniversary that is typically posted in chat (e.g. "Decicus has been subscribed for 21 months in a row!"). This is <strong>not the same</strong> as the anniversary.</span>'
