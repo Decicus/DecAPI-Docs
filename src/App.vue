@@ -30,6 +30,11 @@
 
                 <ul class="nav navbar-nav justify-content-end">
                     <li class="navbar-item">
+                        <a href="https://decapi.me/privacy-policy" class="nav-link">
+                            <i class="fas fa-user-secret fa-fw"></i> Privacy Policy
+                        </a>
+                    </li>
+                    <li class="navbar-item">
                         <a v-bind:href="config.discordUrl" class="nav-link">
                             <i class="fab fa-discord fa-fw"></i> Discord server
                         </a>
