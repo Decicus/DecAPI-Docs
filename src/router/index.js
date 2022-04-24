@@ -6,6 +6,7 @@ import EndpointList from '../components/EndpointList.vue';
 import Home from '../components/Home.vue';
 import Changelog from '../components/Changelog.vue';
 import Contact from '../components/Contact.vue';
+import CachedEndpoints from '../components/Cached.vue';
 
 Vue.use(Router);
 Vue.use(VueResource);
@@ -27,6 +28,11 @@ const router = new Router({
             path: '/contact',
             name: 'Contact',
             component: Contact,
+        },
+        {
+            path: '/cached-endpoints',
+            name: 'Cached endpoints',
+            component: CachedEndpoints,
         },
     ],
 });

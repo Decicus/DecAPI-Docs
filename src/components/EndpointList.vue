@@ -40,6 +40,12 @@
                             </div>
                         </template>
 
+                        <template v-if="e.cached === true">
+                            <div class="alert alert-info">
+                                This endpoint is cached and won't always be fully up-to-date. See the <a href="/cached-endpoints">Cached endpoints</a> page for more information.
+                            </div>
+                        </template>
+
                         <template v-if="e.notes && e.notes.length > 0">
                             <h4 class="text-muted">Notes:</h4>
                             <ul class="list-group text-primary" v-for="(note, index) in e.notes" id="notes" :key="index">
@@ -318,6 +324,7 @@ export default {
             e: {
                 bots: true,
                 deprecated: false,
+                cached: false,
                 method: 'GET',
                 notes: [],
                 parameters: [],
@@ -355,6 +362,7 @@ export default {
                     }
 
                     this.e.deprecated = !!end.deprecated;
+                    this.e.cached = !!end.cached;
 
                     if (!end.qs || end.qs.length === 0) {
                         this.e.qs = [];

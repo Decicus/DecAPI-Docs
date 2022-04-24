@@ -26,6 +26,10 @@
                     <li class="navbar-item">
                         <a href="/contact#security" class="nav-link"><i class="fas fa-fw fa-shield-alt"></i> Security</a>
                     </li>
+
+                    <li class="navbar-item" v-bind:class="{ active: this.$route.name === 'Cached endpoints' }">
+                        <a href="/cached-endpoints" class="nav-link"><i class="fas fa-clock"></i> Cached endpoints</a>
+                    </li>
                 </ul>
 
                 <ul class="nav navbar-nav justify-content-end">

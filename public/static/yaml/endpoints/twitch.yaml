@@ -5,6 +5,7 @@ endpoints:
         - 'Lists the currently available endpoints - <strong>Returns a JSON object</strong>'
       bots: false
     - route: "accountage/:user"
+      cached: true
       parameters:
         - name: ":user"
           description: 'The name of the user to retrieve the account age for.'
@@ -13,22 +14,21 @@ endpoints:
           description: 'How precise the timestamp should be in terms of years, months, weeks, days, hours, minutes & seconds.- Default: <code>2</code>.'
       notes:
         - 'Retrieves the account age of the specified user.'
-        - "The user's creation date (from which the accountage is calculated from) is cached for up to 6 hours, which may cause inaccuracies in certain situations depending on account status (suspended/disabled, username changed etc.)"
     - route: "avatar/:user"
+      cached: true
       parameters:
         - name: ':user'
           description: 'The name of the user to retrieve the avatar for.'
       notes:
         - 'Retrieves the URL of the avatar for the specified user'
         - 'Will fallback to the default Twitch avatar if the user does not have an avatar.'
-        - 'Avatar URLs are cached by DecAPI for up to 300 seconds (5 minutes) per user.'
     - route: "creation/:user"
+      cached: true
       parameters:
         - name: ":user"
           description: "The name of the user."
       notes:
         - Retrieves the creation date/time of the specified user.
-        - "The user's creation date is cached for up to 6 hours, which may cause inaccuracies in certain situations depending on account status (suspended/disabled, username changed etc.)"
       qs:
         - name: "format"
           description:
@@ -53,12 +53,12 @@ endpoints:
       notes:
         - 'Gets the time difference (also known as the "follow age") between when <code>:user</code> followed <code>:channel</code>'
     - route: "followcount/:channel"
+      cached: true
       parameters:
         - name: "channel"
           description: 'The channel name to retrieve the current follower count for.'
       notes:
         - 'Retrieves the current amount of followers a Twitch channel has.'
-        - 'Follower count is cached for up to 1 minute (60 seconds) per channel.'
     - route: "followed/:channel/:user"
       parameters:
         - name: ":channel"
@@ -110,12 +110,12 @@ endpoints:
       notes:
         - 'Retrieves a list of channels that the specified user is following.'
     - route: "game/:channel"
+      cached: true
       parameters:
         - name: ":channel"
           description: "The channel name."
       notes:
         - 'Retrieves the current game the channel has been set to.'
-        - 'The currently set game is cached by DecAPI for up to 60 seconds (1 minute) per channel.'
     - route: "help/:search"
       deprecated: true
       parameters:
@@ -214,6 +214,7 @@ endpoints:
         - '<span class="text text-warning">This endpoint only counts the time since the subscription payments started. So if someone changes their payment information, this will only count the time since they updated their payment information.</span>'
         - '<span class="text text-warning">Another good example is Twitch Prime subscriptions: If you have a user consistently subscribing to you with their Twitch Prime every month, this endpoint will reset every single month for that specific user.</span>'
     - route: "subcount/:channel"
+      cached: true
       parameters:
         - name: ":channel"
           description: "The channel name."
@@ -224,10 +225,9 @@ endpoints:
       notes:
         - 'Retrieves the subscriber count of the specified channel.'
         - '<strong>This only works for channels that have <a href="{{baseUrl}}/auth/twitch?scopes=user_read+channel_subscriptions&redirect=subcount" target="_blank" rel="noopener noreferrer">authenticated and authorized</a> this app</strong>.'
-        - 'Subcount is cached for up 60 seconds (1 minute) per channel.'
         - "As of October 2nd, 2021 the subscriber count no longer includes lifetime bot subscriptions or the broadcaster's own subscription. You may need to adjust the <code>subtract</code> parameter if it was previously used for accuracy reasons."
-        - 'Caching is <strong>shared</strong> with subpoints, meaning they will both be cached together for the same amount of time.'
     - route: "subpoints/:channel"
+      cached: true
       parameters:
         - name: ":channel"
           description: "The channel name."
@@ -236,26 +236,24 @@ endpoints:
         - 'Retrieves the amount of subscriber points for the specified channel.'
         - '<strong>This only works for channels that have <a href="{{baseUrl}}/auth/twitch?scopes=user_read+channel_subscriptions&redirect=subpoints" target="_blank" rel="noopener noreferrer">authenticated and authorized</a> this app</strong> (if the channel already uses subcount, this works already).'
         - 'As of October 2nd, 2021 the subscriber points value is now <i>accurately</i> retrieved from the Twitch API. The "subtract" parameter no longer applies and will be ignored.'
-        - 'The subscriber point value is cached by DecAPI for up to 60 seconds (1 minute) per channel.'
-        - 'Caching is <strong>shared</strong> with subcount, meaning they will both be cached together for the same amount of time.'
     - route: "subscriber_emotes/:channel"
+      cached: true
       parameters:
         - name: ":channel"
           description: 'The channel name.'
       notes:
         - 'Retrieves the subscriber emotes for the specified channels and lists them (space-separated).'
-        - 'Emotes are cached for up to 1 hour (60 minutes).'
         - '<strong>JSON results are supported</strong>.'
       qs:
         - name: 'tiers'
           description: '<strong>Only available in JSON responses</strong>. Specify the <code>tiers</code> parameter with your request and emotes are split into their respective subscriber tiers.'
     - route: "status/:channel"
+      cached: true
       parameters:
         - name: ":channel"
           description: 'The channel name.'
       notes:
         - 'Retrieves the current title set on the channel.'
-        - 'The currently set stream title is cached by DecAPI for up to 60 seconds (1 minute) per channel.'
     - route: "team_members/:team_id"
       parameters:
         - name: ":team_id"
@@ -272,12 +270,12 @@ endpoints:
         - 'The team identifier is the identifier used in URLs. Example: The team "New Game Plus" has the identifier "newgameplus".'
         - '<strong>JSON results are returned by default. See <code>text</code> or <code>implode</code> query string.</strong>.'
     - route: "title/:channel"
+      cached: true
       parameters:
         - name: ":channel"
           description: "The channel name."
       notes:
         - 'Works identical to <code>status</code> - Retrieves the current title set on the channel.'
-        - 'The currently set stream title is cached by DecAPI for up to 60 seconds (1 minute) per channel.'
     - route: "total_views/:channel"
       parameters:
         - name: ":channel"
@@ -293,6 +291,7 @@ endpoints:
         - '<strong>January 22nd, 2022</strong>: Scheduled for removal due to lack of use.'
         - 'Returns the latest uploaded video (title + URL) for the specified channel.'
     - route: "uptime/:channel"
+      cached: true
       parameters:
         - name: ":channel"
           description: "The channel name."
@@ -303,16 +302,16 @@ endpoints:
           description: 'A custom message to display when the channel is offline. - Default: CHANNEL_NAME is offline'
       notes:
         - 'Returns how long the specified channel has been live for the current broadcast.'
-        - 'There is 120 seconds (2 minutes) of caching applied to this endpoint, which means that offline/live status might take 2 minutes to update.'
         - 'Even with caching applied, the uptime will still be "calculated" in realtime.'
     - route: "viewercount/:channel"
+      cached: true
       parameters:
         - name: ":channel"
           description: "The channel name."
       notes:
         - 'Returns how many viewers the channel has, if they are currently streaming.'
-        - 'Viewer count is cached by DecAPI for up to 120 seconds (2 minutes) per channel.'
     - route: "videos/:channel"
+      cached: true
       parameters:
         - name: ":channel"
           description: "The channel name to retrieve videos for."
@@ -331,6 +330,7 @@ endpoints:
         - 'Retrieves the latest videos from a channel.'
         - 'Since it is primarily provided as an alternative to the "latest highlight" and "latest upload" endpoints, it is set to only retrieve VODs (stream archives) by default. Use the <code>broadcast_type</code> parameter to override this.'
     - route: "vod_replay/:channel"
+      cached: true
       parameters:
         - name: ":channel"
           description: "The channel name to retrieve the 'VOD replay' for."
