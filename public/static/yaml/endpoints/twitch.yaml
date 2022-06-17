@@ -95,14 +95,8 @@ endpoints:
         - name: ":user"
           description: 'The username of the user you wanna get the "following" channels from.'
       qs:
-        - name: "direction"
-          description: 'The direction to retrieve channels in. <code>asc</code> or <code>desc</code>. Default: <code>desc</code>.'
-          type: "string"
         - name: "limit"
           description: 'Specifies the max amount of channels listed per request. Minimum: 1. Maximum: 100. Default: 25.'
-          type: "int"
-        - name: "offset"
-          description: 'Specifies the amount to offset by in terms of pagination. Default: 0.'
           type: "int"
         - name: "separator"
           description: 'Specifies the separator used when listing channel names. Default: <code>, </code>.'
