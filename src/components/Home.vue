@@ -118,18 +118,8 @@
                 <div class="list-group">
                     <a href="https://dev.twitch.tv/docs" class="list-group-item"><i class="fab fa-twitch"></i> Use the Twitch API directly (Twitch's rate limits still apply).</a>
                     <a href="https://developer.valvesoftware.com/wiki/Steam_Web_API" class="list-group-item"><i class="fab fa-steam"></i> Use the Steam web APIs directly.</a>
-                    <a href="https://www.patreon.com/Decicus" class="list-group-item"><i class="fab fa-patreon"></i> Support me on Patreon to bypass it.</a>
                     <a href="https://github.com/Decicus/DecAPI#setup" class="list-group-item"><i class="fab fa-github"></i> Host it yourself and set your own rate limits.</a>
                 </div>
-
-                <br>
-
-                <h4>Instructions for API keys:</h4>
-                If you have a valid API key, you have (for now) absolutely no rate limit and you bypass it completely.
-                <br>
-                To use your API key, you have to specify the header: <code>X-API-Key: aaaa-bbbb-cccc-dddd</code>, where <code>aaaa-bbbb-cccc-dddd</code> is your API key.
-                <br>
-                Keep in mind that if you have a valid API key, the <code>X-RateLimit-*</code> and <code>RetryAfter</code> headers are not included in the responses.
 
                 <br><br>
 
