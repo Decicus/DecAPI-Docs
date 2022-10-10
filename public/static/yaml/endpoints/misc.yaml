@@ -31,6 +31,18 @@ endpoints:
           description: 'The <a href="https://www.php.net/manual/en/datetime.format.php#refsect1-datetime.format-parameters">PHP date()</a> format you want the time to be displayed in. - Default: <code>h:i:s A T</code>.'
       notes:
         - 'Displays the current time in the specified timezone.'
+    - route: 'time-difference'
+      qs:
+        - name: 'first'
+          description: 'The initial timestamp you want to compare from'
+          required: true
+        - name: 'second'
+          description: 'The second timestamp you want to compare from. If not specified, it defaults to the current time.'
+      notes:
+        - 'Returns a human-readable time difference between two timestamps.'
+        - 'The timestamps can be in any format that <a href="https://www.php.net/manual/en/datetime.formats.php">strtotime()</a> can understand.'
+        - 'If you wish to specify a timezone, please include that in the timestamp itself. My recommendation is to follow the <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> standard. Example: <a href="https://decapi.me/misc/time-difference?first=2022-10-31T13:37:06%2B02:00"><code>/misc/time-difference?first=2022-10-31T13:37:06+02:00</code></a>'
+        - '<a href="/#localization">Supports localization</a>! Example time in German: <a href="https://decapi.me/misc/time-difference?first=2022-10-31T13:37:06%2B02:00&lang=de"><code>/misc/time-difference?first=2022-10-31T13:37:06+02:00&lang=de</code></a>'
     - route: "timezones"
       notes:
         - 'Returns a list of supported timezones.'
