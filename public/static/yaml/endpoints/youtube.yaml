@@ -34,3 +34,4 @@ endpoints:
       notes:
         - 'Searches the YouTube API with the specified string and returns the first result it can find (if any).'
         - 'If the search string is a valid video ID, it will just return the video ID.'
+        - 'Searches are cached for up to 3 hours, to avoid repeated YouTube API requests. This only applies to exact & case insensitive matches on search queries.'
