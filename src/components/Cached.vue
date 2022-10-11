@@ -83,6 +83,24 @@
                 </tr>
             </tbody>
         </table>
+
+        <h3><i class="fab fa-youtube"></i> YouTube</h3>
+        <table class="table table-bordered">
+            <thead>
+                <th><i class="fas fa-link fa-fw fa-1x"></i> API Endpoint</th>
+                <th><i class="fas fa-clock fa-fw fa-1x"></i> Cache length</th>
+                <th><i class="fas fa-sticky-note fa-fw fa-1x"></i> Description</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>videoid</code></td>
+                    <td>3 hours (10800 seconds)</td>
+                    <td>
+                        Searches are cached for up to 3 hours. Only affects exact searches (case insensitive, e.g. <code>Never Gonna Give You Up</code> = <code>never gonna give you up</code>).
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </template>
 
