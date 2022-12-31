@@ -19,15 +19,15 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.12",
-    "@vue/cli-plugin-eslint": "^3.1.1",
+    "@vue/cli-plugin-babel": "~5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
     "@vue/cli-plugin-router": "~4.5.12",
     "@vue/cli-plugin-vuex": "~4.5.12",
-    "@vue/cli-service": "^4.5.13",
+    "@vue/cli-service": "^5.0.8",
     "@vue/eslint-config-airbnb": "^5.3.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.12"
   }
