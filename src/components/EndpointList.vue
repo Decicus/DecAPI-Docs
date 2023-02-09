@@ -42,7 +42,7 @@
 
                         <template v-if="route.includes('twitter/')">
                             <div class="alert alert-warning">
-                                Due to <a href="https://twitter.com/TwitterDev/status/1621026986784337922" target="_blank" rel="noopener noreferrer" class="alert-link">Twitter's decision</a> to start charging for all API usage out of nowhere, Twitter endpoints may stop working from February 9th, 2023.
+                                Due to <a href="https://twitter.com/TwitterDev/status/1621026986784337922" target="_blank" rel="noopener noreferrer" class="alert-link">Twitter's decision</a> to start charging for all API usage out of nowhere, Twitter endpoints may stop working from <a href="https://twitter.com/TwitterDev/status/1623467615539859456"  target="_blank" rel="noopener noreferrer" class="alert-link">February 13th, 2023</a>.
                             </div>
                         </template>
 
