@@ -59,16 +59,39 @@
             </a>
 
             <div class="card-body">
-                DecAPI now has some basic localization support for certain endpoints. As of right now, it's only <code>/twitch</code> routes, but eventually it'll be expanded to support the other routes as well.
-                <br><br>
-                To use the localization options, use the two-letter country code defined in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> in the <code>GET</code> parameter <code>lang</code>. The default value is <code>en</code> (English) and you would (for example) use <code>de</code> for German, or <code>no</code> for Norwegian. English is also used as a "fallback" if a language isn't supported for certain types of messages.
+                <p>DecAPI now has some basic localization support for certain endpoints. As of right now, it's only <code>/twitch</code> routes, but eventually it'll be expanded to support the other routes as well.</p>
+                <p>To use the localization options, use the two-letter language code defined in <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1</a> in the <code>GET</code> parameter <code>lang</code>. The default value is <code>en</code> (English) and you would (for example) use <code>de</code> for German, or <code>no</code> for Norwegian. English is also used as a "fallback" if a language isn't supported for certain types of messages.
                 <br>
-                Keep in mind that the translations are provided by volunteers. If you'd like to translate something into another language, take a look at the <a href="https://github.com/Decicus/DecAPI/tree/master/resources/lang">'lang' directory on GitHub</a> for examples. Feel free to visit <a href="https://links.decapi.me/discord">the Discord server</a> if you need assistance getting started.
-                <br><br>
+                Keep in mind that the translations are provided by volunteers. If you'd like to translate something into another language, take a look at the <a href="https://github.com/Decicus/DecAPI/tree/master/resources/lang">'lang' directory on GitHub</a> for examples. Feel free to visit <a href="https://decapi.link/discord">the Discord server</a> if you need assistance getting started.</p>
                 <ul class="list-group">
                     <li class="list-group-item"><strong>Example #1:</strong> Accountage with precision 7 and language set to Norwegian - <a href="https://decapi.me/twitch/accountage/decicus?precision=7&lang=no">https://decapi.me/twitch/accountage/decicus?precision=7&lang=no</a></li>
                     <li class="list-group-item"><strong>Example #2:</strong> Accountage with only language set to Norwegian - <a href="https://decapi.me/twitch/accountage/decicus?lang=no">https://decapi.me/twitch/accountage/decicus?lang=no</a></li>
                 </ul>
+
+                <br>
+
+                <h4>Supported languages:</h4>
+                <p>You should always check <a href="https://github.com/Decicus/DecAPI/tree/master/resources/lang">'lang' directory on GitHub</a> for the latest list of supported languages, but here's a quick overview:</p>
+                <table class="table table-bordered table-sm table-striped table-hover">
+                    <thead>
+                        <th>Language code</th>
+                        <th>Language name</th>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>en</code></td><td>English - Default</td></tr>
+                        <tr><td><code>cs</code></td><td>Czech</td></tr>
+                        <tr><td><code>de</code></td><td>German</td></tr>
+                        <tr><td><code>es</code></td><td>Spanish</td></tr>
+                        <tr><td><code>fr</code></td><td>French</td></tr>
+                        <tr><td><code>ko</code></td><td>Korean</td></tr>
+                        <tr><td><code>nl</code></td><td>Dutch</td></tr>
+                        <tr><td><code>no</code></td><td>Norwegian</td></tr>
+                        <tr><td><code>pt</code></td><td>Portuguese</td></tr>
+                        <tr><td><code>ro</code></td><td>Romanian</td></tr>
+                        <tr><td><code>ru</code></td><td>Russian</td></tr>
+                        <tr><td><code>tr</code></td><td>Turkish</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
