@@ -136,23 +136,6 @@ endpoints:
     - route: "ingests"
       notes:
         - 'Returns a formatted list of available ingest servers.'
-    - route: "latest_sub/:channel"
-      deprecated: true
-      qs:
-        - name: "token"
-          description: 'The OAuth token belonging to the channel owner with the <code>channel_subscriptions</code> scope.'
-        - name: "count"
-          description: "The amount of subscribers to retrieve - Default: <code>1</code>."
-          type: "int"
-        - name: "field"
-          description: 'What field from the user object to retrieve. See <a href="https://dev.twitch.tv/docs/v5/reference/channels/#get-channel-subscribers">Twitch API docs</a> to see which ones are available. Default: <code>name</code>.'
-        - name: "separator"
-          description: 'What character(s) should separate each subscriber value from each other. Default: <code>, </code>.'
-      notes:
-        - "<strong>February 28th, 2022:</strong> This API has been deprecated as Twitch's new API does not provide the 'subscription date', which would normally be used for sorting subscribers."
-        - 'Retrieves the latest subscriber(s) from the channel, based on their OAuth (authentication) token, or by logging in (similar to subcount).'
-        - 'If you wish to retrieve an OAuth token, you can use <a href="https://token.decicus.com/#channel_subscriptions">another project of mine</a>.'
-        - 'The <code>:channel</code> parameter is optional if a <code>token</code> is specified.'
     - route: "multi/:streams"
       parameters:
         - name: ":streams"
