@@ -189,24 +189,6 @@ endpoints:
       notes:
         - 'Retrieves a list of users that are <strong>currently logged into chat</strong> in the specified channel, then picks one of them randomly.'
         - 'Keep in mind that this picks a user that is "logged into" <strong>chat</strong>. You can be connected to chat without watching the stream. "Chatters" is not the same as "viewers".'
-    - route: "subage/:channel/:user"
-      deprecated: true
-      parameters:
-        - name: ":channel"
-          description: "The channel the user is subscribed to."
-        - name: ":user"
-          description: "The user subscribed to the channel."
-      qs:
-        - name: "precision"
-          description: 'How precise the timestamp should be in terms of years, months, weeks, days, hours, minutes & seconds.- Default: <code>2</code>.'
-          type: "int"
-      notes:
-        - "<strong>February 28th, 2022:</strong> This API has been deprecated as Twitch's new API does not provide the 'subscription date', which is used to calculate the 'age'."
-        - "Returns the time since the subscription was started."
-        - '<strong>This only works for channels that have <a href="{{baseUrl}}/auth/twitch?scopes=user_read+channel_subscriptions+channel_check_subscription&redirect=subage" target="_blank" rel="noopener noreferrer">authenticated and authorized</a> this app</strong>, regardless if they already use subcount/subpoints.'
-        - '<span class="text text-warning">"Subscription age" in this case is a pretty loose term, as there is something called a subscription anniversary that is typically posted in chat (e.g. "Decicus has been subscribed for 21 months in a row!"). This is <strong>not the same</strong> as the anniversary.</span>'
-        - '<span class="text text-warning">This endpoint only counts the time since the subscription payments started. So if someone changes their payment information, this will only count the time since they updated their payment information.</span>'
-        - '<span class="text text-warning">Another good example is Twitch Prime subscriptions: If you have a user consistently subscribing to you with their Twitch Prime every month, this endpoint will reset every single month for that specific user.</span>'
     - route: "subcount/:channel"
       cached: true
       parameters:
