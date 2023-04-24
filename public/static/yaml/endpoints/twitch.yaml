@@ -170,6 +170,7 @@ endpoints:
         - name: "ignore"
           description: 'A comma-separated list of <strong>groups</strong> you wish to ignore. These groups are the specific user types. Currently that means the following: <code>moderators, staff, admins, global_mods, viewers</code>.'
       notes:
+        - '<span class="text-warning">This is currently broken, due to changes <a href="https://discuss.dev.twitch.tv/t/legacy-chatters-endpoint-shutdown-details-and-timeline-april-2023/43161">with the Twitch API</a> that was used for this data. The alternative API is being considered, but there is no guarantee it will be implemented.</span>'
         - 'Retrieves a list of users that are <strong>currently logged into chat</strong> in the specified channel, then picks one of them randomly.'
         - 'Keep in mind that this picks a user that is "logged into" <strong>chat</strong>. You can be connected to chat without watching the stream. "Chatters" is not the same as "viewers".'
     - route: "subcount/:channel"
