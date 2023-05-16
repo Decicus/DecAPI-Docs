@@ -134,8 +134,10 @@ endpoints:
       notes:
         - 'Returns the Twitch user ID of the specified user (if valid).'
     - route: "ingests"
+      bots: false
       notes:
         - 'Returns a formatted list of available ingest servers.'
+        - 'This is a "legacy" endpoint. It is better to use the official Twitch API endpoint for this: <a href="https://ingest.twitch.tv/ingests">https://ingest.twitch.tv/ingests</a>'
     - route: "multi/:streams"
       parameters:
         - name: ":streams"
