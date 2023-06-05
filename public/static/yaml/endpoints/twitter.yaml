@@ -9,6 +9,7 @@ endpoints:
           description: "How precise the timestamp should be in terms of years, months, weeks, days, hours, minutes & seconds.- Default: <code>2</code>."
       notes:
         - 'Retrieves the account age of the specified Twitter user.'
+        - '<strong>This API is currently unavailable</strong>'
     - route: "latest/:user"
       parameters:
         - name: ":user"
@@ -17,11 +18,17 @@ endpoints:
         - name: "no_rts"
           description: 'If specified, retweets will <strong>not</strong> be included.'
         - name: "include_replies"
-          description: 'If specified at all, this includes replies from the specified user to other users as well.'
+          description:
+            - 'If specified at all, this includes replies from the specified user to other users as well.'
+            - '<u>Currently does not function.</u>'
         - name: "search"
-          description: 'Goes through each of the latest tweets (up to 200) and then searches with the specified string (case-insensitive). If this is not specified, it will just return the latest tweet.'
+          description:
+            - 'Goes through each of the latest tweets (up to 200) and then searches with the specified string (case-insensitive). If this is not specified, it will just return the latest tweet.'
+            - '<u>Currently does not function.</u>'
         - name: "strict"
-          description: 'This is used together with <code>search</code>. If specified, it will do a case-sensitive search.'
+          description:
+            - 'This is used together with <code>search</code>. If specified, it will do a case-sensitive search.'
+            - '<u>Currently does not function.</u>'
         - name: "url"
           description: 'If specified, the URL of the tweet will be appended to the result.'
         - name: "shorten"
