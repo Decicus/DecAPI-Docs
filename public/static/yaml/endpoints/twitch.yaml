@@ -110,17 +110,6 @@ endpoints:
           description: "The channel name."
       notes:
         - 'Retrieves the current game the channel has been set to.'
-    - route: "help/:search"
-      deprecated: true
-      parameters:
-        - name: ":search"
-          description: 'The string to search for in the titles of the help articles.'
-      qs:
-        - name: "list"
-          description: 'If this is specified at all, a list of available help articles will be returned instead.'
-      notes:
-        - 'Allows you to search help article titles and return the full title + URL.'
-        - '<strong>March 1st, 2022</strong>: Deprecated as most of the links seem to be completely outdated and broken.'
     - route: "highlight/:channel"
       parameters:
         - name: ":channel"
@@ -244,14 +233,6 @@ endpoints:
           description: "The channel name."
       notes:
         - 'Displays the "total views" a channel has.'
-    - route: "upload/:channel"
-      deprecated: true
-      parameters:
-        - name: ":channel"
-          description: "The channel name."
-      notes:
-        - '<strong>January 22nd, 2022</strong>: Scheduled for removal due to lack of use.'
-        - 'Returns the latest uploaded video (title + URL) for the specified channel.'
     - route: "uptime/:channel"
       cached: true
       parameters:
