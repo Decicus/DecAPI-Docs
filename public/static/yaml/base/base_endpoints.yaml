@@ -1,6 +1,3 @@
-- name: br
-  title: "Battle Royale (Arma 3 Mod)"
-  icon: "gamepad fas"
 - name: bttv
   title: "BetterTTV"
   icon: "smile far"
