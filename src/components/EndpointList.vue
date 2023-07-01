@@ -47,6 +47,10 @@
                                 <br>
 
                                 <strong>Update - June 5th 2023:</strong> The "latest tweet" and "latest URL" endpoints should work again for the time being, but with limited functionality. Some of the optional parameters may not work.
+
+                                <br>
+
+                                <strong>Update - July 1st 2023:</strong> Last night, the latest tweet and latest URL endpoints stopped working again. It's uncertain if this is going to be temporary or permanent for the time being. I have a <a href="https://twitter.com/Decicus/status/1674875067291803648">Twitter thread for any potential updates</a>.
                             </div>
                         </template>
 
