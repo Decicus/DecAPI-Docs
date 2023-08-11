@@ -40,20 +40,6 @@
                             </div>
                         </template>
 
-                        <template v-if="route.includes('twitter/')">
-                            <div class="alert alert-warning">
-                                Due to <a href="https://twitter.com/TwitterDev/status/1621026986784337922" target="_blank" rel="noopener noreferrer" class="alert-link">Twitter's decision</a> to start charging for all API usage out of nowhere, Twitter endpoints may stop working from <a href="https://twitter.com/TwitterDev/status/1623467615539859456"  target="_blank" rel="noopener noreferrer" class="alert-link">February 13th, 2023</a>.
-
-                                <br>
-
-                                <strong>Update - June 5th 2023:</strong> The "latest tweet" and "latest URL" endpoints should work again for the time being, but with limited functionality. Some of the optional parameters may not work.
-
-                                <br>
-
-                                <strong>Update - July 1st 2023:</strong> Last night, the latest tweet and latest URL endpoints stopped working again. It's uncertain if this is going to be temporary or permanent for the time being. I have a <a href="https://twitter.com/Decicus/status/1674875067291803648">Twitter thread for any potential updates</a>.
-                            </div>
-                        </template>
-
                         <template v-if="e.cached === true">
                             <div class="alert alert-info">
                                 This endpoint is cached and won't always be fully up-to-date. See the <a href="/cached-endpoints">Cached endpoints</a> page for more information.
