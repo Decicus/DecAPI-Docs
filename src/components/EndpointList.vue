@@ -47,15 +47,15 @@
                         </template>
 
                         <template v-if="e.notes && e.notes.length > 0">
-                            <h4 class="text-muted">Notes:</h4>
-                            <ul class="list-group text-primary" v-for="(note, index) in e.notes" id="notes" :key="index">
+                            <h4 class="text-info">Notes:</h4>
+                            <ul class="list-group" v-for="(note, index) in e.notes" id="notes" :key="index">
                                 <li class="list-group-item" v-html="note.replace(/{{baseUrl}}/g, config.baseUrl)"></li>
                             </ul>
                         </template>
 
                         <br>
 
-                        <p class="text-muted">
+                        <p class="text-info">
                             Not a developer? Confused? Please read the part of the homepage <a href="/#nondev">dedicated to non-developers</a>, which tries to explain some of these things.
                             <br>
                             Still confused? Feel free to <a v-bind:href="config.discordUrl">visit our <i class="fab fa-discord"></i> Discord server</a> and you will most likely get help with your issue.
@@ -63,7 +63,7 @@
 
                         <br>
 
-                        <h4 class="text-muted">Standard request:</h4>
+                        <h4 class="text-info">Standard request:</h4>
                         <p>Please remember that the <code>:</code> in front of each parameter is just a placeholder and should not be included in the request.
                         <br>
                         Example: If your channel name or username is <code>decicus</code>, then you would put just <code>decicus</code> and <strong>NOT</strong> <code>:decicus</code>.</p>
@@ -127,7 +127,7 @@
                         <br>
 
                         <div id="routes" v-if="e.parameters && e.parameters.length > 0">
-                            <h4 class="text-muted">Route parameters:</h4>
+                            <h4 class="text-info">Route parameters:</h4>
 
                             <table class="table table-bordered table-striped table-hover" id="route-body">
                                 <thead>
@@ -155,7 +155,7 @@
                         <br>
 
                         <div id="qs" v-if="e.qs && e.qs.length > 0">
-                            <h4 class="text-muted">Query string parameters:</h4>
+                            <h4 class="text-info">Query string parameters:</h4>
 
                             <table class="table table-bordered table-striped table-hover" id="qs-body">
                                 <thead>
