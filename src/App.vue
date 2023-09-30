@@ -34,6 +34,16 @@
 
                 <ul class="nav navbar-nav justify-content-end">
                     <li class="navbar-item">
+                        <a @click="toggleDarkMode" class="nav-link">
+                            <div v-if="darkMode">
+                                <i class="fas fa-fw fa-sun"></i> Light mode
+                            </div>
+                            <div v-else>
+                                <i class="fas fa-fw fa-moon"></i> Dark mode
+                            </div>
+                        </a>
+                    </li>
+                    <li class="navbar-item">
                         <a href="https://decapi.me/privacy-policy" class="nav-link">
                             <i class="fas fa-user-secret fa-fw"></i> Privacy Policy
                         </a>
@@ -64,6 +74,22 @@
 <script>
 import config from './config';
 
+/**
+ * A very ugly way to have dark mode, but I honestly can't be bothered
+ * to figure out how to do it the "Vue way" when I'm planning on rewriting
+ * the docs to something else anyway. Eventually™
+ */
+function checkDarkMode() {
+    const bootstrapTheme = document.querySelector('#bootstrap-theme');
+    const darkMode = localStorage.getItem('darkMode');
+    if (darkMode === '1') {
+        bootstrapTheme.setAttribute('href', '/static/css/darkly.min.css');
+        return;
+    }
+
+    bootstrapTheme.setAttribute('href', '/static/css/cosmo.min.css');
+}
+
 export default {
     name: 'app',
     created() {
@@ -71,8 +97,19 @@ export default {
     },
     data() {
         return {
+            darkMode: localStorage.getItem('darkMode') === '1',
             config,
         };
+    },
+    mounted() {
+        checkDarkMode();
+    },
+    methods: {
+        toggleDarkMode() {
+            this.darkMode = !this.darkMode;
+            localStorage.setItem('darkMode', this.darkMode ? '1' : '0');
+            checkDarkMode();
+        },
     },
 };
 </script>
