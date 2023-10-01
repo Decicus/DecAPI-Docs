@@ -391,6 +391,10 @@ export default {
     mounted() {
         const path = this.$route.path.replace('/', '');
         const endpoint = this.$route.query.endpoint || '';
+        const movedEndpoints = {
+            'followage/:channel/:user': 'followage/:channel/:user?token=YOUR_TOKEN_HERE',
+            'followed/:channel/:user': 'followed/:channel/:user?token=YOUR_TOKEN_HERE',
+        };
 
         this.$http.get(`/static/yaml/endpoints/${path}.yaml`).then((response) => {
             const { body } = response;
@@ -402,13 +406,18 @@ export default {
             this.basePath = basePath;
             this.endpoints = endpoints;
 
-            endpoints.forEach((end) => {
-                const route = decodeURIComponent(endpoint);
-                if (route === '') {
-                    return;
-                }
+            if (endpoint === '' || endpoint === '/') {
+                return;
+            }
 
-                if ((end.route === '' && route !== '/') || end.route !== route) {
+            const route = decodeURIComponent(endpoint);
+            if (movedEndpoints[route]) {
+                this.openModal(movedEndpoints[route]);
+                return;
+            }
+
+            endpoints.forEach((end) => {
+                if (end.route !== route) {
                     return;
                 }
 

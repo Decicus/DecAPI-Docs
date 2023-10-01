@@ -37,12 +37,14 @@
                 </tr>
 
                 <tr>
-                    <td><code>game / title</code></td>
-                    <td>3 minutes (180 seconds)</td>
+                    <td><code>followage / followed</code></td>
+                    <td>30 minutes*</td>
                     <td>
-                        A channel's current game and stream title come from the same Twitch API, thus these are cached together.
+                        The date and time someone followed a specific channel. This can be cached for up to 30 minutes.
                         <br>
-                        If <code>game</code> is requested, the <code>title</code> will be cached too. Same goes for the other way around.
+                        This will only affect users that follow a channel, try to check their follow date, and then unfollow/re-follow to mess with the values.
+                        <br>
+                        * If someone is currently <i>not following</i> and tries to check their follow date / followage, it will only be cached for 2 minutes.
                     </td>
                 </tr>
 
@@ -50,6 +52,16 @@
                     <td><code>followcount</code></td>
                     <td>2 minutes (120 seconds)</td>
                     <td></td>
+                </tr>
+
+                <tr>
+                    <td><code>game / title</code></td>
+                    <td>3 minutes (180 seconds)</td>
+                    <td>
+                        A channel's current game and stream title come from the same Twitch API, thus these are cached together.
+                        <br>
+                        If <code>game</code> is requested, the <code>title</code> will be cached too. Same goes for the other way around.
+                    </td>
                 </tr>
 
                 <tr>
