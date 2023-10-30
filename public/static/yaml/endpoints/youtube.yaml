@@ -12,13 +12,15 @@ endpoints:
         - name: "format"
           description: "Customize the output format of the latest video. Available variables are: <code>{title}</code>, <code>{id}</code>, <code>{url}</code>. Default format is: <kbd>{title} - {url}</kbd>"
         - name: "exclude"
-          description: "Exclude videos that contain the specified text in the <i>video title</i>. This is case-insensitive."
+          description: "Exclude videos that contain the specified text in the <i>video title</i>. This is case-insensitive. Can be combined with <kbd>include</kbd>."
+        - name: "include"
+          description: "Only include videos that contain the specified text in the <i>video title</i>. This is case-insensitive. Can be combined with <kbd>exclude</kbd>."
         - name: "no_shorts"
           type: "bool"
-          description: "Will exclude any videos shorter than 1 minute (60 seconds), also known as 'Shorts'. Set <code>no_shorts=1</code> to enable this."
+          description: "Will exclude any videos shorter than 1 minute (60 seconds), also known as 'Shorts'. Set <kbd>no_shorts=1</kbd> to enable this."
         - name: "no_livestream"
           type: "bool"
-          description: "Will exclude any currently <i>active</i> livestreams. Stream VODs are <i>not</i> by this setting. Set <code>no_livestream=1</code> to enable this."
+          description: "Will exclude any currently <i>active</i> livestreams. Stream VODs are <i>not</i> by this setting. Set <kbd>no_livestream=1</kbd> to enable this."
       notes:
         - 'Retrieves the latest video uploaded to the specified channel and returns the title + URL for it.'
         - 'Either <code>user</code> or <code>id</code> has to be specified. If both are specified, <code>id</code> will be used.'
