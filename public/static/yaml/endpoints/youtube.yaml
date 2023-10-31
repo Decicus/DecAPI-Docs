@@ -20,7 +20,7 @@ endpoints:
           description: "Will exclude any videos shorter than 1 minute (60 seconds), also known as 'Shorts'. Set <kbd>no_shorts=1</kbd> to enable this."
         - name: "no_livestream"
           type: "bool"
-          description: "Will exclude any currently <i>active</i> livestreams. Stream VODs are <i>not</i> by this setting, but may be excluded if the stream VOD is from a recently completed livestream (due to caching). Set <kbd>no_livestream=1</kbd> to enable this."
+          description: "Will exclude any currently <i>active</i> livestreams. Stream VODs are generally <i>not affected</i> by this setting, unless it's a recently completed livestream (due to caching). Set <kbd>no_livestream=1</kbd> to enable this."
       notes:
         - 'Retrieves the latest video uploaded to the specified channel and returns the title + URL for it.'
         - 'Either <code>user</code> or <code>id</code> has to be specified. If both are specified, <code>id</code> will be used.'
