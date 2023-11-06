@@ -23,6 +23,10 @@
             </div>
         </h2>
 
+        <div class="alert alert-info" v-if="this.$route.name === 'Twitter'">
+            Twitter APIs have been officially removed as of <a href="https://twitter.com/Decicus/status/1708189451275456936">September 30th, 2023</a> and will no longer be maintained.
+        </div>
+
         <br>
 
         <div class="modal fade" id="endpoint">
@@ -423,6 +427,8 @@ export default {
 
                 this.openModal(end.route);
             });
+        }).catch((error) => {
+            console.info('Error fetching endpoint data:', error);
         });
 
         let getBots = localStorage.getItem('bots');

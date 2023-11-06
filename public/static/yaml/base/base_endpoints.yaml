@@ -24,6 +24,7 @@
 - name: twitter
   title: "Twitter"
   icon: "twitter fab"
+  removed: true
 - name: youtube
   title: "YouTube"
   icon: "youtube fab"

@@ -299,7 +299,7 @@ export default {
     created() {
         this.baseEndpoints = this.$store.state.baseEndpoints;
         this.$store.watch((state) => {
-            this.baseEndpoints = state.baseEndpoints;
+            this.baseEndpoints = state.baseEndpoints.filter((base) => !base.removed);
         });
     },
 };
