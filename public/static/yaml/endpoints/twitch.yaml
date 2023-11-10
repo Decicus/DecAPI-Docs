@@ -176,7 +176,7 @@ endpoints:
           type: "int"
       notes:
         - 'Retrieves the subscriber count of the specified channel.'
-        - '<strong>This only works for channels that have <a href="{{baseUrl}}/auth/twitch?scopes=user_read+channel_subscriptions&redirect=subcount" target="_blank" rel="noopener noreferrer">authenticated and authorized</a> this app</strong>.'
+        - '<strong>This only works for channels that have <a href="{{baseUrl}}/auth/twitch?redirect=subcount&scopes=channel:read:subscriptions+user:read:email" target="_blank" rel="noopener noreferrer">authenticated and authorized</a> this app</strong>.'
         - "As of October 2nd, 2021 the subscriber count no longer includes lifetime bot subscriptions or the broadcaster's own subscription. You may need to adjust the <code>subtract</code> parameter if it was previously used for accuracy reasons."
     - route: "subpoints/:channel"
       cached: true
@@ -186,7 +186,7 @@ endpoints:
       qs:
       notes:
         - 'Retrieves the amount of subscriber points for the specified channel.'
-        - '<strong>This only works for channels that have <a href="{{baseUrl}}/auth/twitch?scopes=user_read+channel_subscriptions&redirect=subpoints" target="_blank" rel="noopener noreferrer">authenticated and authorized</a> this app</strong> (if the channel already uses subcount, this works already).'
+        - '<strong>This only works for channels that have <a href="{{baseUrl}}/auth/twitch?redirect=subpoints&scopes=channel:read:subscriptions+user:read:email" target="_blank" rel="noopener noreferrer">authenticated and authorized</a> this app</strong> (if the channel already uses subcount, this works already).'
         - 'As of October 2nd, 2021 the subscriber points value is now <i>accurately</i> retrieved from the Twitch API. The "subtract" parameter no longer applies and will be ignored.'
     - route: "subscriber_emotes/:channel"
       cached: true
