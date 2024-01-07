@@ -4,7 +4,7 @@
         <p>
             To avoid too many unnecessary requests to third-party APIs (especially Twitch, but others may be affected later), we cache the results of API calls where we can.
             <br>
-            In most scenarios we try to avoid caching for too long (to avoid "stale" data), but depending on the amount if incoming requests DecAPI receives from users, these numbers may need to be increased.
+            In most scenarios we try to avoid caching for too long (to avoid "stale" data), but depending on the amount of incoming requests DecAPI receives from users, these numbers may need to be increased.
             <br>
             While there will be attempts made to keep this page as up-to-date as possible, the "source of truth" should be considered the <a href="https://github.com/Decicus/DecAPI/blob/master/config/twitch.php">the DecAPI configuration file in the main repository</a>.
         </p>
