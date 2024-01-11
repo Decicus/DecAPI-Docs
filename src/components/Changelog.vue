@@ -2,7 +2,17 @@
     <div id="app">
         <h2><i class="fas fa-1x fa-fw fa-list-alt"></i> Changelog</h2>
 
-        <p>
+        <div class="alert alert-info mt-4">
+            While DecAPI hasn't had a "release" since 2021, it's still being maintained.
+            <br />
+            The official instance of DecAPI always runs the code that's on the <a href="https://github.com/Decicus/DecAPI/tree/master" target="_blank" rel="noopener noreferrer">"<code>master</code>" branch on GitHub</a>.
+            <br />
+            Releases may be made periodically, but they don't mean much in the practical sense, I have just been very lazy when it comes to creating GitHub releases when I publish updates.
+            <br />
+            If you're interested in the technical changes between releases, you can always check the <a href="https://github.com/Decicus/DecAPI/compare/v2.3.0...master" target="_blank" rel="noopener noreferrer">comparison on GitHub</a>, to see what's changed.
+        </div>
+
+        <p class="mt-2">
             The changelog for DecAPI is meant to mostly cover changes to the API that may impact users, but may also contain some more technical changes that have occurred with the service in the backend.
             <br>
             Changes prior to V2.0.0 aren't documented, because it's not really feasible.
