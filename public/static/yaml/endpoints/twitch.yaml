@@ -55,7 +55,7 @@ endpoints:
           description: 'How precise the timestamp should be in terms of years, months, weeks, days, hours, minutes & seconds.- Default: <code>2</code>.'
           type: "int"
       notes:
-        - '<strong>As of September 2023, a token is required to use this endpoint.</strong> Either a moderator of the channel, or a channel owner themself, has to authorize using this: <a href="https://decapi.me/auth/twitch?redirect=followage&scopes=moderator:read:followers">Click here to authorize</a>.'
+        - '<strong class="text-warning">As of September 2023, a token is required to use this endpoint</strong>. If you are a moderator or the broadcaster, you can <a href="https://decapi.me/auth/twitch?redirect=followage&scopes=moderator:read:followers">click here to authorize DecAPI and generate the required token</a>.'
         - 'Gets the time difference (also known as the "follow age") between when <code>:user</code> followed <code>:channel</code>'
     - route: "followcount/:channel"
       cached: true
@@ -82,7 +82,7 @@ endpoints:
           description: 'Changes the formatting of the returned date & time. See the <a href="https://www.php.net/manual/en/datetime.format.php#refsect1-datetime.format-parameters"><code>PHP date()</code> documentation</a> for reference.<br>Default format string: <code>M j. Y - h:i:s A (e)</code>'
           type: "string"
       notes:
-        - 'As of September 2023, a token is required to use this endpoint. Either a moderator of the channel, or a channel owner themself, has to authorize using this: <a href="https://decapi.me/auth/twitch?redirect=followage&scopes=moderator:read:followers">Click here to authorize</a>.'
+        - '<strong class="text-warning">As of September 2023, a token is required to use this endpoint.</strong> If you are a moderator or the broadcaster, you can <a href="https://decapi.me/auth/twitch?redirect=followage&scopes=moderator:read:followers">click here to authorize DecAPI and generate the required token</a>.'
         - 'Retrieves the date and time of when the user followed the channel.'
         - 'Example format: <code>Mar 13. 2016 - 07:31:29 PM (UTC)</code>'
     - route: "followers/:channel"
