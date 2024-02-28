@@ -120,12 +120,6 @@
                                 <strong class="text-primary"><a href="https://phantombot.tv/">PhantomBot</a> command:</strong>
                                 <pre><kbd>(customapi {{ replaceBotVariables('phantombot', e.url)  }})</kbd></pre>
                             </template>
-
-                            <template v-if="bots.ohbot">
-                                <!-- Ohbot -->
-                                <strong class="text-primary"><a href="https://ohbot.3v.fi/">Ohbot</a> command:</strong>
-                                <pre><kbd>[customapi {{ replaceBotVariables('ohbot', e.url)  }}]</kbd></pre>
-                            </template>
                         </div>
 
                         <br>
@@ -246,12 +240,6 @@ const botVariables = {
         ':channel': '$(channel)',
         ':user': '$(touser)',
     },
-    // https://ohbot.3v.fi/commands.html
-    ohbot: {
-        ':channel': '[channel]',
-        // First parameter or fallback to user executing command... I think?
-        ':user': '[0|[user]]',
-    },
     // https://phantombot.github.io/PhantomBot/guides/#guide=content/commands/command-variables
     phantombot: {
         ':channel': '(channelname)',
@@ -298,7 +286,6 @@ const bots = {
     deepbot: true,
     fossabot: true,
     nightbot: true,
-    ohbot: true,
     phantombot: true,
     streamelements: true,
 };
@@ -318,7 +305,6 @@ export default {
                 deepbot: 'Deepbot',
                 fossabot: 'Fossabot',
                 nightbot: 'Nightbot',
-                ohbot: 'Ohbot',
                 phantombot: 'PhantomBot',
                 streamelements: 'StreamElements',
             },
