@@ -7,7 +7,7 @@ endpoints:
         - name: "id"
           description: 'For users with URLs that are formatted like: <code>youtube.com/channel/[ID_HERE]</code>.'
         - name: "handle"
-          description: 'For the latest <code>@</code> handle in the URL. Example: <code>https://www.youtube.com/@Decicus</code> would be <code>@Decicus</code>.'
+          description: 'For the more recent @ YouTube channel handles. Example: <code>https://www.youtube.com/@Decicus</code> would be <code>@Decicus</code>.'
         - name: "skip"
           description: 'Skips the specified amount of uploads. - Default: 0. - Maximum: 50.'
           type: "int"
