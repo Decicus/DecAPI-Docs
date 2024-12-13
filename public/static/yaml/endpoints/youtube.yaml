@@ -6,6 +6,8 @@ endpoints:
           description: 'For users with URLs that are formatted like: <code>youtube.com/user/[USERNAME_HERE]</code>.'
         - name: "id"
           description: 'For users with URLs that are formatted like: <code>youtube.com/channel/[ID_HERE]</code>.'
+        - name: "handle"
+          description: 'For the latest <code>@</code> handle in the URL. Example: <code>https://www.youtube.com/@Decicus</code> would be <code>@Decicus</code>.'
         - name: "skip"
           description: 'Skips the specified amount of uploads. - Default: 0. - Maximum: 50.'
           type: "int"
@@ -21,10 +23,14 @@ endpoints:
         - name: "no_livestream"
           type: "bool"
           description: "Will exclude any currently <i>active</i> livestreams. Stream VODs are generally <i>not affected</i> by this setting, unless it's a recently completed livestream (due to caching). Set <kbd>no_livestream=1</kbd> to enable this."
+        - name: "shorts_url"
+          type: "bool"
+          description: "If the video is a 'Short' (less than 1 minute), the URL will be returned as a shorts URL instead. Example: <code>youtube.com/shorts/VIDEO_ID_HERE</code>. Set <kbd>shorts_url=1</kbd> to enable this."
       notes:
         - 'Retrieves the latest video uploaded to the specified channel and returns the title + URL for it.'
         - 'Either <code>user</code> or <code>id</code> has to be specified. If both are specified, <code>id</code> will be used.'
         - 'If a YouTube channel URL is in the <code>/c/decicus</code> format, you should use <code>id</code>. One method of retrieving your channel ID is by visiting <a href="https://www.youtube.com/account_advanced" target="_blank">https://www.youtube.com/account_advanced</a> and copying the "YouTube channel ID". See <a href="/static/img/yt_latestvideo1.png" target="_blank">this screenshot</a> for reference.'
+        - 'You can also use the YouTube @ handle in the URL as a parameter. Example: <code>https://www.youtube.com/@Decicus</code> would be <code>handle=Decicus</code>. Make sure to include the <code>@</code> symbol at the start.'
     - route: "latest_pl_video"
       qs:
         - name: "id"
