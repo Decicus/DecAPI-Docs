@@ -28,7 +28,7 @@ endpoints:
           description: "If the video is a 'Short' (less than 1 minute), the URL will be returned as a shorts URL instead. Example: <code>youtube.com/shorts/VIDEO_ID_HERE</code>. Set <kbd>shorts_url=1</kbd> to enable this."
         - name: "min_duration"
           type: "int"
-          description: "Will exclude any videos <u>shorter</u> than the specified amount of seconds. For example, set <kbd>min_duration=180</kbd> to exclude videos shorter than 3 minute (180 seconds)."
+          description: "Will exclude any videos <u>shorter</u> than the specified amount of seconds. For example, set <kbd>min_duration=180</kbd> to exclude videos shorter than 3 minutes (180 seconds)."
         - name: "max_duration"
           type: "int"
           description: "Will exclude any videos <u>longer</u> than the specified amount of seconds. For example, set <kbd>max_duration=3600</kbd> to exclude videos longer than 1 hour (3600 seconds)."
