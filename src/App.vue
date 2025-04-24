@@ -34,7 +34,7 @@
 
                 <ul class="nav navbar-nav justify-content-end">
                     <li class="navbar-item">
-                        <a @click="toggleDarkMode" class="nav-link">
+                        <a @click="toggleDarkMode" class="nav-link cursor-pointer">
                             <div v-if="darkMode">
                                 <i class="fas fa-fw fa-sun"></i> Light mode
                             </div>
