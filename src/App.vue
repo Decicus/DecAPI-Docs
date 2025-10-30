@@ -65,6 +65,12 @@
 
         <main class="py-4">
             <div class="container-fluid">
+                <div class="alert alert-primary">
+                    DecAPI has a <a href="https://documentation.decapi.dev/" class="alert-link">new documentation site</a> that will (eventually) replace this documentation site.
+                    <br />
+                    Not all endpoints are currently documented there, but we're nearly done. Feel free to take a look and <a href="https://documentation.decapi.dev/contact/" class="alert-link">contact me</a> if you have any feedback.
+                </div>
+
                 <router-view></router-view>
             </div>
         </main>
