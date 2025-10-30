@@ -8,27 +8,27 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "bootstrap": "^4.6.0",
-    "core-js": "^3.10.1",
-    "jquery": "^3.6.0",
+    "bootstrap": "^4.6.2",
+    "core-js": "^3.46.0",
+    "jquery": "^3.7.1",
     "js-yaml": "^3.14.1",
     "popper.js": "^1.16.1",
-    "vue": "^2.6.12",
-    "vue-resource": "^1.5.2",
-    "vue-router": "^3.5.1",
+    "vue": "^2.7.16",
+    "vue-resource": "^1.5.3",
+    "vue-router": "^3.6.5",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.12",
-    "@vue/cli-plugin-eslint": "^3.1.1",
+    "@vue/cli-plugin-eslint": "^3.12.1",
     "@vue/cli-plugin-router": "~4.5.12",
     "@vue/cli-plugin-vuex": "~4.5.12",
-    "@vue/cli-service": "^4.5.13",
+    "@vue/cli-service": "^4.5.19",
     "@vue/eslint-config-airbnb": "^5.3.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.12"
+    "vue-template-compiler": "^2.7.16"
   }
 }
