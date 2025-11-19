@@ -11,7 +11,7 @@
     "bootstrap": "^4.6.2",
     "core-js": "^3.46.0",
     "jquery": "^3.7.1",
-    "js-yaml": "^3.14.1",
+    "js-yaml": "^4.1.1",
     "popper.js": "^1.16.1",
     "vue": "^2.7.16",
     "vue-resource": "^1.5.3",
@@ -20,15 +20,15 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.12",
-    "@vue/cli-plugin-eslint": "^3.12.1",
+    "@vue/cli-plugin-eslint": "^5.0.9",
     "@vue/cli-plugin-router": "~4.5.12",
     "@vue/cli-plugin-vuex": "~4.5.12",
-    "@vue/cli-service": "^4.5.19",
-    "@vue/eslint-config-airbnb": "^5.3.0",
+    "@vue/cli-service": "^5.0.9",
+    "@vue/eslint-config-airbnb": "^8.0.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
+    "eslint": "^9.39.1",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint-plugin-vue": "^10.5.1",
     "vue-template-compiler": "^2.7.16"
   }
 }
